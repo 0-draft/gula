@@ -5,13 +5,15 @@
     "genre": "ramen",
     "area": "東池袋",
     "tabelog": 3.96,
-    "solo": 5,
     "price": "¥1,000〜1,999",
-    "note": "食べログ池袋ラーメン1位。カウンター中心で一人客が前提の店。",
+    "note": "Top of tabelog's Ikebukuro ramen ranking and a Michelin Bib Gourmand pick. Domestic ingredients only, a lunch service of three or four hours, reservation required. Counter seating, so one cover is the norm.",
     "tags": [
+      "百名店",
       "行列",
-      "カウンター"
-    ]
+      "カウンター",
+      "要予約"
+    ],
+    "solo": true
   },
   {
     "id": "hululu",
@@ -19,30 +21,32 @@
     "genre": "ramen",
     "area": "西口",
     "tabelog": 3.76,
-    "solo": 5,
     "price": "¥1,000〜1,999",
-    "note": "ハワイアンな内装の淡麗系。食べログ百名店常連。",
+    "note": "Clear shoyu broth in a Hawaiian-looking room. A tabelog top-100 regular and the one Ikebukuro ramen shop that turns up on every list. Small, counter-led, fast turnover.",
     "tags": [
       "百名店",
-      "行列"
-    ]
+      "行列",
+      "淡麗"
+    ],
+    "solo": true
   },
   {
     "id": "tasakaya",
     "name": "味噌麺処 田坂屋",
     "genre": "ramen",
     "area": "西口",
+    "spot": "西池袋3-30-2",
     "tabelog": 3.75,
-    "solo": 5,
     "price": "〜¥999",
-    "hours": "11:00〜21:00 通し",
-    "note": "味噌ラーメン980円。いつも行列。通し営業なので時間をずらせば入れる。",
+    "hours": "11:00–21:00, no break",
+    "note": "Nine counter seats and nothing else. Opened 2023 by a cook out of Misomenshokoro Hanamichian and made the top 100 in its first year. Miso ramen ¥980. There is a queue, but it never shuts for the afternoon, so go off-peak.",
     "tags": [
+      "百名店",
       "味噌",
-      "行列",
+      "カウンター",
       "通し営業"
     ],
-    "spot": "西池袋"
+    "solo": true
   },
   {
     "id": "kohaku",
@@ -50,12 +54,13 @@
     "genre": "ramen",
     "area": "北口",
     "tabelog": 3.74,
-    "solo": 5,
     "price": "¥1,000〜1,999",
-    "note": "しじみ出汁の淡麗清湯。あっさり食べたい日に。",
+    "note": "Clam broth, completely clear, no fat to fight through. The one to pick when you want noodles but not a heavy afternoon.",
     "tags": [
-      "淡麗"
-    ]
+      "淡麗",
+      "カウンター"
+    ],
+    "solo": true
   },
   {
     "id": "menya-nakagawa",
@@ -63,25 +68,29 @@
     "genre": "ramen",
     "area": "西口",
     "tabelog": 3.74,
-    "solo": 5,
     "price": "¥1,000〜1,999",
-    "note": "煮干し系の実力店。",
+    "note": "Niboshi-forward bowls with a serious following. Counter only.",
     "tags": [
-      "煮干し"
-    ]
+      "煮干し",
+      "カウンター"
+    ],
+    "solo": true
   },
   {
     "id": "hanada",
     "name": "麺処 花田 池袋店",
     "genre": "ramen",
     "area": "東口",
+    "spot": "東池袋1-23-8 東池袋ISKビル1F",
     "tabelog": 3.73,
-    "solo": 5,
-    "price": "¥1,000〜1,999",
-    "note": "ベジポタ味噌の代表格。野菜たっぷりで満腹になる。",
+    "price": "〜¥999",
+    "note": "Counter-led miso shop that reviewers rate among the best in Tokyo. Free garlic to punch it up, thick noodles that hold the soup, a pile of bean sprouts. Under ¥1,000.",
     "tags": [
-      "味噌"
-    ]
+      "味噌",
+      "カウンター",
+      "コスパ"
+    ],
+    "solo": true
   },
   {
     "id": "kuwabara",
@@ -89,13 +98,14 @@
     "genre": "ramen",
     "area": "東池袋",
     "tabelog": 3.7,
-    "solo": 5,
     "price": "¥1,000〜1,999",
-    "note": "塩そば一本勝負。",
+    "note": "Shio and nothing but shio. Quiet room, quick in and out.",
     "tags": [
       "塩",
-      "淡麗"
-    ]
+      "淡麗",
+      "カウンター"
+    ],
+    "solo": true
   },
   {
     "id": "sumitomoya",
@@ -103,12 +113,13 @@
     "genre": "ramen",
     "area": "西口",
     "tabelog": 3.7,
-    "solo": 5,
     "price": "¥1,000〜1,999",
-    "note": "池袋の家系の筆頭。シンプルで深みのあるスープ。",
+    "note": "The iekei bowl in Ikebukuro that the rankings actually back. Tonkotsu-shoyu with depth rather than sheer weight.",
     "tags": [
-      "家系"
-    ]
+      "家系",
+      "カウンター"
+    ],
+    "solo": true
   },
   {
     "id": "rokubou",
@@ -116,53 +127,31 @@
     "genre": "ramen",
     "area": "東口",
     "tabelog": 3.68,
-    "solo": 5,
     "price": "¥1,000〜1,999",
-    "note": "本格担担麺。汁なしも。",
+    "note": "Proper dandan, soup or dry. Counter seats along the wall.",
     "tags": [
-      "担担麺"
-    ]
-  },
-  {
-    "id": "noodle-voice",
-    "name": "ヌードル ボイス",
-    "genre": "ramen",
-    "area": "周縁",
-    "tabelog": 3.68,
-    "solo": 5,
-    "price": "¥1,000〜1,999",
-    "note": "池袋・目白の間。落ち着いて食べられる。",
-    "tags": [],
-    "spot": "目白寄り"
-  },
-  {
-    "id": "shinasoba-tanaka",
-    "name": "志奈そば 田なか",
-    "genre": "ramen",
-    "area": "周縁",
-    "tabelog": 3.67,
-    "solo": 5,
-    "price": "¥1,000〜1,999",
-    "note": "向原・大塚寄り。散歩がてら足を伸ばす枠。",
-    "tags": [],
-    "spot": "大塚寄り"
+      "担担麺",
+      "カウンター"
+    ],
+    "solo": true
   },
   {
     "id": "jiro-ikebukuro",
     "name": "ラーメン二郎 池袋東口店",
     "genre": "ramen",
-    "area": "東口",
+    "area": "南池袋",
+    "spot": "南池袋2-27-17",
     "tabelog": 3.66,
-    "solo": 5,
     "price": "〜¥999",
-    "note": "全席カウンター。ラーメン850円。常に行列、営業時間は短縮されているので要確認。",
+    "note": "All counter, ¥850, permanent queue. Hours have been cut back, so check before you give up an afternoon to it.",
     "tags": [
       "二郎",
       "行列",
       "カウンター"
     ],
     "lat": 35.7282487,
-    "lng": 139.7138981
+    "lng": 139.7138981,
+    "solo": true
   },
   {
     "id": "ganja",
@@ -170,25 +159,14 @@
     "genre": "ramen",
     "area": "東口",
     "tabelog": 3.65,
-    "solo": 5,
     "price": "¥1,000〜1,999",
-    "note": "超濃厚な魚介豚骨つけ麺。",
+    "note": "Very thick seafood-pork tsukemen. One bowl is a whole meal and then some.",
     "tags": [
       "つけ麺",
-      "濃厚"
-    ]
-  },
-  {
-    "id": "sobage",
-    "name": "そば～じゅ",
-    "genre": "ramen",
-    "area": "周縁",
-    "tabelog": 3.65,
-    "solo": 5,
-    "price": "¥1,000〜1,999",
-    "note": "都電雑司ヶ谷寄り。",
-    "tags": [],
-    "spot": "雑司が谷"
+      "濃厚",
+      "カウンター"
+    ],
+    "solo": true
   },
   {
     "id": "kikanbo",
@@ -196,27 +174,16 @@
     "genre": "ramen",
     "area": "東口",
     "tabelog": 3.64,
-    "solo": 5,
     "price": "¥1,000〜1,999",
-    "note": "カラ（辛）とシビ（痺れ）を増減できる味噌。辛いもの食べたい日の指名。",
+    "note": "You dial the chilli and the sansho numbness up or down yourself, which makes it the reliable pick on a day you want heat. Counter only.",
     "tags": [
       "味噌",
-      "辛い"
+      "辛い",
+      "カウンター"
     ],
     "lat": 35.7291307,
-    "lng": 139.7153104
-  },
-  {
-    "id": "hirochan",
-    "name": "ひろちゃんラーメン!",
-    "genre": "ramen",
-    "area": "西口",
-    "tabelog": 3.64,
-    "solo": 5,
-    "price": "〜¥999",
-    "note": "要町寄り。",
-    "tags": [],
-    "spot": "西池袋"
+    "lng": 139.7153104,
+    "solo": true
   },
   {
     "id": "torinoana",
@@ -224,669 +191,95 @@
     "genre": "ramen",
     "area": "東口",
     "tabelog": 3.62,
-    "solo": 5,
     "price": "〜¥999",
-    "note": "濃厚鶏白湯の老舗格。",
+    "note": "The old guard of thick chicken paitan here, right on Meiji-dori. Under ¥1,000 and open late enough to be useful.",
     "tags": [
-      "鶏白湯"
+      "鶏白湯",
+      "カウンター"
     ],
     "lat": 35.732519,
-    "lng": 139.7147267
-  },
-  {
-    "id": "sen",
-    "name": "遷sen",
-    "genre": "ramen",
-    "area": "東池袋",
-    "tabelog": 3.62,
-    "solo": 5,
-    "price": "¥1,000〜1,999",
-    "note": "",
-    "tags": []
+    "lng": 139.7147267,
+    "solo": true
   },
   {
     "id": "mutekiya",
     "name": "無敵家",
     "genre": "ramen",
     "area": "南池袋",
-    "address": "豊島区南池袋1丁目",
+    "spot": "南池袋1丁目",
     "tabelog": 3.61,
-    "solo": 4,
     "price": "¥1,000〜1,999",
-    "hours": "深夜4:00頃まで",
-    "note": "池袋ラーメンの代名詞。濃厚なのに後味すっきりの醤油豚骨。深夜まで開いていて多言語メニューあり。観光客の行列が常時できている。",
+    "hours": "until about 04:00",
+    "note": "The shop outsiders mean when they say Ikebukuro ramen: heavy tonkotsu-shoyu that somehow finishes clean. Open until dawn, multilingual menu, and a tourist queue at almost any hour. Worth it once, then go at two in the morning.",
     "tags": [
       "深夜",
       "行列",
       "豚骨醤油"
     ],
     "lat": 35.7269184,
-    "lng": 139.7116325
-  },
-  {
-    "id": "menan-ibushi",
-    "name": "麺庵 いぶし",
-    "genre": "ramen",
-    "area": "東池袋",
-    "tabelog": 3.61,
-    "solo": 5,
-    "price": "¥1,000〜1,999",
-    "note": "",
-    "tags": []
+    "lng": 139.7116325,
+    "solo": true
   },
   {
     "id": "hayashida",
     "name": "らぁ麺 はやし田 池袋店",
     "genre": "ramen",
     "area": "東口",
-    "solo": 5,
     "price": "¥1,000〜1,999",
-    "note": "端正な醤油。ラーメン初心者を連れて行っても外さない系。",
+    "note": "Clean, well-made shoyu. The safe answer when you don't feel like gambling, and comfortable to sit at alone.",
     "tags": [
       "醤油",
-      "淡麗"
-    ]
-  },
-  {
-    "id": "tsujita",
-    "name": "つじ田 池袋店",
-    "genre": "ramen",
-    "area": "東口",
-    "solo": 5,
-    "price": "¥1,000〜1,999",
-    "note": "濃厚魚介つけ麺。すだちで味変。",
-    "tags": [
-      "つけ麺"
-    ]
-  },
-  {
-    "id": "butayama",
-    "name": "ラーメン豚山 池袋西口店",
-    "genre": "ramen",
-    "area": "西口",
-    "solo": 5,
-    "price": "〜¥999",
-    "note": "二郎インスパイア。本家より食べやすいと評判。",
-    "tags": [
-      "二郎系"
-    ]
-  },
-  {
-    "id": "kojima-ramen",
-    "name": "釜焼きチャーシューこじま",
-    "genre": "ramen",
-    "area": "東口",
-    "solo": 5,
-    "price": "¥1,000〜1,999",
-    "note": "東口徒歩7分。上北沢『らぁめん小池』系列。店内の釜で焼いたチャーシューが看板。あっさりと濃厚（家系）の2本立て。",
-    "tags": [
-      "新店",
-      "家系"
-    ]
-  },
-  {
-    "id": "taishoken-takinogawa",
-    "name": "滝野川 大勝軒 池袋店",
-    "genre": "ramen",
-    "area": "東口",
-    "solo": 5,
-    "price": "¥1,000〜1,999",
-    "note": "つけ麺の源流筋。",
-    "tags": [
-      "つけ麺",
-      "老舗"
-    ]
+      "淡麗",
+      "カウンター"
+    ],
+    "solo": true
   },
   {
     "id": "miharu",
     "name": "瞠 池袋店",
     "genre": "ramen",
-    "area": "東口",
-    "solo": 5,
+    "area": "東池袋",
     "price": "〜¥999",
-    "note": "濃厚魚介のまぜそばが名物。",
+    "note": "Known for the dry seafood mazesoba rather than the soup bowls. Cheap, quick, counter.",
     "tags": [
-      "まぜそば"
+      "まぜそば",
+      "カウンター"
     ],
     "lat": 35.7318687,
-    "lng": 139.7165047
+    "lng": 139.7165047,
+    "solo": true
   },
   {
-    "id": "mimatsu",
-    "name": "定食 美松",
-    "genre": "teishoku",
-    "area": "西口",
-    "tabelog": 3.56,
-    "solo": 5,
-    "price": "〜¥999",
-    "note": "1950年代創業。喧騒から一歩入った静かな路地。池袋の定食で食べログ1位。",
-    "tags": [
-      "老舗",
-      "静か"
-    ]
-  },
-  {
-    "id": "mitoya",
-    "name": "ランチハウス ミトヤ",
-    "genre": "teishoku",
-    "area": "西口",
-    "tabelog": 3.49,
-    "solo": 5,
-    "price": "〜¥999",
-    "note": "1999年創業。特製たれ焼肉定食710円、セット定食960円。皿からはみ出すチキンカツ。定食にキャベツ・カレー味パスタ・ご飯・豚汁付き。百名店2021。",
-    "tags": [
-      "百名店",
-      "大盛り",
-      "コスパ"
-    ]
-  },
-  {
-    "id": "yohbocho",
-    "name": "洋庖丁 池袋店",
-    "genre": "teishoku",
-    "area": "西口",
-    "tabelog": 3.49,
-    "solo": 5,
-    "price": "〜¥999",
-    "note": "ステーキ・ハンバーグ系の定食。",
-    "tags": [
-      "コスパ"
-    ]
-  },
-  {
-    "id": "vejiro",
-    "name": "肉野菜炒め ベジ郎 池袋東口店",
-    "genre": "teishoku",
-    "area": "東口",
-    "tabelog": 3.44,
-    "solo": 5,
-    "price": "〜¥999",
-    "note": "野菜マシができる肉野菜炒め定食。罪悪感を野菜で薄める枠。",
-    "tags": [
-      "野菜",
-      "カウンター"
-    ]
-  },
-  {
-    "id": "ikkoku-west",
-    "name": "竈門ご飯 一穀 池袋西口店",
-    "genre": "teishoku",
-    "area": "西口",
-    "tabelog": 3.44,
-    "solo": 5,
-    "price": "¥1,000〜1,999",
-    "note": "かまど炊きご飯の定食。",
-    "tags": [
-      "ご飯うまい"
-    ]
-  },
-  {
-    "id": "ito-shokudo",
-    "name": "伊東食堂",
-    "genre": "teishoku",
-    "area": "東池袋",
-    "tabelog": 3.41,
-    "solo": 5,
-    "price": "〜¥999",
-    "note": "東池袋4丁目。町の食堂。",
-    "tags": [
-      "町の食堂"
-    ]
-  },
-  {
-    "id": "yamituki",
-    "name": "キッチンYAMITUKI",
-    "genre": "teishoku",
-    "area": "西口",
-    "tabelog": 3.38,
-    "solo": 5,
-    "price": "〜¥999",
-    "note": "",
-    "tags": []
-  },
-  {
-    "id": "gochiton",
-    "name": "ごちとん 池袋西口店",
-    "genre": "teishoku",
-    "area": "西口",
-    "tabelog": 3.37,
-    "solo": 5,
-    "price": "〜¥999",
-    "note": "豚汁が主役の定食。",
-    "tags": [
-      "豚汁"
-    ]
-  },
-  {
-    "id": "genki-shokudo",
-    "name": "生姜焼き定食専門店 元気が出る食堂 池袋店",
-    "genre": "teishoku",
-    "area": "西口",
-    "tabelog": 3.36,
-    "solo": 5,
-    "price": "〜¥999",
-    "note": "生姜焼き専門。",
-    "tags": [
-      "生姜焼き"
-    ]
-  },
-  {
-    "id": "asamiya",
-    "name": "麻美家",
-    "genre": "teishoku",
-    "area": "東口",
-    "tabelog": 3.34,
-    "solo": 5,
-    "price": "〜¥999",
-    "note": "",
-    "tags": [],
-    "spot": "池袋"
-  },
-  {
-    "id": "satsuki",
-    "name": "お食事処 さつき",
-    "genre": "teishoku",
-    "area": "東池袋",
-    "tabelog": 3.32,
-    "solo": 5,
-    "price": "〜¥999",
-    "note": "",
-    "tags": [
-      "町の食堂"
-    ]
-  },
-  {
-    "id": "washokudo-soh",
-    "name": "和食堂 素",
-    "genre": "teishoku",
-    "area": "周縁",
-    "tabelog": 3.31,
-    "solo": 4,
-    "price": "¥1,000〜1,999",
-    "note": "都電雑司ヶ谷。丁寧な和定食。",
-    "tags": [
-      "静か"
-    ],
-    "spot": "雑司が谷"
-  },
-  {
-    "id": "aoshima-shokudo",
-    "name": "チキン南蛮 青島食堂",
-    "genre": "teishoku",
-    "area": "東口",
-    "tabelog": 3.28,
-    "solo": 5,
-    "price": "〜¥999",
-    "note": "チキン南蛮専門。",
-    "tags": [],
-    "spot": "池袋"
-  },
-  {
-    "id": "tanita",
-    "name": "タニタ食堂 本店",
-    "genre": "teishoku",
-    "area": "東池袋",
-    "tabelog": 3.24,
-    "solo": 5,
-    "price": "〜¥999",
-    "note": "本店がここにある。ラーメン連投した翌日用。",
-    "tags": [
-      "健康"
-    ]
-  },
-  {
-    "id": "marutomi",
-    "name": "丸富食堂 池袋東口店",
-    "genre": "teishoku",
-    "area": "東口",
-    "solo": 5,
-    "price": "¥1,000〜1,999",
-    "note": "東口徒歩5分のビル2階。ミックスフライ定食1,485円はご飯無料大盛り、唐揚げ・アジフライ・コロッケ・メンチカツの4種盛り。昭和の趣。",
-    "tags": [
-      "大盛り",
-      "昭和"
-    ]
-  },
-  {
-    "id": "fukurokoji",
-    "name": "梟小路",
-    "genre": "teishoku",
-    "area": "東池袋",
-    "solo": 5,
-    "price": "〜¥999",
-    "note": "サンシャイン近く。日替りセット580円（麻婆丼・かけそば・小鉢）。食券制なので会話ゼロで完結する。",
-    "tags": [
-      "ワンコイン",
-      "食券",
-      "そば"
-    ]
-  },
-  {
-    "id": "kimunchi",
-    "name": "きむん家 池袋本店",
-    "genre": "korean",
-    "area": "西口",
-    "address": "豊島区西池袋3丁目 アークランド西池袋ビル",
-    "solo": 5,
-    "price": "〜¥999",
-    "note": "西口1b出口から徒歩1分。カウンター席あり。韓屋（ハノク）をイメージした木の内装。スンドゥブ定食など600〜1,000円台。",
-    "tags": [
-      "カウンター",
-      "定食"
-    ]
-  },
-  {
-    "id": "kasei-curry",
-    "name": "火星カレー",
-    "genre": "curry",
-    "area": "周縁",
-    "tabelog": 3.71,
-    "solo": 5,
-    "price": "¥1,000〜1,999",
-    "note": "食べログ池袋カレー1位。",
-    "tags": [
-      "スパイスカレー"
-    ],
-    "spot": "要町寄り",
-    "lat": 35.7305454,
-    "lng": 139.7071474
-  },
-  {
-    "id": "curry-hardcore",
-    "name": "カリー・ザ・ハードコア",
-    "genre": "curry",
-    "area": "周縁",
-    "tabelog": 3.55,
-    "solo": 5,
-    "price": "¥1,000〜1,999",
-    "note": "鬼子母神前。名前どおりの尖ったスパイスカレー。",
-    "tags": [
-      "スパイスカレー"
-    ],
-    "spot": "雑司が谷"
-  },
-  {
-    "id": "suage",
-    "name": "北海道スープカレー Suage 池袋店",
-    "genre": "curry",
-    "area": "東口",
-    "tabelog": 3.49,
-    "solo": 5,
-    "price": "¥1,000〜1,999",
-    "note": "札幌の有名スープカレー。",
-    "tags": [
-      "スープカレー"
-    ]
-  },
-  {
-    "id": "curry-no-ie",
-    "name": "カレーの家",
-    "genre": "curry",
-    "area": "周縁",
-    "tabelog": 3.47,
-    "solo": 5,
-    "price": "〜¥999",
-    "note": "",
-    "tags": [],
-    "spot": "要町寄り"
-  },
-  {
-    "id": "curry-wa-nomimono",
-    "name": "カレーは飲み物。池袋本店",
-    "genre": "curry",
-    "area": "西口",
-    "tabelog": 3.46,
-    "solo": 5,
-    "price": "〜¥999",
-    "note": "本店がここ。全部のせ系の暴力的なカレー。",
-    "tags": [
-      "大盛り"
-    ],
-    "spot": "西池袋"
-  },
-  {
-    "id": "putali-cafe",
-    "name": "Putali Cafe",
-    "genre": "curry",
-    "area": "東池袋",
-    "tabelog": 3.44,
-    "solo": 5,
-    "price": "¥1,000〜1,999",
-    "note": "ネパール系。ダルバート。",
-    "tags": [
-      "ネパール"
-    ]
-  },
-  {
-    "id": "nan-station",
-    "name": "NAN STATION エソラ池袋店",
-    "genre": "curry",
-    "area": "西口",
-    "tabelog": 3.42,
-    "solo": 4,
-    "price": "¥1,000〜1,999",
-    "note": "エソラ池袋内。駅直結で雨の日に強い。",
-    "tags": [
-      "駅直結",
-      "インド"
-    ]
-  },
-  {
-    "id": "plain",
-    "name": "plAin",
-    "genre": "curry",
-    "area": "東池袋",
-    "tabelog": 3.36,
-    "solo": 5,
-    "price": "¥1,000〜1,999",
-    "note": "東池袋4丁目。",
-    "tags": [
-      "スパイスカレー"
-    ]
-  },
-  {
-    "id": "mouyan",
-    "name": "もうやんカレー 池",
-    "genre": "curry",
-    "area": "東池袋",
-    "tabelog": 3.33,
-    "solo": 4,
-    "price": "¥1,000〜1,999",
-    "note": "ビュッフェ形式のランチ。",
-    "tags": [
-      "ビュッフェ"
-    ]
-  },
-  {
-    "id": "mad-chefs",
-    "name": "スパイス研究所 MAD CHEFs 池袋東口店",
-    "genre": "curry",
-    "area": "東口",
-    "tabelog": 3.32,
-    "solo": 5,
-    "price": "¥1,000〜1,999",
-    "note": "平均1,300円前後。",
-    "tags": [
-      "スパイスカレー"
-    ]
-  },
-  {
-    "id": "shanti",
-    "name": "シャンティ 池袋店",
-    "genre": "curry",
-    "area": "西口",
-    "tabelog": 3.27,
-    "solo": 5,
-    "price": "〜¥999",
-    "note": "",
-    "tags": [
-      "インド"
-    ],
-    "spot": "西池袋"
-  },
-  {
-    "id": "daimasu",
-    "name": "ダイマス",
-    "genre": "curry",
-    "area": "東池袋",
-    "tabelog": 3.24,
-    "solo": 5,
-    "price": "〜¥999",
-    "note": "",
-    "tags": []
-  },
-  {
-    "id": "a-raj",
-    "name": "A-RAJ",
-    "genre": "curry",
-    "area": "東口",
-    "solo": 5,
-    "price": "¥1,000〜1,999",
-    "note": "南インド・チェンナイ出身のラージさんが2002年に独立して開いた老舗。南インドミールス、ドーサ、マドラスパロタ。日本の南インド料理のパイオニア『アジャンタ』出身。",
-    "tags": [
-      "南インド",
-      "ミールス",
-      "老舗"
-    ],
-    "spot": "池袋"
-  },
-  {
-    "id": "tomboy",
-    "name": "TOMBOY 池袋東口店",
-    "genre": "curry",
-    "area": "東口",
-    "solo": 5,
-    "price": "¥1,000〜1,999",
-    "note": "南インド料理。ハイダラーバード式ダムスタイルのビリヤニ（生米から炊き上げ、生地で密閉）。ドーサ・ワダなどベジ対応も充実。",
-    "tags": [
-      "南インド",
-      "ビリヤニ"
-    ]
-  },
-  {
-    "id": "tokonatsuya",
-    "name": "とこなつ家 池袋店",
-    "genre": "curry",
-    "area": "東口",
-    "solo": 5,
-    "price": "〜¥999",
-    "note": "平均予算1,000円前後のスパイスカレー。",
-    "tags": [
-      "スパイスカレー"
-    ],
-    "spot": "池袋"
-  },
-  {
-    "id": "kairaku",
-    "name": "開楽 本店",
+    "id": "yan-2",
+    "name": "中国家庭料理 楊 2号店",
     "genre": "chinese",
-    "area": "東口",
-    "solo": 5,
-    "price": "〜¥999",
-    "note": "1954年創業。名物ジャンボ餃子は一口では食べきれない大きさ。明治通りを渡ってすぐ、コーヒー店と衣料店の間の細い路地。足元に行列の並び位置マークがあるレベルの人気。",
+    "area": "西口",
+    "spot": "西池袋3-25-5",
+    "price": "¥1,000〜1,999",
+    "note": "The dry dandan noodles Kodoku no Gurume made famous. Counter plus a few tables, and reviewers describe a room full of people eating alone. Heat is adjustable; ask for less if you mean it.",
     "tags": [
-      "餃子",
-      "老舗",
+      "担担麺",
+      "カウンター",
+      "孤独のグルメ",
       "行列"
     ],
-    "lat": 35.7293242,
-    "lng": 139.7128838
+    "solo": true
   },
   {
-    "id": "shinchinmi",
-    "name": "新珍味",
+    "id": "yan-annex",
+    "name": "中国家庭料理 楊 別館",
     "genre": "chinese",
     "area": "西口",
-    "address": "豊島区西池袋1-23-4",
-    "solo": 5,
-    "price": "〜¥999",
-    "hours": "月木 11:30〜23:00 / 金土 〜23:30 / 日祝 〜22:00・無休",
-    "note": "創業70年の町中華。1階カウンター7席、2階3階テーブル。名物はターロー麺・ターロー飯と清蒸鶏。肉盛りチャーハン990円、焼き餃子530円。ひとり飲みにも。",
+    "tabelog": 3.49,
+    "price": "¥1,000〜1,999",
+    "hours": "closed Mondays",
+    "note": "Same family, the building on the main road, and by several accounts the actual filming location. Dry dandan with fresh noodles ¥1,100, extra chilli and sansho on request. One reviewer walked in to find every seat taken by someone on their own.",
     "tags": [
-      "町中華",
-      "老舗",
-      "カウンター",
-      "ひとり飲み"
+      "担担麺",
+      "一人向き",
+      "孤独のグルメ"
     ],
-    "lat": 35.7320419,
-    "lng": 139.7099449
-  },
-  {
-    "id": "eiri",
-    "name": "永利 池袋本店",
-    "genre": "chinese",
-    "area": "北口",
-    "tabelog": 3.45,
-    "solo": 3,
-    "price": "¥2,000〜2,999",
-    "note": "1999年へいわ通りに開業した中国東北料理の老舗。北口徒歩5分。名物『醤大骨』（豚背骨の煮つけ）はビニール手袋で食べる。一人だと量が多いので単品を絞る。",
-    "tags": [
-      "ガチ中華",
-      "東北料理",
-      "老舗"
-    ]
-  },
-  {
-    "id": "rakurakuya",
-    "name": "本格中華 楽楽屋 池袋本店",
-    "genre": "chinese",
-    "area": "西口",
-    "tabelog": 3.38,
-    "solo": 3,
-    "price": "¥2,000〜2,999",
-    "note": "中国東北料理。炭火の鉄串焼き全40種が推し。東北風酢豚（白・黒・赤）、マーラータン。",
-    "tags": [
-      "ガチ中華",
-      "東北料理",
-      "串焼き"
-    ],
-    "spot": "西池袋"
-  },
-  {
-    "id": "hatén",
-    "name": "破店",
-    "genre": "chinese",
-    "area": "西口",
-    "address": "豊島区西池袋1-38-1 池袋YSステージビル3F",
-    "solo": 2,
-    "price": "¥3,000〜",
-    "note": "戦後間もない中国がテーマの海鮮鍋専門店。店長が東北出身で羊肉系が人気。要予約のラム肉スペアリブ『羊排』。激辛ではなく甜麻の甘辛。一人だとハードル高め、誰か誘う用。",
-    "tags": [
-      "ガチ中華",
-      "羊",
-      "要予約"
-    ],
-    "spot": "西池袋"
-  },
-  {
-    "id": "maratsu-daihou",
-    "name": "麻辣誘惑 大宝",
-    "genre": "chinese",
-    "area": "北口",
-    "solo": 4,
-    "price": "¥2,000〜2,999",
-    "note": "看板に『四川 東北融合菜』。点心・火鍋・羊串・麻辣湯・鴨首肉・カエル鍋。京醤肉絲1,380円。",
-    "tags": [
-      "ガチ中華",
-      "四川",
-      "麻辣湯"
-    ]
-  },
-  {
-    "id": "chuka-foodcourt",
-    "name": "中華フードコート（福住ビル3F）",
-    "genre": "chinese",
-    "area": "北口",
-    "address": "豊島区西池袋1-43-7 福住ビル3階",
-    "solo": 5,
-    "price": "〜¥999",
-    "hours": "11:00〜23:30・無休",
-    "note": "料理ブースが地方ごとに分かれていて福建・上海・重慶・湖南・湖北などを食べ比べできる。写真付きモバイルメニューで注文、席まで運んでくれる。ガチ中華の入り口として一人で一番入りやすい。北口には同種のフードコートが3つある。",
-    "tags": [
-      "ガチ中華",
-      "フードコート",
-      "一人向き"
-    ]
+    "solo": true
   },
   {
     "id": "chion-shokudo",
@@ -894,113 +287,83 @@
     "genre": "chinese",
     "area": "東口",
     "tabelog": 3.49,
-    "solo": 4,
     "price": "¥1,000〜1,999",
-    "note": "",
-    "tags": [
-      "ガチ中華"
-    ]
-  },
-  {
-    "id": "shufukuro",
-    "name": "聚福楼",
-    "genre": "chinese",
-    "area": "西口",
-    "tabelog": 3.49,
-    "solo": 3,
-    "price": "¥2,000〜2,999",
-    "note": "",
-    "tags": [
-      "ガチ中華"
-    ],
-    "spot": "西池袋",
-    "lat": 35.7319877,
-    "lng": 139.7093702
-  },
-  {
-    "id": "chakan",
-    "name": "池袋 茶舘",
-    "genre": "chinese",
-    "area": "西口",
-    "tabelog": 3.48,
-    "solo": 4,
-    "price": "¥1,000〜1,999",
-    "note": "",
-    "tags": [
-      "ガチ中華"
-    ],
-    "spot": "西池袋"
-  },
-  {
-    "id": "shouju-hunan",
-    "name": "湘聚・湖南菜館",
-    "genre": "chinese",
-    "area": "西口",
-    "tabelog": 3.44,
-    "solo": 3,
-    "price": "¥2,000〜2,999",
-    "note": "湖南料理。辛い。",
+    "note": "Sichuan and dim sum a minute from the east exit. Tops Retty's list of Ikebukuro Chinese places that are easy to walk into alone.",
     "tags": [
       "ガチ中華",
-      "湖南",
-      "辛い"
+      "四川",
+      "一人向き"
     ],
-    "spot": "西池袋"
+    "solo": true
   },
   {
-    "id": "senrika",
-    "name": "千里香 池袋店",
-    "genre": "chinese",
-    "area": "西口",
-    "tabelog": 3.38,
-    "solo": 4,
-    "price": "¥1,000〜1,999",
-    "note": "",
-    "tags": [
-      "ガチ中華"
-    ],
-    "spot": "西池袋"
-  },
-  {
-    "id": "laosuigen",
-    "name": "老綏元モンゴル料理",
-    "genre": "chinese",
-    "area": "東池袋",
-    "tabelog": 3.32,
-    "solo": 3,
-    "price": "¥2,000〜2,999",
-    "note": "モンゴル・内モンゴル系。羊。",
-    "tags": [
-      "羊",
-      "ガチ中華"
-    ]
-  },
-  {
-    "id": "wenshan-bao",
-    "name": "文山包 池袋店",
+    "id": "futto-shokicho",
+    "name": "沸騰小吃城",
     "genre": "chinese",
     "area": "北口",
-    "tabelog": 3.53,
-    "solo": 4,
-    "price": "¥1,000〜1,999",
-    "note": "包子・小籠包系。",
+    "tabelog": 3.47,
+    "price": "〜¥999",
+    "spot": "3F, above a FamilyMart",
+    "note": "The third and roomiest of the north-exit Chinese food courts. Stalls split by province — Hunan, Hubei, Sichuan, Shanghai, Hong Kong dim sum — ordered from your phone and delivered by robot. Nobody minds if you buy one cup of tea, which makes it the softest possible way into regional Chinese food alone.",
     "tags": [
       "ガチ中華",
-      "点心"
-    ]
+      "フードコート",
+      "一人向き",
+      "席多い"
+    ],
+    "solo": true
   },
   {
-    "id": "ranran",
-    "name": "蘭蘭 本店",
+    "id": "yuuyi-shokufu",
+    "name": "友誼食府",
+    "genre": "chinese",
+    "area": "北口",
+    "spot": "西池袋1-43-7 福住ビル3F",
+    "price": "〜¥999",
+    "hours": "11:00–23:30, daily",
+    "note": "The original north-exit food court and still the best sampler: Fujian, Shanghai, Chongqing, Hunan and Hubei at separate counters, photo menu on your phone, food carried to the table. Packed at peak.",
+    "tags": [
+      "ガチ中華",
+      "フードコート",
+      "一人向き"
+    ],
+    "solo": true
+  },
+  {
+    "id": "shinchinmi",
+    "name": "新珍味",
     "genre": "chinese",
     "area": "西口",
-    "tabelog": 3.43,
-    "solo": 4,
-    "price": "¥1,000〜1,999",
-    "note": "",
+    "spot": "西池袋1-23-4",
+    "price": "〜¥999",
+    "hours": "Mon–Thu 11:30–23:00, Fri–Sat until 23:30, Sun until 22:00",
+    "note": "Seventy years old, seven counter seats downstairs and tables above. Order the taro-men or taro rice and the steamed chicken. Meat fried rice ¥990, gyoza ¥530. Works as a solo drink as much as a meal.",
     "tags": [
-      "町中華"
-    ]
+      "町中華",
+      "老舗",
+      "カウンター",
+      "ひとり飲み"
+    ],
+    "lat": 35.7320419,
+    "lng": 139.7099449,
+    "solo": true
+  },
+  {
+    "id": "kairaku",
+    "name": "開楽 本店",
+    "genre": "chinese",
+    "area": "東口",
+    "price": "〜¥999",
+    "note": "Since 1954, and a tabelog top-100 gyoza shop. The jumbo gyoza are too big for one bite. Down a narrow lane just across Meiji-dori, with queue positions painted on the pavement. On Retty's solo-friendly list as well.",
+    "tags": [
+      "百名店",
+      "餃子",
+      "老舗",
+      "行列"
+    ],
+    "lat": 35.7293242,
+    "lng": 139.7128838,
+    "solo": true
   },
   {
     "id": "chikyu-hanten",
@@ -1008,640 +371,716 @@
     "genre": "chinese",
     "area": "東口",
     "tabelog": 3.44,
-    "solo": 4,
     "price": "¥1,000〜1,999",
-    "note": "",
+    "note": "Regional Chinese cooking that still works as one plate and a bowl of rice. On Retty's solo-friendly list.",
     "tags": [
-      "ガチ中華"
-    ]
+      "ガチ中華",
+      "一人向き"
+    ],
+    "solo": true
+  },
+  {
+    "id": "mimatsu",
+    "name": "定食 美松",
+    "genre": "teishoku",
+    "area": "西口",
+    "tabelog": 3.56,
+    "price": "〜¥999",
+    "note": "Founded in the 1950s, down a quiet lane a step off the noise, and first in tabelog's Ikebukuro set-meal ranking. Where to go when you want to eat without being in a crowd.",
+    "tags": [
+      "老舗",
+      "静か"
+    ],
+    "solo": true
+  },
+  {
+    "id": "mitoya",
+    "name": "ランチハウス ミトヤ",
+    "genre": "teishoku",
+    "area": "西口",
+    "tabelog": 3.49,
+    "price": "〜¥999",
+    "note": "A 1999 western-style diner, tabelog top 100 in 2021, laid out along a counter. Grilled pork set ¥710, the three-fry set ¥960, chicken katsu that hangs off the plate, and cabbage, curried pasta, rice and pork soup with everything. Fried to order in front of you.",
+    "tags": [
+      "百名店",
+      "大盛り",
+      "コスパ",
+      "カウンター"
+    ],
+    "solo": true
+  },
+  {
+    "id": "yohbocho",
+    "name": "洋庖丁 池袋店",
+    "genre": "teishoku",
+    "area": "西口",
+    "tabelog": 3.49,
+    "price": "〜¥999",
+    "note": "Tabelog top 100 for set meals. Steak and hamburg plates, a counter lined with men eating fast, and a turnover quick enough that the queue never really builds.",
+    "tags": [
+      "百名店",
+      "カウンター",
+      "コスパ"
+    ],
+    "solo": true
+  },
+  {
+    "id": "yamituki",
+    "name": "キッチンYAMITUKI",
+    "genre": "teishoku",
+    "area": "西口",
+    "tabelog": 3.38,
+    "price": "〜¥999",
+    "note": "Counter only, so the room is mostly people on their own — Retty's reviewers say exactly that. One minute from the west exit.",
+    "tags": [
+      "カウンター",
+      "一人向き"
+    ],
+    "solo": true
+  },
+  {
+    "id": "vejiro",
+    "name": "肉野菜炒め ベジ郎 池袋東口店",
+    "genre": "teishoku",
+    "area": "東口",
+    "tabelog": 3.44,
+    "price": "〜¥999",
+    "note": "Stir-fried pork and vegetables, with the vegetable pile adjustable upward. Counter dining, and the closest thing to eating your greens on this list.",
+    "tags": [
+      "野菜",
+      "カウンター"
+    ],
+    "solo": true
+  },
+  {
+    "id": "marutomi",
+    "name": "丸富食堂 池袋東口店",
+    "genre": "teishoku",
+    "area": "東口",
+    "price": "¥1,000〜1,999",
+    "note": "One floor up, five minutes from the east exit, and unrepentantly Showa. The mixed fry set ¥1,485 puts karaage, horse mackerel, a croquette and a menchi katsu on one plate, with free large rice.",
+    "tags": [
+      "大盛り",
+      "昭和"
+    ],
+    "solo": true
+  },
+  {
+    "id": "fukurokoji",
+    "name": "梟小路",
+    "genre": "teishoku",
+    "area": "東池袋",
+    "price": "〜¥999",
+    "note": "Near Sunshine City. The set of the day is ¥580 — mapo rice, a small soba, a side — and you buy a ticket from a machine, so the whole visit happens without a word. Counter seating.",
+    "tags": [
+      "ワンコイン",
+      "食券",
+      "カウンター"
+    ],
+    "solo": true
+  },
+  {
+    "id": "ito-shokudo",
+    "name": "伊東食堂",
+    "genre": "teishoku",
+    "area": "東池袋",
+    "tabelog": 3.41,
+    "price": "〜¥999",
+    "note": "A neighbourhood diner out in Higashi-Ikebukuro 4-chome, away from the station crowds.",
+    "tags": [
+      "町の食堂",
+      "静か"
+    ],
+    "solo": true
+  },
+  {
+    "id": "washokudo-soh",
+    "name": "和食堂 素",
+    "genre": "teishoku",
+    "area": "周縁",
+    "spot": "Toden Zoshigaya",
+    "tabelog": 3.31,
+    "price": "¥1,000〜1,999",
+    "note": "Careful Japanese set meals out by the tram line. Slower and quieter than anything near the station.",
+    "tags": [
+      "静か"
+    ],
+    "solo": true
+  },
+  {
+    "id": "kimunchi",
+    "name": "きむん家 池袋本店",
+    "genre": "korean",
+    "area": "西口",
+    "spot": "西池袋3丁目 アークランド西池袋ビル",
+    "price": "〜¥999",
+    "note": "A minute from west exit 1b, run by two brothers, with a counter built for single diners and a wood-lined room modelled on a hanok. Sundubu and other set meals ¥600–1,000.",
+    "tags": [
+      "カウンター",
+      "定食",
+      "一人向き"
+    ],
+    "solo": true
+  },
+  {
+    "id": "kasei-curry",
+    "name": "火星カレー",
+    "genre": "curry",
+    "area": "西口",
+    "spot": "西池袋3丁目 グルメ通",
+    "tabelog": 3.71,
+    "price": "¥1,000〜1,999",
+    "note": "First in tabelog's Ikebukuro curry ranking and a top-100 curry pick for 2026. Spice curry in a small room where eating alone is the default.",
+    "tags": [
+      "百名店",
+      "スパイスカレー",
+      "カウンター"
+    ],
+    "lat": 35.7305454,
+    "lng": 139.7071474,
+    "solo": true
+  },
+  {
+    "id": "curry-hardcore",
+    "name": "カリー・ザ・ハードコア",
+    "genre": "curry",
+    "area": "周縁",
+    "spot": "Kishibojin-mae",
+    "tabelog": 3.55,
+    "price": "¥1,000〜1,999",
+    "note": "Out by Zoshigaya and as pointed as the name suggests. Worth the walk away from the station.",
+    "tags": [
+      "スパイスカレー"
+    ],
+    "solo": true
+  },
+  {
+    "id": "suage",
+    "name": "北海道スープカレー Suage 池袋店",
+    "genre": "curry",
+    "area": "東口",
+    "tabelog": 3.49,
+    "price": "¥1,000〜1,999",
+    "note": "The Sapporo soup curry name, transplanted. Pick your heat, get a bowl and a plate of rice, eat alone without anyone noticing.",
+    "tags": [
+      "スープカレー"
+    ],
+    "solo": true
+  },
+  {
+    "id": "curry-no-ie",
+    "name": "カレーの家",
+    "genre": "curry",
+    "area": "西口",
+    "tabelog": 3.47,
+    "price": "〜¥999",
+    "note": "Small, cheap and highly rated — the sort of place that only really works for one or two people.",
+    "tags": [
+      "スパイスカレー",
+      "カウンター"
+    ],
+    "solo": true
+  },
+  {
+    "id": "curry-wa-nomimono",
+    "name": "カレーは飲み物。池袋本店",
+    "genre": "curry",
+    "area": "西口",
+    "tabelog": 3.46,
+    "price": "〜¥999",
+    "note": "The flagship of the chain, and the everything-on-top plate is genuinely excessive. Counter, fast, under ¥1,000.",
+    "tags": [
+      "大盛り",
+      "カウンター"
+    ],
+    "solo": true
+  },
+  {
+    "id": "putali-cafe",
+    "name": "Putali Cafe",
+    "genre": "curry",
+    "area": "東池袋",
+    "tabelog": 3.44,
+    "price": "¥1,000〜1,999",
+    "note": "Nepali dal bhat — a plate designed around one person eating it.",
+    "tags": [
+      "ネパール"
+    ],
+    "solo": true
+  },
+  {
+    "id": "plain",
+    "name": "plAin",
+    "genre": "curry",
+    "area": "東池袋",
+    "tabelog": 3.36,
+    "price": "¥1,000〜1,999",
+    "note": "Spice curry in Higashi-Ikebukuro 4-chome, well away from the station churn.",
+    "tags": [
+      "スパイスカレー",
+      "静か"
+    ],
+    "solo": true
+  },
+  {
+    "id": "a-raj",
+    "name": "A-RAJ",
+    "genre": "curry",
+    "area": "東口",
+    "price": "¥1,000〜1,999",
+    "note": "Raj, from Chennai, cooked at Ajanta — the shop that started South Indian food in Japan — before opening this in 2002. Meals, dosa, Madras paratha, and specials that change often.",
+    "tags": [
+      "南インド",
+      "ミールス",
+      "老舗"
+    ],
+    "solo": true
+  },
+  {
+    "id": "tomboy",
+    "name": "TOMBOY 池袋東口店",
+    "genre": "curry",
+    "area": "東口",
+    "price": "¥1,000〜1,999",
+    "note": "South Indian rather than the usual north, so thinner sauces and a different spice register. The biryani is Hyderabad-style, cooked from raw rice under a dough seal, and takes time to arrive. Dosa and vada for the vegetarian side.",
+    "tags": [
+      "南インド",
+      "ビリヤニ"
+    ],
+    "solo": true
+  },
+  {
+    "id": "uchitateya",
+    "name": "うちたて家",
+    "genre": "soba",
+    "area": "南池袋",
+    "spot": "東通り",
+    "tabelog": 3.71,
+    "price": "〜¥999",
+    "note": "Musashino udon since 2002, tabelog top 100 twice, and first in the Ikebukuro udon ranking. Dense, chewy noodles with cold dipping broth; ask for softer if you want it. Ticket machine outside, counter and tables inside, a queue before opening.",
+    "tags": [
+      "百名店",
+      "うどん",
+      "食券",
+      "カウンター",
+      "行列"
+    ],
+    "solo": true
+  },
+  {
+    "id": "anpuku",
+    "name": "あんぷく 池袋店",
+    "genre": "soba",
+    "area": "西口",
+    "tabelog": 3.67,
+    "price": "¥1,000〜1,999",
+    "note": "Two minutes from the station, top 100 for udon in 2024. Beef tendon curry udon is the order; portion size is free to choose. Udon shop by day, drinking spot by night.",
+    "tags": [
+      "百名店",
+      "うどん",
+      "カレーうどん"
+    ],
+    "solo": true
+  },
+  {
+    "id": "suzuriya",
+    "name": "硯家 本店",
+    "genre": "soba",
+    "area": "南池袋",
+    "tabelog": 3.55,
+    "price": "¥1,000〜1,999",
+    "note": "Curry udon done properly, and third or fourth in the local udon ranking depending on the week.",
+    "tags": [
+      "うどん",
+      "カレーうどん"
+    ],
+    "solo": true
+  },
+  {
+    "id": "karukaya",
+    "name": "かるかや",
+    "genre": "soba",
+    "area": "駅ナカ",
+    "spot": "Seibu department store roof",
+    "tabelog": 3.56,
+    "price": "〜¥999",
+    "note": "On the roof of the Seibu store, and the Kodoku no Gurume episode. Thick chewy udon for ¥410, eaten outdoors under open sky. As a piece of solo eating it is close to perfect on a clear day.",
+    "tags": [
+      "孤独のグルメ",
+      "うどん",
+      "屋上"
+    ],
+    "solo": true
   },
   {
     "id": "rinya",
     "name": "凛や 西武池袋店",
     "genre": "soba",
     "area": "駅ナカ",
-    "solo": 5,
     "price": "〜¥999",
-    "note": "西武池袋駅改札内。池袋の駅そばでコスパ最強と評される一軒。",
+    "note": "Inside the Seibu ticket gates, and rated the best value of the station soba stands here. Standing, three minutes, done.",
     "tags": [
       "立ち食い",
       "駅ナカ",
       "コスパ"
-    ]
+    ],
+    "solo": true
   },
   {
     "id": "soutei",
     "name": "爽亭 池袋店",
     "genre": "soba",
     "area": "駅ナカ",
-    "solo": 5,
     "price": "〜¥999",
-    "hours": "6:30〜",
-    "note": "JR改札内。朝6時半から。名古屋の会社が運営していて、きしめんが食べられる貴重な立ち食い。朝のタイムサービスはおあげ・わかめ・天かす・ネギ入り。",
+    "hours": "from 06:30",
+    "note": "Inside the JR gates from half six. Run by a Nagoya company, so the kishimen is the reason to come. Morning service adds fried tofu, wakame, tempura bits and spring onion.",
     "tags": [
       "立ち食い",
       "駅ナカ",
       "朝"
-    ]
+    ],
+    "solo": true
   },
   {
     "id": "kimizuka",
     "name": "立食そばうどん 君塚",
     "genre": "soba",
     "area": "東口",
-    "solo": 5,
     "price": "〜¥999",
-    "note": "1982年創業。カレー・かつ丼などのセットがお得。春菊天・とり天・コロッケとトッピングが豊富。",
+    "note": "Standing since 1982. The sets with curry or katsudon are the value, and the toppings run to shungiku tempura, chicken tempura and a croquette.",
     "tags": [
       "立ち食い",
-      "老舗"
-    ]
-  },
-  {
-    "id": "sagaya",
-    "name": "嵯峨谷 池袋店",
-    "genre": "soba",
-    "area": "東口",
-    "solo": 5,
-    "price": "〜¥999",
-    "note": "石臼挽き十割そばを立ち食い価格で。",
-    "tags": [
-      "立ち食い",
-      "十割"
-    ]
+      "老舗",
+      "コスパ"
+    ],
+    "solo": true
   },
   {
     "id": "tanuki-wa-nomimono",
     "name": "たぬきは飲み物。",
     "genre": "soba",
     "area": "東口",
-    "solo": 5,
     "price": "〜¥999",
-    "note": "東口のネオ立ち食い蕎麦。コンパクトな店でたぬき蕎麦のクオリティが高い。",
+    "note": "A tiny new-wave standing soba bar east of the station doing one thing — tanuki soba — at a level the format doesn't usually reach.",
     "tags": [
       "立ち食い",
       "新店"
-    ]
-  },
-  {
-    "id": "karukaya",
-    "name": "かるかや（西武池袋 屋上）",
-    "genre": "soba",
-    "area": "駅ナカ",
-    "solo": 5,
-    "price": "〜¥999",
-    "note": "西武百貨店の屋上。『孤独のグルメ』に登場した店。コシのあるモチモチ太麺410円。空を見ながら食べる、ひとり飯として完成度が高い一軒。天気のいい日に。",
-    "tags": [
-      "孤独のグルメ",
-      "うどん",
-      "屋上"
-    ]
-  },
-  {
-    "id": "merikenya",
-    "name": "讃岐うどん めりけんや 池袋店",
-    "genre": "soba",
-    "area": "駅ナカ",
-    "address": "豊島区南池袋1-28-2 JR池袋駅B1F IKE麺KITCHEN内",
-    "solo": 5,
-    "price": "〜¥999",
-    "note": "駅ナカのフードコート内で本場讃岐。",
-    "tags": [
-      "うどん",
-      "駅ナカ"
-    ]
+    ],
+    "solo": true
   },
   {
     "id": "bikyo",
     "name": "十割手打ちそば 美蕎 -BIKYO-",
     "genre": "soba",
     "area": "東口",
-    "solo": 4,
     "price": "¥1,000〜1,999",
-    "hours": "ランチ 11:30〜14:30（L.O.14:20）／日曜定休・土曜不定休",
-    "note": "東口徒歩5分、ハレザすぐ。宮城県七ヶ宿産のそばを店内の石臼で自家製粉した十割。ランチのそば単品なら一人でも入りやすい。",
+    "hours": "lunch 11:30–14:30 (L.O. 14:20), closed Sun",
+    "note": "Five minutes east, by Hareza. Buckwheat from Shichikashuku in Miyagi, milled in-house on a stone wheel, cut without wheat. Order a plain seiro at lunch and it is an easy solo visit.",
     "tags": [
       "十割",
       "手打ち"
-    ]
+    ],
+    "solo": true
   },
   {
     "id": "miyagino",
     "name": "手打そば 宮城野",
     "genre": "soba",
     "area": "東口",
-    "solo": 5,
     "price": "¥1,000〜1,999",
-    "note": "東口五叉路。カウンターあり。",
+    "note": "Hand-cut soba at the five-way junction east of the station, with a counter to sit at.",
     "tags": [
       "手打ち",
       "カウンター"
-    ]
+    ],
+    "solo": true
   },
   {
     "id": "shoraku",
     "name": "松楽",
     "genre": "soba",
     "area": "南池袋",
-    "solo": 5,
     "price": "¥1,000〜1,999",
-    "note": "南池袋公園の路地。名物は幸セいろ。",
+    "note": "Down the lane by Minami-Ikebukuro Park, four minutes out, and on Retty's solo-friendly list.",
     "tags": [
-      "手打ち"
-    ]
-  },
-  {
-    "id": "minoya-bunemon",
-    "name": "美濃屋 文右衛門",
-    "genre": "soba",
-    "area": "東口",
-    "solo": 4,
-    "price": "¥1,000〜1,999",
-    "note": "明治通り沿い。重ねそば。",
-    "tags": []
+      "手打ち",
+      "一人向き"
+    ],
+    "solo": true
   },
   {
     "id": "kitchen-abc-west",
     "name": "キッチンABC 西池袋店",
     "genre": "yoshoku",
     "area": "西口",
-    "solo": 5,
     "price": "〜¥999",
-    "note": "1969年創業。ハンバーグ、カニクリームコロッケ、生姜焼きのセットが1,000円程度。東京芸術劇場近くの脇道。東口にも店舗あり。",
+    "note": "Since 1969, and the one place every Ikebukuro solo-lunch blog agrees on. Hamburg, crab cream croquette and ginger pork sets land around ¥1,000. It queues before noon, but the turnover is fast and they take your order while you wait.",
     "tags": [
+      "百名店",
       "老舗",
-      "コスパ"
-    ]
+      "コスパ",
+      "一人向き"
+    ],
+    "solo": true
+  },
+  {
+    "id": "kitchen-check",
+    "name": "キッチン チェック",
+    "genre": "yoshoku",
+    "area": "西口",
+    "spot": "ロサ会館1F",
+    "price": "¥1,000〜1,999",
+    "note": "Running since 1968 and a tabelog top-100 western diner. Bloggers note that turning up alone gets you seated and out quickly.",
+    "tags": [
+      "百名店",
+      "ハンバーグ",
+      "老舗"
+    ],
+    "solo": true
   },
   {
     "id": "uchouten",
     "name": "ウチョウテン",
     "genre": "yoshoku",
     "area": "東口",
-    "solo": 4,
     "price": "¥1,000〜1,999",
-    "note": "東口徒歩7分。池袋ハンバーグ四天王の一角。看板は黒毛和牛のハンバーグで来店客の8割が注文。常に行列。",
+    "note": "Tabelog top 100, seven minutes east, permanently queued. Eight in ten customers order the wagyu hamburg, which tells you what to do.",
     "tags": [
+      "百名店",
       "ハンバーグ",
       "行列"
-    ]
+    ],
+    "solo": true
   },
   {
     "id": "miyazakitei",
     "name": "宮崎亭",
     "genre": "yoshoku",
     "area": "東口",
-    "solo": 4,
     "price": "¥1,000〜1,999",
-    "note": "つなぎなしの宮崎和牛100%ハンバーグを塩で。開店20分前に行っても待つことがある。",
+    "note": "Miyazaki wagyu, no binder, eaten with salt. Turn up twenty minutes before opening and you may still wait.",
     "tags": [
       "ハンバーグ",
       "行列"
     ],
-    "spot": "池袋"
-  },
-  {
-    "id": "kitchen-check",
-    "name": "キッチン チェック",
-    "genre": "yoshoku",
-    "area": "東口",
-    "solo": 5,
-    "price": "¥1,000〜1,999",
-    "note": "1968年から続く老舗洋食屋のハンバーグ。",
-    "tags": [
-      "ハンバーグ",
-      "老舗"
-    ],
-    "spot": "池袋"
+    "solo": true
   },
   {
     "id": "kitchen-ohway",
     "name": "キッチン Oh! Way",
     "genre": "yoshoku",
     "area": "東口",
-    "solo": 5,
     "price": "¥1,000〜1,999",
-    "note": "東口徒歩10分。駅から離れているのにランチは行列。",
+    "note": "Ten minutes out from the east exit and still queued at lunch, which in this part of town means something.",
     "tags": [
       "ハンバーグ"
-    ]
-  },
-  {
-    "id": "takase",
-    "name": "タカセ 池袋本店",
-    "genre": "yoshoku",
-    "area": "東口",
-    "solo": 4,
-    "price": "¥1,000〜1,999",
-    "note": "池袋の老舗ベーカリー＆洋食。ハンバーグステーキ。",
-    "tags": [
-      "老舗"
     ],
-    "lat": 35.7300016,
-    "lng": 139.713138
-  },
-  {
-    "id": "mikasa-kaikan",
-    "name": "銀座洋食 三笠會館 池袋PARCO店",
-    "genre": "yoshoku",
-    "area": "東口",
-    "solo": 4,
-    "price": "¥2,000〜2,999",
-    "note": "駅直結のPARCO内。90年の歴史。和牛挽肉とやまと豚を7:3でブレンドしたハンバーグ、名物の若鶏の唐揚げ。",
-    "tags": [
-      "駅直結"
-    ]
+    "solo": true
   },
   {
     "id": "yakiniku-like-east",
     "name": "焼肉ライク 池袋東口店",
     "genre": "yakiniku",
     "area": "東口",
-    "address": "豊島区東池袋1-40-3 池袋籏ビル1F",
-    "solo": 5,
+    "spot": "東池袋1-40-3 池袋籏ビル1F",
     "price": "〜¥999",
-    "hours": "11:00〜23:00（L.O.22:30）年中無休",
-    "note": "東口徒歩1分。全20席のうち1名席が18席。1人1台の無煙ロースター、注文はiPad、提供3分以内。予約は不可。一人焼肉の最短ルート。",
+    "hours": "11:00–23:00 (L.O. 22:30), daily",
+    "note": "Eighteen of the twenty seats are single seats. Your own grill, iPad ordering, food inside three minutes, no bookings. A chain, and on the list anyway: it is the shortest path to grilled meat on your own.",
     "tags": [
       "一人焼肉",
       "カウンター",
       "通し営業"
     ],
     "lat": 35.7319736,
-    "lng": 139.7137074
-  },
-  {
-    "id": "yakiniku-like-minami",
-    "name": "焼肉ライク 南池袋店",
-    "genre": "yakiniku",
-    "area": "南池袋",
-    "solo": 5,
-    "price": "〜¥999",
-    "hours": "11:00〜23:00（L.O.22:30）",
-    "note": "JR池袋駅から徒歩2分。東口店が混んでいるときの逃げ先。",
-    "tags": [
-      "一人焼肉",
-      "カウンター"
-    ],
-    "lat": 35.7265678,
-    "lng": 139.7122357
+    "lng": 139.7137074,
+    "solo": true
   },
   {
     "id": "misono",
     "name": "ひとり焼肉 美そ乃",
     "genre": "yakiniku",
     "area": "東口",
-    "solo": 5,
     "price": "〜¥999",
-    "note": "カウンター中心。A5黒毛和牛のランチや11点盛り、廉価版の『美そ乃 Light』も。カルビセット200gがライス・スープ・小鉢付きで焼肉ライクより安いという評価。",
+    "note": "The independent answer to the same question, mostly counter. A5 wagyu lunches, an eleven-cut platter, and a cheaper Light menu. A 200g kalbi set with rice, soup and a side comes in under the chain.",
     "tags": [
       "一人焼肉",
       "和牛",
       "カウンター"
     ],
-    "spot": "池袋"
-  },
-  {
-    "id": "sumire-yakitori",
-    "name": "やきとり家 すみれ 池袋東口店",
-    "genre": "yakitori",
-    "area": "南池袋",
-    "address": "豊島区南池袋1-20-2 翠ビル1F",
-    "solo": 5,
-    "price": "¥2,000〜2,999",
-    "note": "東口徒歩1分。カウンター・テーブル・掘りごたつから選べる。大山どり。持ち帰りもできる。",
-    "tags": [
-      "カウンター",
-      "ひとり飲み"
-    ]
+    "solo": true
   },
   {
     "id": "gunbou",
     "name": "ぐんぼう",
     "genre": "yakitori",
-    "area": "東口",
-    "solo": 5,
+    "area": "西口",
     "price": "¥2,000〜2,999",
-    "note": "駅から徒歩4分の軍鶏料理専門。焼き鳥約60種。レバー340円、軍鶏の刺身4種盛2,100円。カウンター充実。",
+    "note": "Shamo chicken specialist four minutes out, about sixty skewers plus whole-bird dishes. Plenty of counter, unfussy room. Liver ¥340, the four-cut shamo sashimi ¥2,100.",
     "tags": [
+      "軍鶏",
       "カウンター",
-      "軍鶏"
+      "ひとり飲み"
     ],
-    "spot": "池袋",
     "lat": 35.7322122,
-    "lng": 139.7082456
+    "lng": 139.7082456,
+    "solo": true
   },
   {
     "id": "shochan",
     "name": "焼き鳥 しょうちゃん 池袋店",
     "genre": "yakitori",
     "area": "東口",
-    "solo": 5,
     "price": "¥2,000〜2,999",
-    "hours": "朝7:00まで",
-    "note": "国産の朝〆鶏を毎日串打ちして備長炭。ちょうちん・のどぶえ・おたふくなど希少部位。朝まで営業でカウンターあり。",
+    "hours": "until 07:00",
+    "note": "Domestic chicken killed that morning, skewered daily, cooked over binchotan. Rare cuts — chochin, nodobue, otafuku — and a counter, open until seven in the morning.",
     "tags": [
       "深夜",
       "カウンター",
       "ひとり飲み"
     ],
-    "spot": "池袋"
+    "solo": true
   },
   {
     "id": "sushitsune",
     "name": "立喰い寿し すしつね 東武池袋店",
     "genre": "sushi",
     "area": "駅ナカ",
-    "address": "東武百貨店本館B1F",
-    "solo": 5,
+    "spot": "東武百貨店本館B1F",
     "price": "¥1,000〜1,999",
-    "note": "2017年オープン。駅直結。カウンターと立ち喰いテーブルで、職人が目の前で握る江戸前を良心的な価格で。",
+    "note": "Standing sushi in the Tobu basement, cut in front of you at fair prices. Counter and standing tables, which is the point: four or five pieces and you leave.",
     "tags": [
       "立ち食い",
       "駅直結",
       "カウンター"
-    ]
+    ],
+    "solo": true
   },
   {
     "id": "wakataka",
     "name": "回し鮨 若貴 池袋店",
     "genre": "sushi",
     "area": "東口",
-    "solo": 5,
     "price": "¥2,000〜2,999",
-    "hours": "平日11:30〜／土日祝11:00〜",
-    "note": "東口徒歩6分、サンシャイン60通り沿い。カウンター27席。本格江戸前をリーズナブルに。カード・PayPay・auPAY可。",
+    "hours": "weekdays from 11:30, weekends from 11:00",
+    "note": "Twenty-seven counter seats on Sunshine 60-dori, six minutes from the east exit. Proper edomae at a price that doesn't need an occasion. Cards and QR payment accepted.",
     "tags": [
       "カウンター"
     ],
     "lat": 35.7295934,
-    "lng": 139.7154699
-  },
-  {
-    "id": "sushimamire",
-    "name": "すしまみれ 池袋店",
-    "genre": "sushi",
-    "area": "東口",
-    "solo": 5,
-    "price": "¥1,000〜1,999",
-    "hours": "24時間",
-    "note": "回らない寿司が1貫100円（税抜）〜。24時間営業なので深夜でも寿司にできる。",
-    "tags": [
-      "深夜",
-      "24時間"
-    ]
-  },
-  {
-    "id": "jasmine-thai",
-    "name": "ジャスミンタイレストラン 池袋店",
-    "genre": "ethnic",
-    "area": "駅ナカ",
-    "address": "池袋駅地下 イケチカダイニング",
-    "solo": 4,
-    "price": "¥1,000〜1,999",
-    "note": "駅地下のレストラン街。屋台系が多い中で高級路線。カオマンガイ、グリーンカレー、ガパオ、蟹のカレー炒め。ランチ1,200〜1,400円。落ち着いた内装。",
-    "tags": [
-      "タイ",
-      "駅直結"
-    ]
+    "lng": 139.7154699,
+    "solo": true
   },
   {
     "id": "khunya",
     "name": "クンヤー",
     "genre": "ethnic",
     "area": "東口",
-    "solo": 4,
     "price": "¥1,000〜1,999",
-    "note": "地下鉄池袋駅から徒歩2分、全24席の小さな店。スタッフ全員がタイ東北部イサーン出身で、郷土料理を本場の味のまま。辛味・甘味・酸味のメリハリ。",
+    "note": "Twenty-four seats, two minutes from the subway, every member of staff from Isaan in Thailand's north-east. The sour-hot-sweet balance is the real thing rather than the softened version.",
     "tags": [
       "タイ",
       "イサーン",
       "小箱"
-    ]
+    ],
+    "solo": true
   },
   {
-    "id": "siam-celadon",
-    "name": "サイアムセラドン 池袋東武店",
+    "id": "jasmine-thai",
+    "name": "ジャスミンタイレストラン 池袋店",
     "genre": "ethnic",
-    "area": "西口",
-    "address": "豊島区西池袋1-1-25 東武百貨店11F",
-    "solo": 4,
-    "price": "¥2,000〜2,999",
-    "hours": "ランチ11:00〜15:59／ディナー16:00〜22:00（料理L.O.21:30）",
-    "note": "タイ・セレクト認定『クラシック』。西口徒歩3分。アジアンビールが豊富で、酒と一緒に食べたい日に。",
+    "area": "駅ナカ",
+    "spot": "イケチカダイニング",
+    "price": "¥1,000〜1,999",
+    "note": "In the basement restaurant street, and deliberately not a street-food room: quiet, properly served, khao man gai and green curry around ¥1,200–1,400 at lunch. Useful when it rains.",
     "tags": [
       "タイ",
-      "駅直結"
-    ]
+      "駅直結",
+      "静か"
+    ],
+    "solo": true
   },
   {
     "id": "agaliko",
     "name": "アガリコ食堂 池袋",
     "genre": "ethnic",
     "area": "東口",
-    "solo": 4,
     "price": "¥1,000〜1,999",
-    "note": "カラフルな提灯が目印。タイ・台湾・シンガポール・ベトナムを横断で食べられる。",
+    "note": "Coloured lanterns out front, and Thai, Taiwanese, Singaporean and Vietnamese dishes on one menu. Good for a single plate and a beer.",
     "tags": [
       "アジア各国"
-    ]
+    ],
+    "solo": true
   },
   {
     "id": "hakushaku",
     "name": "伯爵 池袋東口店",
     "genre": "kissa",
     "area": "東口",
-    "solo": 5,
     "price": "〜¥999",
-    "note": "駅から徒歩3分、ビル2階。パリをイメージしたシャンデリアと彫刻のレトロ空間。モーニングのB.ミックスサンドイッチ・サラダ（ドリンク付）690円。名物ピザトースト。池袋に2店舗あるので混んでいたらもう一方へ。",
+    "note": "Up one floor, three minutes from the station, chandeliers and carvings and a Paris that never existed. The morning sandwich set with salad and a drink is ¥690; the pizza toast is the order. There are two branches, so try the other if this one is full.",
     "tags": [
       "純喫茶",
       "モーニング",
       "レトロ"
-    ]
+    ],
+    "solo": true
   },
   {
     "id": "cafe-de-paris",
     "name": "カフェ・ド・巴里",
     "genre": "kissa",
     "area": "西口",
-    "solo": 5,
     "price": "〜¥999",
-    "note": "西口徒歩2〜3分の老舗喫茶。1階の自動ドアを入るとエスカレーター。シャンデリアと熱帯魚の水槽。モーニングが14時まで頼める。ピザトーストセット（コーヒー付）980円。席数が多く混雑時でも座れる。",
+    "note": "Automatic door, then an escalator, then chandeliers and a tropical fish tank. Breakfast runs until 14:00, pizza toast set with coffee ¥980, and the room is big enough that you can always sit down.",
     "tags": [
       "純喫茶",
       "モーニング",
-      "レトロ",
       "席多い"
-    ]
+    ],
+    "solo": true
   },
   {
     "id": "margaret",
     "name": "純喫茶 マーガレット",
     "genre": "kissa",
     "area": "東池袋",
-    "solo": 5,
     "price": "〜¥999",
-    "note": "東池袋駅近くの高架下、創業40年以上。レトロかわいいパフェが名物。2フロアで2階は喫煙可。モーニングAセット700円、アメリカンセット／イタリアンセット各1,200円。",
+    "note": "Under the tracks by Higashi-Ikebukuro station, over forty years old, two floors, smoking upstairs. Morning set A ¥700; the parfaits are why it keeps reappearing online.",
     "tags": [
       "純喫茶",
       "モーニング",
       "パフェ"
-    ]
-  },
-  {
-    "id": "budouya",
-    "name": "ぶどうや",
-    "genre": "kissa",
-    "area": "東池袋",
-    "solo": 5,
-    "price": "¥1,000〜1,999",
-    "note": "裏路地の落ち着いた純喫茶。ランチはおふくろの味。メキシカンピラフのセット1,300円。",
-    "tags": [
-      "純喫茶",
-      "静か"
-    ]
-  },
-  {
-    "id": "sakura-cafe",
-    "name": "サクラカフェ＆レストラン池袋",
-    "genre": "kissa",
-    "area": "西口",
-    "address": "豊島区池袋2-39-10",
-    "solo": 5,
-    "price": "〜¥999",
-    "hours": "5:00〜23:00（L.O.）／モーニング5:00〜11:00（L.O.）／無休",
-    "note": "駅から徒歩6分。朝5時から開いている。始発前・早朝の腹ごしらえ枠。各国料理も出す。",
-    "tags": [
-      "早朝",
-      "朝食"
     ],
-    "spot": "西池袋"
-  },
-  {
-    "id": "coffee-valley",
-    "name": "COFFEE VALLEY",
-    "genre": "kissa",
-    "area": "東口",
-    "solo": 5,
-    "price": "〜¥999",
-    "note": "スペシャルティコーヒー。豆で選びたい日に。",
-    "tags": [
-      "スペシャルティ"
-    ]
-  },
-  {
-    "id": "kihei",
-    "name": "たちのみや 喜平",
-    "genre": "nomi",
-    "area": "南池袋",
-    "address": "豊島区南池袋2-29-16",
-    "solo": 5,
-    "price": "〜¥999",
-    "note": "業務用酒販店・平喜屋の併設。おでんと地酒で一杯。立ち飲み初心者にも向く東口の店。",
-    "tags": [
-      "立ち飲み",
-      "おでん",
-      "角打ち"
-    ]
+    "solo": true
   },
   {
     "id": "sanpei-saketen",
     "name": "三兵酒店",
     "genre": "nomi",
     "area": "北口",
-    "address": "豊島区西池袋1-31-5",
-    "solo": 5,
+    "spot": "西池袋1-31-5",
     "price": "〜¥999",
-    "note": "酒屋併設の角打ち。焼酎割りは一杯＝一合で出てくるので注意。乾き物・駄菓子から手作りつまみまで。人気はじゃがカレー（ライスなしの飲兵衛仕様）とベーコンエッグ。L字カウンター。",
+    "note": "A bottle shop with a drinking counter attached, L-shaped, Ghibli drawings and the owner's hand-drawn bar map on the wall. Shochu highballs arrive as a full go, so pace yourself. Order the potato curry, served without rice.",
     "tags": [
       "角打ち",
       "立ち飲み",
       "カウンター"
-    ]
+    ],
+    "solo": true
   },
   {
-    "id": "banpaiya",
-    "name": "立呑み晩杯屋 池袋東口店",
+    "id": "kihei",
+    "name": "たちのみや 喜平",
     "genre": "nomi",
-    "area": "東口",
-    "solo": 5,
-    "price": "〜¥999",
-    "note": "一人でも入れる代表格。安い・早い・刺身がうまい。",
-    "tags": [
-      "立ち飲み",
-      "せんべろ"
-    ]
-  },
-  {
-    "id": "kaburaya",
-    "name": "かぶら屋 池袋3号店",
-    "genre": "nomi",
-    "area": "東口",
-    "solo": 5,
-    "price": "〜¥999",
-    "note": "串とホッピーのせんべろ枠。",
-    "tags": [
-      "立ち飲み",
-      "せんべろ"
-    ]
-  },
-  {
-    "id": "kojima-nomi",
-    "name": "小島",
-    "genre": "nomi",
-    "area": "東口",
-    "solo": 5,
-    "price": "〜¥999",
-    "note": "料理がほとんど400円。",
-    "tags": [
-      "立ち飲み",
-      "せんべろ"
-    ]
-  },
-  {
-    "id": "saizeriya-square",
-    "name": "サイゼリヤ 池袋スクエア店",
-    "genre": "late",
-    "area": "東池袋",
-    "address": "豊島区東池袋1-14-1 池袋スクエアB2F",
-    "solo": 5,
-    "price": "〜¥999",
-    "hours": "朝7:00まで",
-    "note": "162席。Wi-Fiあり、コンセントなし。終電を逃した日の最終防衛線。",
-    "tags": [
-      "深夜",
-      "始発待ち"
-    ]
-  },
-  {
-    "id": "gusto-west",
-    "name": "ガスト 池袋西口店",
-    "genre": "late",
-    "area": "西口",
-    "address": "豊島区池袋2-7-3 オアシス1F",
-    "solo": 5,
-    "price": "〜¥999",
-    "hours": "朝5:00まで",
-    "note": "92席、コンセント・Wi-Fi完備。実質23時間営業に近い。",
-    "tags": [
-      "深夜",
-      "電源",
-      "始発待ち"
-    ]
-  },
-  {
-    "id": "toriyoshi-shoten",
-    "name": "鳥良商店 南池袋店",
-    "genre": "late",
     "area": "南池袋",
-    "solo": 4,
-    "price": "¥2,000〜2,999",
-    "hours": "24時間",
-    "note": "東口徒歩4分。24時間営業の鶏料理。手羽先唐揚は1人前5本480円（税抜）。",
+    "spot": "南池袋2-29-16",
+    "price": "〜¥999",
+    "note": "Attached to a wholesale sake shop, so the oden is the food and the sake list is the reason. The gentlest standing bar around here to try first.",
     "tags": [
-      "深夜",
-      "24時間"
-    ]
+      "立ち飲み",
+      "おでん",
+      "角打ち"
+    ],
+    "solo": true
   }
 ]
