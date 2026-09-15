@@ -1,61 +1,25 @@
-name: Record a visit
-description: Give stars to a place you ate at
+name: Score a place
+description: Give a place a number out of ten
 title: "[visit] "
 labels: ["rating"]
 body:
-  - type: input
-    id: shop
-    attributes:
-      label: Shop
-      description: Name, plus the shops.json id if you have it
-      placeholder: 無敵家 (mutekiya)
-    validations:
-      required: true
-  - type: input
-    id: visited-at
-    attributes:
-      label: Date you went
-      placeholder: 2026-09-16
-  - type: dropdown
-    id: taste
-    attributes:
-      label: Taste (weight ×3)
-      description: Would you eat it again
-      options: ["5", "4", "3", "2", "1"]
-    validations:
-      required: true
-  - type: dropdown
-    id: solo
-    attributes:
-      label: Solo comfort (weight ×2)
-      description: Comfortable on your own
-      options: ["5", "4", "3", "2", "1"]
-  - type: dropdown
-    id: value
-    attributes:
-      label: Value (weight ×1)
-      description: For what you paid
-      options: ["5", "4", "3", "2", "1"]
-  - type: dropdown
-    id: ease
-    attributes:
-      label: Ease of entry (weight ×1)
-      description: Seated without queuing
-      options: ["5", "4", "3", "2", "1"]
-  - type: checkboxes
-    id: love
-    attributes:
-      label: Going back
-      options:
-        - label: Mark it as loved
   - type: textarea
-    id: memo
+    id: lines
     attributes:
-      label: Notes
-      placeholder: What did you eat? What next?
+      label: One place per line
+      description: |
+        `name score`, optionally a date and `memo=`. Names match loosely, so a
+        branch suffix or the shops.json id both work. `clear` forgets a place.
+      placeholder: |
+        無敵家 8.5
+        開楽 7 2026-09-16
+        新珍味 9 memo=ターロー飯がうまい
+      render: text
+    validations:
+      required: true
   - type: textarea
     id: json
     attributes:
       label: Pasted from the app
-      description: The JSON produced by "Save as an issue", if you used it
+      description: The JSON from "Save as an issue", if you used it
       render: json

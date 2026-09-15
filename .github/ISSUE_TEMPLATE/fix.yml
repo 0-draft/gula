@@ -6,7 +6,7 @@ body:
   - type: input
     id: shop
     attributes:
-      label: Which shop
+      label: Which place
       placeholder: 無敵家 (mutekiya)
     validations:
       required: true
@@ -21,6 +21,7 @@ body:
         - Price
         - Description or tags
         - Add coordinates
+        - Not actually fine alone
         - Something else
     validations:
       required: true

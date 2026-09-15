@@ -1,5 +1,5 @@
-name: Add a shop
-description: Somewhere that is missing from the list
+name: Add a place
+description: Somewhere that is missing from the candidates
 title: "[add] "
 labels: ["shop"]
 body:
@@ -14,7 +14,14 @@ body:
     id: area
     attributes:
       label: Area
-      options: ["西口 West exit", "北口 North exit", "東口 East exit", "南池袋 Minami-Ikebukuro", "東池袋 Higashi-Ikebukuro", "駅ナカ In the station", "周縁 Outskirts"]
+      options:
+        - 西口 West exit
+        - 北口 North exit
+        - 東口 East exit
+        - 南池袋 Minami-Ikebukuro
+        - 東池袋 Higashi-Ikebukuro
+        - 駅ナカ In the station
+        - 周縁 Outskirts
     validations:
       required: true
   - type: dropdown
@@ -35,14 +42,19 @@ body:
         - Korean (korean)
         - Coffee house (kissa)
         - Standing bar (nomi)
-        - Late night (late)
     validations:
       required: true
+  - type: checkboxes
+    id: solo
+    attributes:
+      label: On your own
+      options:
+        - label: Works fine alone
   - type: input
     id: address
     attributes:
       label: Address
-      description: As precise as you can get it; a block number is enough to map it
+      description: A block number is enough to put it on the map
   - type: input
     id: price
     attributes:
@@ -56,7 +68,7 @@ body:
     id: note
     attributes:
       label: What the place is like
-      description: Whether you can go alone, what to order, how busy it gets
+      description: What to order, how busy it gets, how it feels to sit there
   - type: input
     id: source
     attributes:

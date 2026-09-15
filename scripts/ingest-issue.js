@@ -1,21 +1,18 @@
-// Turns an issue into rating data.
+// Turns an issue into scores.
 //
-// One shop per line. The name is matched loosely against data/shops.json, so
-// "無敵家", "mutekiya" and "無敵家 池袋" all resolve to the same shop.
+// One place per line. The name is matched loosely against data/shops.json, so
+// "無敵家", "mutekiya" and "無敵家 池袋" all resolve to the same entry.
 //
-//   無敵家 3.0                        -> taste 3.0
-//   開楽 4 solo=5 value=3             -> taste 4, solo comfort 5, value 3
-//   新珍味 love memo=ターロー飯がうまい
-//   田坂屋 todo
-//   無敵家 2026-09-16
-//   無敵家 clear                      -> forget this shop
+//   無敵家 8.5                        -> score 8.5 out of 10
+//   開楽 7 2026-09-16                 -> score plus the date you went
+//   新珍味 9 memo=ターロー飯がうまい
+//   無敵家 clear                      -> forget this place
 //
 // A ```json fenced block, as produced by the app's "Save as an issue" button,
 // is merged as-is and wins over the line grammar.
 
 import { readFileSync, writeFileSync } from "node:fs";
 
-const AXES = { taste: "taste", solo: "solo", value: "value", ease: "ease" };
 const TODAY = new Date().toISOString().slice(0, 10);
 
 const shops = JSON.parse(readFileSync("data/shops.json", "utf8"));
@@ -47,17 +44,16 @@ function resolve(label) {
   const hits = shops.filter((s) => normalise(s.name).includes(key) || key.includes(normalise(s.name)));
   if (hits.length === 1) return hits[0];
   if (hits.length > 1) {
-    problems.push(`\`${label}\` matches ${hits.length} shops (${hits.map((h) => h.name).join(", ")}). Use the id.`);
+    problems.push(`\`${label}\` matches ${hits.length} places (${hits.map((h) => h.name).join(", ")}). Use the id.`);
     return null;
   }
-  problems.push(`No shop called \`${label}\`. Open an "Add a shop" issue if it is missing.`);
+  problems.push(`No place called \`${label}\`. Open an "Add a place" issue if it is missing.`);
   return null;
 }
 
 /* ---------- a fenced json block wins ---------- */
 
 const fenced = body.match(/```json\s*([\s\S]*?)```/);
-let mergedJson = false;
 if (fenced) {
   try {
     const payload = JSON.parse(fenced[1]);
@@ -65,7 +61,6 @@ if (fenced) {
       if (!byId.has(id)) { problems.push(`JSON block: unknown id \`${id}\`.`); continue; }
       ratings[id] = { ...entry, updatedAt: entry.updatedAt || TODAY };
       applied.push(`**${byId.get(id).name}** from the JSON block`);
-      mergedJson = true;
     }
   } catch {
     problems.push("The ```json block is not valid JSON, so it was skipped.");
@@ -74,9 +69,9 @@ if (fenced) {
 
 /* ---------- line grammar ---------- */
 
-const star = (raw) => {
+const parseScore = (raw) => {
   const n = Number(raw);
-  if (!Number.isFinite(n) || n < 0 || n > 5) return null;
+  if (!Number.isFinite(n) || n < 0 || n > 10) return null;
   return Math.round(n * 2) / 2;
 };
 
@@ -103,21 +98,16 @@ for (const line of lines) {
   const nameParts = [];
   const ops = [];
   for (const w of words) {
-    if (/^(love|unlove|todo|visited|clear)$/i.test(w)
+    const isOp = /^clear$/i.test(w)
       || /^\d{4}-\d{2}-\d{2}$/.test(w)
-      || /^(taste|solo|value|ease)=/.test(w)
-      || (nameParts.length && star(w) !== null)) {
-      ops.push(w);
-    } else {
-      nameParts.push(w);
-    }
+      || (nameParts.length && parseScore(w) !== null);
+    if (isOp) ops.push(w); else nameParts.push(w);
   }
 
   if (!nameParts.length || (!ops.length && memo === null)) continue;
 
   const shop = resolve(nameParts.join(" "));
   if (!shop) continue;
-  if (mergedJson && ratings[shop.id]?.updatedAt === TODAY && !ops.length) continue;
 
   if (ops.some((o) => o.toLowerCase() === "clear")) {
     delete ratings[shop.id];
@@ -125,42 +115,23 @@ for (const line of lines) {
     continue;
   }
 
-  const entry = ratings[shop.id] || { stars: {} };
-  entry.stars = entry.stars || {};
+  const entry = ratings[shop.id] || {};
   const changes = [];
 
   for (const op of ops) {
-    const lower = op.toLowerCase();
-    const kv = op.match(/^(taste|solo|value|ease)=(.+)$/);
-    if (kv) {
-      const n = star(kv[2]);
-      if (n === null) { problems.push(`\`${op}\` on ${shop.name} is not a number between 0 and 5.`); continue; }
-      entry.stars[AXES[kv[1]]] = n;
-      changes.push(`${kv[1]} ${n}`);
-    } else if (/^\d{4}-\d{2}-\d{2}$/.test(op)) {
+    if (/^\d{4}-\d{2}-\d{2}$/.test(op)) {
       entry.visitedAt = op;
-      entry.status = "visited";
       changes.push(`visited ${op}`);
-    } else if (lower === "love") {
-      entry.love = true;
-      changes.push("loved");
-    } else if (lower === "unlove") {
-      entry.love = false;
-      changes.push("unloved");
-    } else if (lower === "todo" || lower === "visited") {
-      entry.status = lower;
-      changes.push(lower);
-    } else {
-      const n = star(op);
-      if (n === null) { problems.push(`\`${op}\` on ${shop.name} was ignored.`); continue; }
-      entry.stars.taste = n;
-      changes.push(`taste ${n}`);
+      continue;
     }
+    const n = parseScore(op);
+    if (n === null) { problems.push(`\`${op}\` on ${shop.name} was ignored.`); continue; }
+    entry.score = n;
+    changes.push(`${n.toFixed(1)} / 10`);
   }
 
   if (memo !== null) { entry.memo = memo; changes.push("notes"); }
   if (!changes.length) continue;
-  if (!entry.status) entry.status = "visited";
   entry.updatedAt = TODAY;
   ratings[shop.id] = entry;
   applied.push(`**${shop.name}** — ${changes.join(", ")}`);
@@ -175,7 +146,8 @@ const report = [];
 if (applied.length) {
   report.push("Applied:", "", ...applied.map((a) => `- ${a}`));
 } else {
-  report.push("Nothing to apply. One shop per line, for example:", "", "```text", "無敵家 3.0", "開楽 4 solo=5 value=3", "新珍味 love memo=ターロー飯がうまい", "田坂屋 todo", "```");
+  report.push("Nothing to apply. One place per line, for example:", "", "```text",
+    "無敵家 8.5", "開楽 7 2026-09-16", "新珍味 9 memo=ターロー飯がうまい", "```");
 }
 if (problems.length) report.push("", "Skipped:", "", ...problems.map((p) => `- ${p}`));
 

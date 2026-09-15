@@ -7,7 +7,7 @@ import { join } from "node:path";
 
 // Runs the real script against a throwaway copy of the repo data.
 function ingest(body) {
-  const dir = mkdtempSync(join(tmpdir(), "gula-"));
+  const dir = mkdtempSync(join(tmpdir(), "i-ate-out-"));
   cpSync("data", join(dir, "data"), { recursive: true });
   cpSync("scripts", join(dir, "scripts"), { recursive: true });
   writeFileSync(join(dir, "data/ratings.json"), "{}\n");
@@ -21,61 +21,66 @@ function ingest(body) {
   };
 }
 
-test("a bare score sets taste and marks the shop visited", () => {
-  const { ratings } = ingest("無敵家 3.0");
-  assert.equal(ratings.mutekiya.stars.taste, 3);
-  assert.equal(ratings.mutekiya.status, "visited");
+test("a bare number becomes the score", () => {
+  const { ratings } = ingest("無敵家 8.5");
+  assert.equal(ratings.mutekiya.score, 8.5);
+  assert.equal(ratings.mutekiya.updatedAt.length, 10);
 });
 
-test("axes, love, a date and notes parse off one line", () => {
-  const { ratings } = ingest("開楽 4 solo=5 value=3 love 2026-09-16 memo=ジャンボ餃子がうまい");
-  const r = ratings.kairaku;
-  assert.deepEqual(r.stars, { taste: 4, solo: 5, value: 3 });
-  assert.equal(r.love, true);
-  assert.equal(r.visitedAt, "2026-09-16");
-  assert.equal(r.memo, "ジャンボ餃子がうまい");
+test("ten is allowed and eleven is not", () => {
+  assert.equal(ingest("無敵家 10").ratings.mutekiya.score, 10);
+  assert.deepEqual(ingest("無敵家 11").ratings, {});
 });
 
-test("half stars survive", () => {
-  const { ratings } = ingest("鬼金棒 3.5");
-  assert.equal(ratings.kikanbo.stars.taste, 3.5);
+test("a date and notes parse off the same line", () => {
+  const { ratings } = ingest("開楽 7 2026-09-16 memo=ジャンボ餃子がうまい");
+  assert.deepEqual(ratings.kairaku, {
+    score: 7,
+    visitedAt: "2026-09-16",
+    memo: "ジャンボ餃子がうまい",
+    updatedAt: ratings.kairaku.updatedAt,
+  });
+});
+
+test("halves survive, thirds are rounded to the nearest half", () => {
+  assert.equal(ingest("鬼金棒 7.5").ratings.kikanbo.score, 7.5);
+  assert.equal(ingest("鬼金棒 7.3").ratings.kikanbo.score, 7.5);
 });
 
 test("a name with a branch suffix still resolves", () => {
-  const { ratings } = ingest("麺処 花田 池袋店 4");
-  assert.equal(ratings.hanada.stars.taste, 4);
+  assert.equal(ingest("麺処 花田 池袋店 9").ratings.hanada.score, 9);
 });
 
 test("an id works as well as a name", () => {
-  const { ratings } = ingest("tasakaya todo");
-  assert.equal(ratings.tasakaya.status, "todo");
+  assert.equal(ingest("tasakaya 8").ratings.tasakaya.score, 8);
 });
 
-test("several shops in one issue all land", () => {
-  const { ratings } = ingest("無敵家 3\n開楽 5\n新珍味 love");
-  assert.equal(ratings.mutekiya.stars.taste, 3);
-  assert.equal(ratings.kairaku.stars.taste, 5);
-  assert.equal(ratings.shinchinmi.love, true);
+test("several places in one issue all land", () => {
+  const { ratings } = ingest("無敵家 6\n開楽 9\n新珍味 7.5");
+  assert.equal(ratings.mutekiya.score, 6);
+  assert.equal(ratings.kairaku.score, 9);
+  assert.equal(ratings.shinchinmi.score, 7.5);
 });
 
-test("clear forgets a shop", () => {
-  const { ratings } = ingest("無敵家 4\n無敵家 clear");
+test("clear forgets a place", () => {
+  const { ratings } = ingest("無敵家 8\n無敵家 clear");
   assert.equal(ratings.mutekiya, undefined);
 });
 
 test("a json block from the app is merged", () => {
-  const body = ['```json', '{"mutekiya":{"stars":{"taste":5,"solo":4},"status":"visited"}}', "```"].join("\n");
+  const body = ['```json', '{"mutekiya":{"score":9.5,"memo":"late"}}', "```"].join("\n");
   const { ratings } = ingest(body);
-  assert.deepEqual(ratings.mutekiya.stars, { taste: 5, solo: 4 });
+  assert.equal(ratings.mutekiya.score, 9.5);
+  assert.equal(ratings.mutekiya.memo, "late");
 });
 
-test("an unknown shop is reported, not applied", () => {
+test("an unknown place is reported, not applied", () => {
   const { ratings, report } = ingest("存在しない店 4");
   assert.deepEqual(ratings, {});
-  assert.match(report, /No shop called/);
+  assert.match(report, /No place called/);
 });
 
-test("prose without a score changes nothing", () => {
+test("prose without a number changes nothing", () => {
   const { ratings, report } = ingest("今日は何も食べてない");
   assert.deepEqual(ratings, {});
   assert.match(report, /Nothing to apply/);

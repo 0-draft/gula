@@ -1,48 +1,63 @@
-# GULA
+# I ate out
 
-A ledger for eating alone. 119 places you can walk into by yourself, rated on four axes.
+Every place I eat, scored out of ten.
 
-<https://0-draft.github.io/gula/>
+<https://0-draft.github.io/i-ate-out/>
 
-## Rating
+The first batch of candidates is a researched shortlist of Tokyo places that work on your own, but nothing about the app assumes you are alone — `solo` is a flag on a place, and a filter, not the premise.
 
-One star is not enough, so there are four. The overall score is their weighted mean; unrated axes drop out of the calculation.
+## Scoring
 
-| Axis | What it measures | Weight |
-| --- | --- | --- |
-| うまい | Would you eat it again | ×3 |
-| ひとり居心地 | Comfortable on your own | ×2 |
-| 安い | Value for what you paid | ×1 |
-| 入りやすい | Seated without queuing | ×1 |
+One number, `0.0` to `10.0`, in steps of `0.5`. A place with a score shows up in the ranking; everything else stays a candidate.
 
-Status (`todo` / `visited`) and a `love` flag are tracked separately. Stars are a score; love is whether you go back.
+## Views
+
+- **Candidates** — researched, not yet scored
+- **Ranking** — your scores, highest first
+- **Map** — the places with coordinates, coloured by genre
+
+## Updating
+
+Write a line in an issue and a workflow applies it, commits, replies with what it did and closes the issue.
+
+```text
+無敵家 8.5
+開楽 7 2026-09-16
+新珍味 9 memo=ターロー飯がうまい
+無敵家 clear
+```
+
+Names are matched loosely, so `無敵家`, `mutekiya` and `無敵家 池袋` all resolve to the same place. The app's "Save as an issue" button prefills the same thing as JSON.
 
 ## Data
 
 ```text
-data/shops.json    name, area, genre, price, hours, note, coordinates
-data/ratings.json  stars, status, memo — the committed source of truth
+data/shops.json    name, area, genre, price, hours, note, coordinates, solo
+data/ratings.json  scores — the committed source of truth
+data/photos.json   which shop ids have a photo (generated)
+assets/shops/<id>.jpg
 ```
 
-The browser keeps a working copy in `localStorage` so stars can be tapped at the table. On load, the copy with the newer `updatedAt` wins.
+The browser keeps a working copy of scores in `localStorage` so a place can be scored at the table. On load, whichever copy has the newer `updatedAt` wins.
 
-No database and no server: GitHub Pages serves the files, and ratings reach the repo through an issue.
+No database and no server: GitHub Pages serves the files and issues carry the writes.
 
-## Updating
+### Photos
 
-Open an issue from a template: record a visit, add a shop, or fix wrong information. The data files are updated from there.
+Drop `assets/shops/<id>.jpg` in and run `npm run photos` to reindex. Cards without a photo fall back to a genre-coloured tile, and every card links out to an image search. Hotlinking photos from review sites is not an option — the licences forbid it and the referrer checks block it anyway.
 
 ## Development
 
-No build step — plain HTML, CSS and ES modules, with Leaflet from a CDN.
+No build step: plain HTML, CSS and ES modules, with Leaflet from a CDN.
 
 ```bash
 npm install
-npm run dev    # http://localhost:8777
-npm run lint   # data, js, css, markdown
-npm test       # playwright smoke tests
+npm run dev      # http://localhost:8777
+npm run lint     # data, js, css, markdown
+npm test         # node unit tests, then playwright
+npm run photos   # reindex assets/shops
 ```
 
 ## Notes
 
-Hours and prices change; check before you go. 14 shops have coordinates verified against OpenStreetMap — the rest link out to a maps search until someone files them.
+Hours and prices change; check before you go. Eleven places have coordinates verified against OpenStreetMap — the rest link out to a maps search until someone files them.

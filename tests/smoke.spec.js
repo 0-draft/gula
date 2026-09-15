@@ -1,59 +1,70 @@
 import { test, expect } from "@playwright/test";
 
-test("lists every shop", async ({ page }) => {
+const CANDIDATES = 73;
+
+test("candidates are listed", async ({ page }) => {
   await page.goto("/");
-  await page.getByRole("button", { name: /^Everything/ }).click();
-  await expect(page.locator("#view-all .ticket")).toHaveCount(119);
+  await expect(page.locator("#view-candidates .card")).toHaveCount(CANDIDATES);
 });
 
-test("rating a shop puts it in the ranking", async ({ page }) => {
+test("scoring a place moves it to the ranking", async ({ page }) => {
   await page.goto("/");
-  await page.getByRole("button", { name: /^Everything/ }).click();
-  await page.locator('#view-all .ticket[data-id="mutekiya"]').click();
-
-  // taste 5, ease 2 -> (5*3 + 2*1) / (3+1) = 4.25 -> 4.3
-  await page.locator('.axis__star[data-axis="taste"][data-n="5"]').click();
-  await page.locator('.axis__star[data-axis="ease"][data-n="2"]').click();
+  await page.locator('.card[data-id="mutekiya"]').click();
+  await page.locator('.step[data-score="8"]').click();
+  await expect(page.locator("#ed-score")).toHaveText("8.0");
   await page.locator(".editor__close").click();
 
-  await page.getByRole("button", { name: "Ranking" }).click();
-  const top = page.locator("#rank-list > li").first();
+  await expect(page.locator("#view-candidates .card")).toHaveCount(CANDIDATES - 1);
+  await page.locator('.tab[data-view="rank"]').click();
+  const top = page.locator("#view-rank .card").first();
   await expect(top).toContainText("無敵家");
-  await expect(top.locator(".ticket__num")).toHaveText("4.3");
+  await expect(top.locator(".card__score")).toHaveText("8.0");
 });
 
-test("visiting a shop stamps its area sheet", async ({ page }) => {
+test("the ranking sorts by score", async ({ page }) => {
   await page.goto("/");
-  await page.getByRole("button", { name: /^Everything/ }).click();
-  await page.locator('#view-all .ticket[data-id="mutekiya"]').click();
-  await page.locator('.axis__star[data-axis="taste"][data-n="4"]').click();
+  await page.locator('.card[data-id="mutekiya"]').click();
+  await page.locator('.step[data-score="6"]').click();
+  await page.locator(".editor__close").click();
+  await page.locator('.card[data-id="kairaku"]').click();
+  await page.locator('.step[data-score="9"]').click();
   await page.locator(".editor__close").click();
 
-  await page.getByRole("button", { name: "Sheets" }).click();
-  await expect(page.locator('.dot.is-visited[data-id="mutekiya"]')).toBeVisible();
+  await page.locator('.tab[data-view="rank"]').click();
+  const cards = page.locator("#view-rank .card");
+  await expect(cards.nth(0)).toContainText("開楽");
+  await expect(cards.nth(1)).toContainText("無敵家");
 });
 
 test("genre filter narrows the list", async ({ page }) => {
   await page.goto("/");
-  await page.getByRole("button", { name: /^Everything/ }).click();
   await page.locator('.chip[data-genre="curry"]').click();
-  await expect(page.locator("#view-all .ticket")).toHaveCount(15);
+  const cards = page.locator("#view-candidates .card");
+  await expect(cards).toHaveCount(await cards.count());
+  await expect(page.locator('#view-candidates .card[data-id="mutekiya"]')).toHaveCount(0);
+  await expect(page.locator('#view-candidates .card[data-id="kasei-curry"]')).toHaveCount(1);
+});
+
+test("search matches an English note", async ({ page }) => {
+  await page.goto("/");
+  await page.locator("#q").fill("biryani");
+  await expect(page.locator("#view-candidates .card")).toHaveCount(1);
 });
 
 test("map renders markers", async ({ page }) => {
   await page.goto("/");
-  await page.getByRole("button", { name: "Map" }).click();
+  await page.locator('.tab[data-view="map"]').click();
   await expect(page.locator("#map .leaflet-marker-icon").first()).toBeVisible();
 });
 
-test("language toggle switches the chrome to Japanese and back", async ({ page }) => {
+test("language toggle switches the chrome and back", async ({ page }) => {
   await page.goto("/");
-  await expect(page.getByRole("button", { name: "Ranking" })).toBeVisible();
+  await expect(page.locator('.tab[data-view="candidates"]')).toHaveText(/Candidates/);
 
   await page.locator("#lang").click();
-  await expect(page.getByRole("button", { name: "番付" })).toBeVisible();
+  await expect(page.locator('.tab[data-view="candidates"]')).toHaveText(/候補/);
   await expect(page.locator("html")).toHaveAttribute("lang", "ja");
 
   await page.locator("#lang").click();
-  await expect(page.getByRole("button", { name: "Ranking" })).toBeVisible();
+  await expect(page.locator('.tab[data-view="candidates"]')).toHaveText(/Candidates/);
 });

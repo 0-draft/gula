@@ -1,19 +1,20 @@
 {
-  "name": "gula",
+  "name": "i-ate-out",
   "version": "0.1.0",
   "private": true,
   "type": "module",
   "description": "ひとりで行ける店を食い尽くして、星をつける台帳。",
   "scripts": {
     "dev": "python3 -m http.server 8777",
-    "lint": "npm run lint:js && npm run lint:css && npm run lint:md && npm run lint:data",
+    "lint": "npm run lint:data && npm run lint:js && npm run lint:css && npm run lint:md",
     "lint:js": "eslint assets scripts",
     "lint:css": "stylelint \"assets/**/*.css\"",
     "lint:md": "markdownlint-cli2 \"**/*.md\" \"#node_modules\"",
     "lint:data": "node scripts/check-data.js",
     "test": "node --test tests/ingest.test.js && playwright test",
     "test:unit": "node --test tests/ingest.test.js",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "photos": "node scripts/index-photos.js"
   },
   "devDependencies": {
     "@playwright/test": "^1.55.0",
