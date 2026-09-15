@@ -1,0 +1,36 @@
+name: 情報を直す
+description: 閉店・移転・値段違い・座標がない、など
+title: "[修正] "
+labels: ["fix"]
+body:
+  - type: input
+    id: shop
+    attributes:
+      label: どの店
+      placeholder: 無敵家 (mutekiya)
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: 何を直す
+      options:
+        - 閉店・休業
+        - 移転
+        - 営業時間・定休日
+        - 値段
+        - 説明・タグ
+        - 座標を足す
+        - その他
+    validations:
+      required: true
+  - type: textarea
+    id: detail
+    attributes:
+      label: 正しい内容
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: 情報のもと

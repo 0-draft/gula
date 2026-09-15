@@ -1,0 +1,60 @@
+name: 行った記録（星つけ）
+description: 食べてきた店に星をつける
+title: "[記録] "
+labels: ["rating"]
+body:
+  - type: input
+    id: shop
+    attributes:
+      label: 店
+      description: 店名、わかれば shops.json の id も
+      placeholder: 無敵家 (mutekiya)
+    validations:
+      required: true
+  - type: input
+    id: visited-at
+    attributes:
+      label: 行った日
+      placeholder: 2026-09-16
+  - type: dropdown
+    id: taste
+    attributes:
+      label: うまい（重み×3）
+      options: ["5", "4", "3", "2", "1"]
+    validations:
+      required: true
+  - type: dropdown
+    id: solo
+    attributes:
+      label: ひとり居心地（重み×2）
+      description: 一人で浮かないか
+      options: ["5", "4", "3", "2", "1"]
+  - type: dropdown
+    id: value
+    attributes:
+      label: 安い（重み×1）
+      description: 払った額に対して
+      options: ["5", "4", "3", "2", "1"]
+  - type: dropdown
+    id: ease
+    attributes:
+      label: 入りやすい（重み×1）
+      description: 並ばず座れるか
+      options: ["5", "4", "3", "2", "1"]
+  - type: checkboxes
+    id: love
+    attributes:
+      label: また行く
+      options:
+        - label: 好きに入れる
+  - type: textarea
+    id: memo
+    attributes:
+      label: メモ
+      placeholder: 何を食べた？次はどうする？
+  - type: textarea
+    id: json
+    attributes:
+      label: アプリから貼る場合
+      description: 画面の「Issueにして残す」で作った JSON があればここに貼る
+      render: json

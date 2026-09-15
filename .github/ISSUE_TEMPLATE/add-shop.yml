@@ -1,0 +1,63 @@
+name: 店を足す
+description: リストにない店を見つけた
+title: "[追加] "
+labels: ["shop"]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: 店名
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: エリア
+      options: ["西口", "北口", "東口", "南池袋", "東池袋", "駅ナカ", "周縁"]
+    validations:
+      required: true
+  - type: dropdown
+    id: genre
+    attributes:
+      label: ジャンル
+      options:
+        - 麺 (ramen)
+        - 定食 (teishoku)
+        - 中華 (chinese)
+        - カレー (curry)
+        - そば・うどん (soba)
+        - 洋食 (yoshoku)
+        - 焼肉 (yakiniku)
+        - 焼鳥 (yakitori)
+        - 寿司 (sushi)
+        - アジア (ethnic)
+        - 韓国 (korean)
+        - 喫茶 (kissa)
+        - 呑み (nomi)
+        - 深夜 (late)
+    validations:
+      required: true
+  - type: input
+    id: address
+    attributes:
+      label: 住所
+      description: わかる範囲で。番地まであると地図に載せられる
+  - type: input
+    id: price
+    attributes:
+      label: だいたいの値段
+      placeholder: 〜¥999
+  - type: input
+    id: hours
+    attributes:
+      label: 営業時間・定休日
+  - type: textarea
+    id: note
+    attributes:
+      label: どんな店か
+      description: 一人で入れるか、名物、混み具合など
+  - type: input
+    id: source
+    attributes:
+      label: 情報のもと
+      description: 行った / 記事のURL / 人から聞いた
