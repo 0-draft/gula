@@ -23,7 +23,7 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - name: データの整合性
+      - name: Data
         run: npm run lint:data
       - name: JavaScript
         run: npm run lint:js

@@ -58,11 +58,26 @@ a:hover { text-decoration-color: var(--stamp); }
   overflow: hidden; clip-path: inset(50%); white-space: nowrap;
 }
 
-/* ---------- 暖簾 ---------- */
+/* ---------- noren (shop curtain) header ---------- */
 
 .noren { padding-top: env(safe-area-inset-top, 0px); margin-bottom: 8px; }
 
 .noren__inner { max-width: var(--wrap); margin: 0 auto; padding-inline: var(--gut); }
+
+.noren__bar { display: flex; justify-content: flex-end; padding-top: 10px; }
+
+.lang {
+  font: 700 12px/1 var(--disp);
+  letter-spacing: .06em;
+  padding: 7px 12px;
+  border: 1.5px solid var(--rule);
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--ink-2);
+  cursor: pointer;
+}
+
+.lang:hover { border-color: var(--ink); color: var(--ink); }
 
 .noren__rod {
   height: 7px;
@@ -104,7 +119,7 @@ a:hover { text-decoration-color: var(--stamp); }
   opacity: .9;
 }
 
-/* ---------- きょうの一枚 ---------- */
+/* ---------- daily draw ---------- */
 
 .draw {
   max-width: var(--wrap);
@@ -133,7 +148,7 @@ a:hover { text-decoration-color: var(--stamp); }
   to   { transform: none; opacity: 1; }
 }
 
-/* ---------- ボタン ---------- */
+/* ---------- buttons ---------- */
 
 .btn {
   display: inline-block;
@@ -153,7 +168,7 @@ a:hover { text-decoration-color: var(--stamp); }
 .btn--stamp:hover { background: var(--ink); border-color: var(--ink); }
 .btn--quiet { border-color: var(--rule); color: var(--ink-2); }
 
-/* ---------- タブ ---------- */
+/* ---------- tabs ---------- */
 
 .tabs {
   display: flex;
@@ -188,7 +203,7 @@ a:hover { text-decoration-color: var(--stamp); }
 
 .tab__n { font-size: 12px; color: var(--ink-2); margin-left: 5px; }
 
-/* ---------- 絞り込み ---------- */
+/* ---------- filters ---------- */
 
 .sift {
   max-width: var(--wrap);
@@ -228,7 +243,7 @@ a:hover { text-decoration-color: var(--stamp); }
 
 .toggle { font-size: 14px; color: var(--ink-2); display: flex; align-items: center; gap: 7px; }
 
-/* ---------- 食券カード ---------- */
+/* ---------- meal-ticket card ---------- */
 
 .view { padding: 18px 0 44px; }
 .view[hidden] { display: none; }
@@ -349,7 +364,7 @@ a:hover { text-decoration-color: var(--stamp); }
 
 .ticket__love { position: absolute; bottom: 10px; right: 12px; font-size: 17px; }
 
-/* ---------- 番付 ---------- */
+/* ---------- ranking ---------- */
 
 .rank { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
 
@@ -379,7 +394,7 @@ a:hover { text-decoration-color: var(--stamp); }
 .howto summary { cursor: pointer; font-family: var(--disp); font-weight: 700; color: var(--ink); }
 .howto p { margin: 10px 0 0; }
 
-/* ---------- 制覇台紙 ---------- */
+/* ---------- stamp sheets ---------- */
 
 .sheet {
   background: var(--card);
@@ -430,7 +445,7 @@ a:hover { text-decoration-color: var(--stamp); }
 
 .sheet__next { font-size: 13px; color: var(--ink-2); margin: 12px 0 0; }
 
-/* ---------- 地図 ---------- */
+/* ---------- map ---------- */
 
 .map {
   height: min(62vh, 30rem);
@@ -456,7 +471,7 @@ a:hover { text-decoration-color: var(--stamp); }
 .pin--visited { background: var(--stamp); border-color: var(--stamp); }
 .pin--todo { background: var(--karashi); }
 
-/* ---------- 記入用ダイアログ ---------- */
+/* ---------- rating dialog ---------- */
 
 .editor {
   width: min(34rem, calc(100vw - 24px));
@@ -525,7 +540,7 @@ a:hover { text-decoration-color: var(--stamp); }
 
 .editor__foot { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
 
-/* ---------- 足元 ---------- */
+/* ---------- footer and empty states ---------- */
 
 .empty {
   border: 2px dashed var(--rule);

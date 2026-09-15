@@ -1,63 +1,64 @@
-name: 店を足す
-description: リストにない店を見つけた
-title: "[追加] "
+name: Add a shop
+description: Somewhere that is missing from the list
+title: "[add] "
 labels: ["shop"]
 body:
   - type: input
     id: name
     attributes:
-      label: 店名
+      label: Name
+      description: In Japanese, as it appears on the shop
     validations:
       required: true
   - type: dropdown
     id: area
     attributes:
-      label: エリア
-      options: ["西口", "北口", "東口", "南池袋", "東池袋", "駅ナカ", "周縁"]
+      label: Area
+      options: ["西口 West exit", "北口 North exit", "東口 East exit", "南池袋 Minami-Ikebukuro", "東池袋 Higashi-Ikebukuro", "駅ナカ In the station", "周縁 Outskirts"]
     validations:
       required: true
   - type: dropdown
     id: genre
     attributes:
-      label: ジャンル
+      label: Genre
       options:
-        - 麺 (ramen)
-        - 定食 (teishoku)
-        - 中華 (chinese)
-        - カレー (curry)
-        - そば・うどん (soba)
-        - 洋食 (yoshoku)
-        - 焼肉 (yakiniku)
-        - 焼鳥 (yakitori)
-        - 寿司 (sushi)
-        - アジア (ethnic)
-        - 韓国 (korean)
-        - 喫茶 (kissa)
-        - 呑み (nomi)
-        - 深夜 (late)
+        - Ramen (ramen)
+        - Set meal (teishoku)
+        - Chinese (chinese)
+        - Curry (curry)
+        - Soba & udon (soba)
+        - Western (yoshoku)
+        - Yakiniku (yakiniku)
+        - Yakitori (yakitori)
+        - Sushi (sushi)
+        - Asian (ethnic)
+        - Korean (korean)
+        - Coffee house (kissa)
+        - Standing bar (nomi)
+        - Late night (late)
     validations:
       required: true
   - type: input
     id: address
     attributes:
-      label: 住所
-      description: わかる範囲で。番地まであると地図に載せられる
+      label: Address
+      description: As precise as you can get it; a block number is enough to map it
   - type: input
     id: price
     attributes:
-      label: だいたいの値段
+      label: Rough price
       placeholder: 〜¥999
   - type: input
     id: hours
     attributes:
-      label: 営業時間・定休日
+      label: Hours and closing day
   - type: textarea
     id: note
     attributes:
-      label: どんな店か
-      description: 一人で入れるか、名物、混み具合など
+      label: What the place is like
+      description: Whether you can go alone, what to order, how busy it gets
   - type: input
     id: source
     attributes:
-      label: 情報のもと
-      description: 行った / 記事のURL / 人から聞いた
+      label: Where this comes from
+      description: Been there / a URL / word of mouth
