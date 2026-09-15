@@ -64,7 +64,7 @@ a:hover { text-decoration-color: var(--stamp); }
 
 .noren__inner { max-width: var(--wrap); margin: 0 auto; padding-inline: var(--gut); }
 
-.noren__bar { display: flex; justify-content: flex-end; padding-top: 10px; }
+.noren__bar { display: flex; justify-content: flex-end; padding-top: 14px; }
 
 .lang {
   font: 700 12px/1 var(--disp);
