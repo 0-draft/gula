@@ -42,7 +42,7 @@ for (const [id, r] of Object.entries(ratings)) {
   if (!STATUSES.includes(r.status ?? null)) fail(`${at}: unknown status (${r.status})`);
   for (const [axis, v] of Object.entries(r.stars || {})) {
     if (!AXES.includes(axis)) fail(`${at}: unknown axis (${axis})`);
-    if (!Number.isInteger(v) || v < 0 || v > 5) fail(`${at}.stars.${axis}: must be an integer 0-5`);
+    if (!(v >= 0 && v <= 5 && Number.isInteger(v * 2))) fail(`${at}.stars.${axis}: must be 0-5 in steps of 0.5`);
   }
   if (r.visitedAt && !/^\d{4}-\d{2}-\d{2}$/.test(r.visitedAt)) fail(`${at}: visitedAt must be YYYY-MM-DD`);
   if (r.updatedAt && !/^\d{4}-\d{2}-\d{2}$/.test(r.updatedAt)) fail(`${at}: updatedAt must be YYYY-MM-DD`);

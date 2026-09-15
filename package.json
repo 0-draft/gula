@@ -11,7 +11,9 @@
     "lint:css": "stylelint \"assets/**/*.css\"",
     "lint:md": "markdownlint-cli2 \"**/*.md\" \"#node_modules\"",
     "lint:data": "node scripts/check-data.js",
-    "test": "playwright test"
+    "test": "node --test tests/ingest.test.js && playwright test",
+    "test:unit": "node --test tests/ingest.test.js",
+    "test:e2e": "playwright test"
   },
   "devDependencies": {
     "@playwright/test": "^1.55.0",

@@ -3,3 +3,5 @@ playwright-report/
 test-results/
 .playwright-mcp/
 .DS_Store
+ingest-report.md
+ingest.log

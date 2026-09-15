@@ -1,0 +1,70 @@
+name: Ingest ratings from issues
+
+on:
+  issues:
+    types: [opened, edited, reopened]
+  issue_comment:
+    types: [created, edited]
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: ingest
+  cancel-in-progress: false
+
+jobs:
+  ingest:
+    # Only act on the repository owner's own issues and comments, and never on
+    # the bot's own replies.
+    if: >
+      github.event.sender.type != 'Bot' &&
+      (github.event.issue.author_association == 'OWNER' ||
+       github.event.issue.author_association == 'MEMBER' ||
+       github.event.issue.author_association == 'COLLABORATOR')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+
+      - name: Parse the issue
+        id: parse
+        env:
+          ISSUE_BODY: ${{ github.event.comment.body || github.event.issue.body }}
+        run: |
+          node scripts/ingest-issue.js | tee ingest.log
+          grep -q 'changed=true' ingest.log && echo "changed=true" >> "$GITHUB_OUTPUT" || echo "changed=false" >> "$GITHUB_OUTPUT"
+
+      - name: Validate the result
+        if: steps.parse.outputs.changed == 'true'
+        run: node scripts/check-data.js
+
+      - name: Commit
+        if: steps.parse.outputs.changed == 'true'
+        run: |
+          if git diff --quiet -- data/ratings.json; then
+            echo "no textual change"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/ratings.json
+          git commit -m "data: apply ratings from #${{ github.event.issue.number }}"
+          git push
+
+      - name: Reply on the issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh issue comment "${{ github.event.issue.number }}" --body-file ingest-report.md
+
+      - name: Close the issue once applied
+        if: steps.parse.outputs.changed == 'true' && github.event_name == 'issues'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh issue close "${{ github.event.issue.number }}" --reason completed
