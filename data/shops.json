@@ -28,7 +28,10 @@
       "行列",
       "淡麗"
     ],
-    "solo": true
+    "solo": true,
+    "image": "https://c-mr.gnst.jp/cont/menu_image/fc/06/3155216_l.jpeg?t=1789344277",
+    "imageCredit": "ぐるなび",
+    "gnavi": 3.5
   },
   {
     "id": "tasakaya",
@@ -169,7 +172,10 @@
       "濃厚",
       "カウンター"
     ],
-    "solo": true
+    "solo": true,
+    "image": "https://c-mr.gnst.jp/cont/menu_image/e2/0c/4460229_l.jpeg?t=1789344277",
+    "imageCredit": "ぐるなび",
+    "gnavi": 3.24
   },
   {
     "id": "kikanbo",
@@ -271,7 +277,9 @@
       "孤独のグルメ",
       "行列"
     ],
-    "solo": true
+    "solo": true,
+    "image": "https://c-mr.gnst.jp/cont/menu_image/3e/2f/4112679_l.jpeg?t=1789344277",
+    "imageCredit": "ぐるなび"
   },
   {
     "id": "yan-annex",
@@ -302,7 +310,9 @@
       "四川",
       "一人向き"
     ],
-    "solo": true
+    "solo": true,
+    "image": "https://c-mr.gnst.jp/cont/menu_image/54/eb/4581303_l.jpeg?t=1789344277",
+    "imageCredit": "ぐるなび"
   },
   {
     "id": "futto-shokicho",
@@ -371,7 +381,9 @@
     ],
     "lat": 35.7293242,
     "lng": 139.7128838,
-    "solo": true
+    "solo": true,
+    "image": "https://c-mr.gnst.jp/cont/menu_image/07/08/1122538_l.jpeg?t=1789344277",
+    "imageCredit": "ぐるなび"
   },
   {
     "id": "chikyu-hanten",
@@ -415,7 +427,10 @@
       "コスパ",
       "カウンター"
     ],
-    "solo": true
+    "solo": true,
+    "image": "https://c-mr.gnst.jp/cont/menu_image/87/de/1634479_l.jpeg?t=1789344277",
+    "imageCredit": "ぐるなび",
+    "gnavi": 3.34
   },
   {
     "id": "yohbocho",
@@ -430,7 +445,9 @@
       "カウンター",
       "コスパ"
     ],
-    "solo": true
+    "solo": true,
+    "image": "https://c-mr.gnst.jp/cont/menu_image/65/f7/1830578_l.jpeg?t=1789344277",
+    "imageCredit": "ぐるなび"
   },
   {
     "id": "yamituki",
@@ -513,7 +530,9 @@
     "tags": [
       "静か"
     ],
-    "solo": true
+    "solo": true,
+    "image": "https://rimage.gnst.jp/rest/img/m6jtdrre0000/t_0n5l.jpg?format=auto&q=80&t=1759301079",
+    "imageCredit": "ぐるなび"
   },
   {
     "id": "kimunchi",
@@ -546,7 +565,9 @@
     ],
     "lat": 35.7305454,
     "lng": 139.7071474,
-    "solo": true
+    "solo": true,
+    "image": "https://c-mr.gnst.jp/cont/menu_image/11/ed/2000037703_l.jpeg?t=1789344277",
+    "imageCredit": "ぐるなび"
   },
   {
     "id": "curry-hardcore",
@@ -673,7 +694,9 @@
       "カウンター",
       "行列"
     ],
-    "solo": true
+    "solo": true,
+    "image": "https://c-mr.gnst.jp/cont/menu_image/ee/e4/706668_l.jpeg?t=1789344277",
+    "imageCredit": "ぐるなび"
   },
   {
     "id": "anpuku",
@@ -688,7 +711,9 @@
       "うどん",
       "カレーうどん"
     ],
-    "solo": true
+    "solo": true,
+    "image": "https://c-mr.gnst.jp/cont/menu_image/f4/2a/4580461_l.jpeg?t=1789344277",
+    "imageCredit": "ぐるなび"
   },
   {
     "id": "suzuriya",
@@ -829,7 +854,9 @@
       "コスパ",
       "一人向き"
     ],
-    "solo": true
+    "solo": true,
+    "image": "https://c-mr.gnst.jp/cont/menu_image/39/f1/1809439_l.jpeg?t=1789344277",
+    "imageCredit": "ぐるなび"
   },
   {
     "id": "kitchen-check",
@@ -858,7 +885,10 @@
       "ハンバーグ",
       "行列"
     ],
-    "solo": true
+    "solo": true,
+    "image": "https://c-mr.gnst.jp/cont/menu_image/d8/54/1893502_l.jpeg?t=1789344277",
+    "imageCredit": "ぐるなび",
+    "gnavi": 3.46
   },
   {
     "id": "miyazakitei",
@@ -901,7 +931,10 @@
     ],
     "lat": 35.7319736,
     "lng": 139.7137074,
-    "solo": true
+    "solo": true,
+    "image": "https://c-mr.gnst.jp/cont/menu_image/5a/e1/4669903_l.jpeg?t=1789344277",
+    "imageCredit": "ぐるなび",
+    "gnavi": 3.4
   },
   {
     "id": "misono",
@@ -946,7 +979,9 @@
       "カウンター",
       "ひとり飲み"
     ],
-    "solo": true
+    "solo": true,
+    "image": "https://rimage.gnst.jp/rest/img/faje3as10000/t_000m.jpg?t=1650431377",
+    "imageCredit": "ぐるなび"
   },
   {
     "id": "sushitsune",
@@ -990,7 +1025,10 @@
       "イサーン",
       "小箱"
     ],
-    "solo": true
+    "solo": true,
+    "image": "https://c-mr.gnst.jp/cont/menu_image/c2/67/1783298_l.jpeg?t=1789344277",
+    "imageCredit": "ぐるなび",
+    "gnavi": 3.57
   },
   {
     "id": "jasmine-thai",
@@ -1017,7 +1055,9 @@
     "tags": [
       "アジア各国"
     ],
-    "solo": true
+    "solo": true,
+    "image": "https://rimage.gnst.jp/rest/img/sfw7r68e0000/t_0n9m.jpg?t=1781153147",
+    "imageCredit": "ぐるなび"
   },
   {
     "id": "hakushaku",
