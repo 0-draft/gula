@@ -7,9 +7,10 @@ updates:
       day: monday
     open-pull-requests-limit: 5
     groups:
+      # stylelint と stylelint-config-standard は peer で噛み合っているので、
+      # major も含めて一括で上げないと npm ci が ERESOLVE で落ちる。
       dev-tooling:
         patterns: ["*"]
-        update-types: ["minor", "patch"]
     commit-message:
       prefix: chore
 

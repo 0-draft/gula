@@ -1,65 +1,48 @@
-# GULA — 暴食
+# GULA
 
-ひとりで行ける店を食い尽くして、星をつける台帳。池袋近辺、119軒。
+A ledger for eating alone. 119 places you can walk into by yourself, rated on four axes.
 
-- **アプリ**: <https://0-draft.github.io/gula/>
-- **更新のしかた**: Issue を立てる → 中の人が `data/` に反映してデプロイ
+<https://0-draft.github.io/gula/>
 
-## 星のつけかた
+## Rating
 
-1軸ではなく4軸。総合点は重みつき平均で出す。
+One star is not enough, so there are four. The overall score is their weighted mean; unrated axes drop out of the calculation.
 
-| 軸 | 見るところ | 重み |
+| Axis | What it measures | Weight |
 | --- | --- | --- |
-| うまい | また食べたい味か | ×3 |
-| ひとり居心地 | 一人で浮かないか | ×2 |
-| 安い | 払った額に対して | ×1 |
-| 入りやすい | 並ばず座れるか | ×1 |
+| うまい | Would you eat it again | ×3 |
+| ひとり居心地 | Comfortable on your own | ×2 |
+| 安い | Value for what you paid | ×1 |
+| 入りやすい | Seated without queuing | ×1 |
 
-星を入れていない軸は計算から外れるので、「うまい」だけ入れても順位はつく。
-これとは別に、状態（行きたい / 行った）と「好き」がある。星は点数、好きは通うかどうか。
+Status (`todo` / `visited`) and a `love` flag are tracked separately. Stars are a score; love is whether you go back.
 
-## 画面
-
-- **番付** — 自分の総合点順
-- **行きたい** — TODO
-- **好き** — また行く店
-- **制覇** — エリアごとの台紙。食べた店にハンコが押される
-- **地図** — 座標がわかっている店をピンで表示
-- **ぜんぶ** — 全 119 軒
-
-トップの「きょうの一枚」は、行きたいリスト（なければ未訪問）から1軒ひく。
-
-## データ
+## Data
 
 ```text
-data/shops.json    店の情報（名前・エリア・ジャンル・値段・メモ・座標）
-data/ratings.json  星と状態。Issue をもとにここを更新する
+data/shops.json    name, area, genre, price, hours, note, coordinates
+data/ratings.json  stars, status, memo — the committed source of truth
 ```
 
-星はブラウザの localStorage にも自動で保存される。端末をまたぐときは、
-画面下の「星をJSONで書き出す」か、各店の「Issueにして残す」を使う。
+The browser keeps a working copy in `localStorage` so stars can be tapped at the table. On load, the copy with the newer `updatedAt` wins.
 
-`data/ratings.json` と localStorage は `updatedAt` が新しいほうが勝つ。
+No database and no server: GitHub Pages serves the files, and ratings reach the repo through an issue.
 
-## 座標について
+## Updating
 
-いま座標が入っているのは 14 軒だけ。小さい個人店は OpenStreetMap に載っていないことが多い。
-地図に載っていない店は、カードから地図アプリを名前で開けるようにしてある。
-座標がわかったら「情報を直す」Issue で送ると地図に載る。
+Open an issue from a template: record a visit, add a shop, or fix wrong information. The data files are updated from there.
 
-## 開発
+## Development
 
-ビルドなし。素の HTML / CSS / ES モジュールと、CDN から読む Leaflet だけ。
+No build step — plain HTML, CSS and ES modules, with Leaflet from a CDN.
 
 ```bash
-python3 -m http.server 8000
-# http://localhost:8000
+npm install
+npm run dev    # http://localhost:8777
+npm run lint   # data, js, css, markdown
+npm test       # playwright smoke tests
 ```
 
-`fetch` を使うのでファイルを直接開くのではなくサーバー経由で見る。
+## Notes
 
-## 出典
-
-店の情報は食べログのランキング、各種まとめ記事、店の公式情報から集めた。
-営業時間と値段は変わるので、行く前に最新を確認すること。
+Hours and prices change; check before you go. 14 shops have coordinates verified against OpenStreetMap — the rest link out to a maps search until someone files them.
