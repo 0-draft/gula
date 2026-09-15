@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 
-const CANDIDATES = 73;
+const CANDIDATES = 72;
 
 test("candidates are listed", async ({ page }) => {
   await page.goto("/");
