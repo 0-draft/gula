@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
-<meta name="description" content="A ledger for eating alone: places you can walk into by yourself, rated on four axes.">
-<title>GULA</title>
+<meta name="description" content="Places you can walk into alone, scored out of ten.">
+<title>I ate out</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>🍜</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,37 +15,19 @@
 </head>
 <body>
 
-<header class="noren" id="top">
-  <div class="noren__inner">
-    <div class="noren__bar">
-      <button type="button" id="lang" class="lang" data-i18n="lang.other" data-i18n-aria="lang.aria"></button>
-    </div>
-    <div class="noren__rod" aria-hidden="true"></div>
-    <div class="noren__panels">
-      <div class="noren__panel noren__panel--side" aria-hidden="true"><span class="noren__mark">大</span></div>
-      <div class="noren__panel noren__panel--main">
-        <h1 class="noren__title">暴食</h1>
-        <p class="noren__sub" data-i18n="noren.sub"></p>
-      </div>
-      <div class="noren__panel noren__panel--side" aria-hidden="true"><span class="noren__mark">罪</span></div>
-    </div>
+<header class="head">
+  <div class="head__inner">
+    <h1 class="head__logo">I ate out</h1>
+    <p class="head__tagline" data-i18n="tagline"></p>
+    <button type="button" id="lang" class="lang" data-i18n="lang.other" data-i18n-aria="lang.aria"></button>
   </div>
 </header>
 
 <main>
-  <section class="draw" aria-labelledby="draw-h">
-    <h2 id="draw-h" class="draw__h" data-i18n="draw.h"></h2>
-    <div id="draw-slot" class="draw__slot"></div>
-    <button type="button" id="draw-again" class="btn btn--ghost" data-i18n="draw.again"></button>
-  </section>
-
   <nav class="tabs" id="tabs" data-i18n-aria="tabs.aria">
-    <button type="button" class="tab is-on" data-view="rank" aria-current="page" data-i18n="tab.rank"></button>
-    <button type="button" class="tab" data-view="todo"><span data-i18n="tab.todo"></span><span class="tab__n" id="n-todo"></span></button>
-    <button type="button" class="tab" data-view="love"><span data-i18n="tab.love"></span><span class="tab__n" id="n-love"></span></button>
-    <button type="button" class="tab" data-view="sheet" data-i18n="tab.sheet"></button>
+    <button type="button" class="tab is-on" data-view="candidates" aria-current="page"><span data-i18n="tab.candidates"></span><span class="tab__n" id="n-cand"></span></button>
+    <button type="button" class="tab" data-view="rank"><span data-i18n="tab.rank"></span><span class="tab__n" id="n-rank"></span></button>
     <button type="button" class="tab" data-view="map" data-i18n="tab.map"></button>
-    <button type="button" class="tab" data-view="all"><span data-i18n="tab.all"></span><span class="tab__n" id="n-all"></span></button>
   </nav>
 
   <div class="sift" id="sift">
@@ -55,46 +37,32 @@
     </label>
     <div class="chips" id="chips-genre" role="group"></div>
     <div class="chips chips--area" id="chips-area" role="group"></div>
-    <label class="toggle"><input type="checkbox" id="only-new"> <span data-i18n="sift.onlyNew"></span></label>
+    <div class="chips">
+      <button type="button" class="chip chip--solo" id="chip-solo" data-i18n="sift.solo"></button>
+    </div>
   </div>
 
-  <section id="view-rank" class="view">
-    <div class="view__lead"><p data-i18n="rank.lead"></p></div>
-    <ol id="rank-list" class="rank"></ol>
-    <details id="howto-score" class="howto">
-      <summary data-i18n="rank.howto"></summary>
-      <p data-i18n-html="rank.howtoBody"></p>
-    </details>
-  </section>
-
-  <section id="view-todo" class="view" hidden></section>
-  <section id="view-love" class="view" hidden></section>
-
-  <section id="view-sheet" class="view" hidden>
-    <div class="view__lead"><p data-i18n="sheet.lead"></p></div>
-    <div id="sheets"></div>
-  </section>
+  <section id="view-candidates" class="view"></section>
+  <section id="view-rank" class="view" hidden></section>
 
   <section id="view-map" class="view" hidden>
     <div class="view__lead"><p id="map-count"></p></div>
     <div id="map" class="map"></div>
     <div id="map-rest" class="map-rest"></div>
   </section>
-
-  <section id="view-all" class="view" hidden></section>
 </main>
 
 <footer class="foot">
   <p data-i18n-html="foot.data"></p>
   <p class="foot__links">
     <a id="export-link" href="#" download="ratings.json" data-i18n="foot.export"></a>
-    <a href="https://github.com/0-draft/gula/issues/new/choose" data-i18n="foot.issue"></a>
+    <a href="https://github.com/0-draft/i-ate-out/issues/new/choose" data-i18n="foot.issue"></a>
   </p>
-  <p class="foot__osm"><span data-i18n="foot.osm"></span>: <a href="https://www.openstreetmap.org/copyright">© OpenStreetMap</a> contributors</p>
+  <p class="foot__osm"><span data-i18n="foot.osm"></span>: <a href="https://www.openstreetmap.org/copyright">© OpenStreetMap</a>, <a href="https://carto.com/attributions">© CARTO</a></p>
 </footer>
 
 <dialog id="editor" class="editor">
-  <form method="dialog" class="editor__form" id="editor-form">
+  <form method="dialog" class="editor__form">
     <div class="editor__head">
       <div>
         <h2 id="ed-name" class="editor__name"></h2>
@@ -103,31 +71,36 @@
       <button type="submit" value="close" class="editor__close" data-i18n-aria="ed.close">×</button>
     </div>
 
+    <figure id="ed-figure" class="editor__figure" hidden>
+      <img id="ed-photo" alt="" loading="lazy">
+      <figcaption id="ed-credit"></figcaption>
+    </figure>
+
     <p id="ed-note" class="editor__note"></p>
 
-    <div class="editor__status" role="group" data-i18n-aria="ed.statusGroup">
-      <button type="button" class="pill" data-status="todo" data-i18n="ed.todo"></button>
-      <button type="button" class="pill" data-status="visited" data-i18n="ed.visited"></button>
-      <button type="button" class="pill pill--love" data-love="1" data-i18n="ed.love"></button>
+    <div class="scorer">
+      <div class="scorer__top">
+        <span class="scorer__label" data-i18n="ed.score"></span>
+        <output id="ed-score" class="scorer__out">—</output>
+      </div>
+      <div id="ed-steps" class="scorer__steps" role="group"></div>
     </div>
 
-    <div id="ed-stars" class="editor__stars"></div>
-
-    <label class="editor__memo">
+    <label class="editor__field">
       <span data-i18n="ed.memo"></span>
       <textarea id="ed-memo" rows="3" data-i18n-placeholder="ed.memoPh"></textarea>
     </label>
 
-    <label class="editor__memo">
+    <label class="editor__field">
       <span data-i18n="ed.date"></span>
       <input type="date" id="ed-date">
     </label>
 
     <div class="editor__foot">
       <a id="ed-issue" class="btn btn--stamp" href="#" target="_blank" rel="noopener" data-i18n="ed.issue"></a>
-      <a id="ed-tabelog" class="btn btn--ghost" href="#" target="_blank" rel="noopener" data-i18n="ed.tabelog"></a>
-      <a id="ed-maps" class="btn btn--ghost" href="#" target="_blank" rel="noopener" data-i18n="ed.maps"></a>
-      <a id="ed-web" class="btn btn--ghost" href="#" target="_blank" rel="noopener" data-i18n="ed.web"></a>
+      <a id="ed-tabelog" class="btn" href="#" target="_blank" rel="noopener" data-i18n="ed.tabelog"></a>
+      <a id="ed-maps" class="btn" href="#" target="_blank" rel="noopener" data-i18n="ed.maps"></a>
+      <a id="ed-photos" class="btn" href="#" target="_blank" rel="noopener" data-i18n="ed.photos"></a>
       <button type="button" id="ed-clear" class="btn btn--quiet" data-i18n="ed.clear"></button>
     </div>
   </form>

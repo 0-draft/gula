@@ -1,51 +1,39 @@
-import { t, genre, area, tag, setLang, getLang } from "./i18n.js";
+import { t, genre, area, tag, setLang, getLang, GENRE_LABELS, AREA_LABELS } from "./i18n.js";
 
-const REPO = "0-draft/gula";
-const LS_RATINGS = "gula/ratings/v1";
-const LS_LANG = "gula/lang/v1";
+const REPO = "0-draft/i-ate-out";
+const LS_RATINGS = "i-ate-out/ratings/v1";
+const LS_LANG = "i-ate-out/lang/v1";
 
-const GENRE_ORDER = [
-  "ramen", "teishoku", "chinese", "curry", "soba", "yoshoku", "yakiniku",
-  "yakitori", "sushi", "ethnic", "korean", "kissa", "nomi", "late",
-];
+const GENRE_ORDER = Object.keys(GENRE_LABELS.en);
+const AREA_ORDER = Object.keys(AREA_LABELS.ja);
 
-const AREA_ORDER = ["西口", "北口", "東口", "南池袋", "東池袋", "駅ナカ", "周縁"];
-
-const AXES = [
-  { key: "taste", w: 3 },
-  { key: "solo", w: 2 },
-  { key: "value", w: 1 },
-  { key: "ease", w: 1 },
-];
+// Pin colour per genre. Kept here rather than in CSS so the map and the
+// genre chip can share one source.
+const GENRE_HUE = {
+  ramen: "#d6335b", teishoku: "#e8892b", chinese: "#c2185b", curry: "#f0b429",
+  soba: "#4a8f7b", yoshoku: "#a15bb5", yakiniku: "#b4462a", yakitori: "#d97a1f",
+  sushi: "#2f8fbf", ethnic: "#3fa2b4", korean: "#cf3f3f", kissa: "#8a6a4f",
+  nomi: "#5f7f3f",
+};
 
 const $ = (sel, root = document) => root.querySelector(sel);
 const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
 
 let shops = [];
 let ratings = {};
+let photos = new Set();
 let map = null;
 let editing = null;
-const filter = { q: "", genres: new Set(), areas: new Set(), onlyNew: false };
+const filter = { q: "", genres: new Set(), areas: new Set(), soloOnly: false };
 
-/* ---------- scoring ---------- */
+/* ---------- scores ---------- */
 
-function scoreOf(id) {
-  const r = ratings[id];
-  if (!r || !r.stars) return null;
-  let sum = 0, weight = 0;
-  for (const a of AXES) {
-    const v = r.stars[a.key];
-    if (v > 0) { sum += v * a.w; weight += a.w; }
-  }
-  return weight ? Math.round((sum / weight) * 10) / 10 : null;
-}
+const scoreOf = (id) => {
+  const v = ratings[id]?.score;
+  return typeof v === "number" ? v : null;
+};
 
-function starRow(n, max = 5) {
-  const full = Math.round(n);
-  return `<span class="ticket__stars" aria-label="${t("stars.aria", n)}">`
-    + "★".repeat(full)
-    + `<span class="off">${"★".repeat(Math.max(0, max - full))}</span></span>`;
-}
+const fmt = (n) => n.toFixed(1);
 
 /* ---------- persistence ---------- */
 
@@ -69,55 +57,59 @@ function mergeRatings(fromRepo, fromLocal) {
 }
 
 function touch(id) {
-  ratings[id] = ratings[id] || { stars: {} };
   ratings[id].updatedAt = new Date().toISOString().slice(0, 10);
   writeLocal();
-  renderAll();
+  render();
 }
 
-/* ---------- meal-ticket card ---------- */
+/* ---------- outbound links ---------- */
 
-function noteOf(shop) {
-  return (getLang() === "en" && shop.noteEn) || shop.note || "";
-}
+const tabelogUrl = (s) => `https://tabelog.com/rstLst/?sw=${encodeURIComponent(`${s.name} 池袋`)}`;
+const photosUrl = (s) => `https://duckduckgo.com/?q=${encodeURIComponent(`${s.name} 池袋`)}&iax=images&ia=images`;
+const mapsUrl = (s) => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(s.lat ? `${s.lat},${s.lng}` : `${s.name} 豊島区`)}`;
 
-function ticket(shop) {
-  const r = ratings[shop.id] || {};
-  const s = scoreOf(shop.id);
-  const visited = r.status === "visited";
-  const note = noteOf(shop);
+/* ---------- card ---------- */
+
+function card(shop, place) {
+  const score = scoreOf(shop.id);
+  const hasPhoto = photos.has(shop.id);
   const meta = [
-    `<span class="ticket__tag ticket__tag--area">${area(shop.area)}</span>`,
-    shop.price ? `<span class="ticket__tag">${shop.price}</span>` : "",
-    shop.tabelog ? `<span class="ticket__tag ticket__tag--tabelog">${t("card.tabelog", shop.tabelog.toFixed(2))}</span>` : "",
-    ...(shop.tags || []).slice(0, 2).map((x) => `<span class="ticket__tag">${tag(x)}</span>`),
+    `<span class="card__tag card__tag--area">${area(shop.area)}</span>`,
+    shop.price ? `<span class="card__tag">${shop.price}</span>` : "",
+    shop.tabelog ? `<span class="card__tag card__tag--tabelog">${t("card.tabelog", shop.tabelog.toFixed(2))}</span>` : "",
+    ...(shop.tags || []).slice(0, 3).map((x) => `<span class="card__tag">${tag(x)}</span>`),
   ].join("");
 
   return `
-    <button type="button" class="ticket${visited ? " is-visited" : ""}" data-id="${shop.id}">
-      <span class="ticket__genre">${genre(shop.genre)}</span>
-      ${visited ? `<span class="ticket__stamp" aria-hidden="true">${t("card.stamp")}</span>` : ""}
-      <span class="ticket__name">${shop.name}</span>
-      <span class="ticket__meta">${meta}</span>
-      ${note ? `<p class="ticket__note">${note}</p>` : ""}
-      ${s !== null ? `<span class="ticket__score"><span class="ticket__num">${s.toFixed(1)}</span>${starRow(s)}</span>` : ""}
-      ${r.love ? '<span class="ticket__love" aria-label="love">♥</span>' : ""}
+    <button type="button" class="card${score !== null ? " is-scored" : ""}" data-id="${shop.id}">
+      <span class="card__shot${hasPhoto ? "" : " card__shot--empty"}" style="--hue:${GENRE_HUE[shop.genre] || "#888"}">
+        ${hasPhoto
+          ? `<img src="assets/shops/${shop.id}.jpg" alt="" loading="lazy" decoding="async">`
+          : `<span class="card__initial" aria-hidden="true">${shop.name.slice(0, 1)}</span>`}
+        <span class="card__genre">${genre(shop.genre)}</span>
+        ${place ? `<span class="card__place" aria-hidden="true">${place}</span>` : ""}
+        ${score !== null ? `<span class="card__score">${fmt(score)}</span>` : ""}
+      </span>
+      <span class="card__body">
+        <span class="card__name">${shop.name}</span>
+        <span class="card__meta">${meta}</span>
+        ${shop.note ? `<span class="card__note">${shop.note}</span>` : ""}
+      </span>
     </button>`;
 }
 
-function grid(list, emptyMsg) {
-  if (!list.length) return `<p class="empty">${emptyMsg}</p>`;
-  return `<div class="grid">${list.map(ticket).join("")}</div>`;
-}
+const grid = (list, empty, ranked = false) => (list.length
+  ? `<div class="grid">${list.map((s, i) => card(s, ranked ? i + 1 : null)).join("")}</div>`
+  : `<p class="empty">${empty}</p>`);
 
 /* ---------- filtering ---------- */
 
 function passes(shop) {
+  if (filter.soloOnly && !shop.solo) return false;
   if (filter.genres.size && !filter.genres.has(shop.genre)) return false;
   if (filter.areas.size && !filter.areas.has(shop.area)) return false;
-  if (filter.onlyNew && ratings[shop.id]?.status === "visited") return false;
   if (filter.q) {
-    const hay = [shop.name, shop.area, area(shop.area), shop.note, shop.noteEn, shop.spot,
+    const hay = [shop.name, shop.area, area(shop.area), shop.note, shop.spot,
       ...(shop.tags || []), ...(shop.tags || []).map(tag)].join(" ").toLowerCase();
     if (!hay.includes(filter.q.toLowerCase())) return false;
   }
@@ -128,112 +120,49 @@ function buildChips() {
   const counts = {};
   for (const s of shops) counts[s.genre] = (counts[s.genre] || 0) + 1;
 
-  $("#chips-genre").innerHTML = GENRE_ORDER
-    .filter((g) => counts[g])
-    .map((g) => `<button type="button" class="chip${filter.genres.has(g) ? " is-on" : ""}" data-genre="${g}">${genre(g)}<span class="tab__n">${counts[g]}</span></button>`)
-    .join("");
+  $("#chips-genre").innerHTML = GENRE_ORDER.filter((g) => counts[g]).map((g) =>
+    `<button type="button" class="chip${filter.genres.has(g) ? " is-on" : ""}" data-genre="${g}" style="--hue:${GENRE_HUE[g]}">${genre(g)}<span class="chip__n">${counts[g]}</span></button>`
+  ).join("");
 
-  $("#chips-area").innerHTML = AREA_ORDER
-    .filter((a) => shops.some((s) => s.area === a))
-    .map((a) => `<button type="button" class="chip${filter.areas.has(a) ? " is-on" : ""}" data-area="${a}">${area(a)}</button>`)
-    .join("");
+  $("#chips-area").innerHTML = AREA_ORDER.filter((a) => shops.some((s) => s.area === a)).map((a) =>
+    `<button type="button" class="chip${filter.areas.has(a) ? " is-on" : ""}" data-area="${a}">${area(a)}</button>`
+  ).join("");
 }
 
 /* ---------- views ---------- */
 
-function renderRank() {
-  const rated = shops
+function render() {
+  const unscored = shops.filter((s) => scoreOf(s.id) === null);
+  const shown = unscored.filter(passes);
+
+  $("#view-candidates").innerHTML =
+    `<div class="view__lead"><p>${unscored.length ? t("cand.lead", shown.length, unscored.length) : t("cand.allRated")}</p></div>`
+    + grid(shown, t("cand.empty"));
+
+  const ranked = shops
     .filter((s) => scoreOf(s.id) !== null && passes(s))
     .sort((a, b) => scoreOf(b.id) - scoreOf(a.id));
 
-  const list = $("#rank-list");
-  list.innerHTML = rated.length
-    ? rated.map((s, i) => `<li><span class="rank__place" aria-hidden="true">${i + 1}</span>${ticket(s)}</li>`).join("")
-    : `<li class="rank__empty"><p class="empty">${t("rank.empty")}</p></li>`;
-}
+  $("#view-rank").innerHTML = `<div class="view__lead"><p>${t("rank.lead")}</p></div>`
+    + grid(ranked, t("rank.empty"), true);
 
-function renderTodo() {
-  const list = shops.filter((s) => ratings[s.id]?.status === "todo" && passes(s));
-  $("#view-todo").innerHTML = `<div class="view__lead"><p>${t("todo.lead")}</p></div>`
-    + grid(list, t("todo.empty"));
-}
+  $("#n-cand").textContent = unscored.length;
+  $("#n-rank").textContent = shops.length - unscored.length || "";
 
-function renderLove() {
-  const list = shops
-    .filter((s) => ratings[s.id]?.love && passes(s))
-    .sort((a, b) => (scoreOf(b.id) ?? 0) - (scoreOf(a.id) ?? 0));
-  $("#view-love").innerHTML = `<div class="view__lead"><p>${t("love.lead")}</p></div>`
-    + grid(list, t("love.empty"));
-}
-
-function renderSheets() {
-  $("#sheets").innerHTML = AREA_ORDER.map((a) => {
-    const inArea = shops.filter((s) => s.area === a);
-    if (!inArea.length) return "";
-    const done = inArea.filter((s) => ratings[s.id]?.status === "visited");
-    const pct = Math.round((done.length / inArea.length) * 100);
-    const next = inArea.find((s) => ratings[s.id]?.status === "todo")
-      || inArea.find((s) => !ratings[s.id]?.status);
-
-    return `
-      <section class="sheet">
-        <div class="sheet__head">
-          <h3 class="sheet__name">${area(a)}</h3>
-          <span class="sheet__count">${t("sheet.count", done.length, inArea.length, pct)}</span>
-        </div>
-        <div class="meter"><div class="meter__fill" style="width:${pct}%"></div></div>
-        <div class="sheet__dots">
-          ${inArea.map((s) => {
-            const on = ratings[s.id]?.status === "visited";
-            return `<button type="button" class="dot${on ? " is-visited" : ""}" data-id="${s.id}" title="${s.name}"><span class="vh">${s.name}</span><span aria-hidden="true">${on ? t("card.stamp") : genre(s.genre).slice(0, 2)}</span></button>`;
-          }).join("")}
-        </div>
-        <p class="sheet__next">${next ? t("sheet.next", next.name) : t("sheet.done")}</p>
-      </section>`;
-  }).join("");
-}
-
-function renderAll() {
-  const list = shops.filter(passes);
-  $("#view-all").innerHTML = `<div class="view__lead"><p>${t("all.lead", list.length, shops.length)}</p></div>`
-    + grid(list, t("all.empty"));
-
-  $("#n-all").textContent = shops.length;
-  $("#n-todo").textContent = shops.filter((s) => ratings[s.id]?.status === "todo").length || "";
-  $("#n-love").textContent = shops.filter((s) => ratings[s.id]?.love).length || "";
-
-  renderRank();
-  renderTodo();
-  renderLove();
-  renderSheets();
   renderMapRest();
   if (map) drawMarkers();
   updateExport();
-}
-
-/* ---------- outbound links ---------- */
-
-function tabelogUrl(shop) {
-  return `https://tabelog.com/rstLst/?sw=${encodeURIComponent(`${shop.name} 池袋`)}`;
-}
-
-function webUrl(shop) {
-  return `https://duckduckgo.com/?q=${encodeURIComponent(`${shop.name} 池袋 一人`)}`;
-}
-
-function mapsUrl(shop) {
-  const query = shop.lat ? `${shop.lat},${shop.lng}` : `${shop.name} 豊島区`;
-  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
 }
 
 /* ---------- map ---------- */
 
 function initMap() {
   if (map || typeof L === "undefined") return;
-  map = L.map("map", { scrollWheelZoom: false }).setView([35.7295, 139.7135], 15);
-  L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    maxZoom: 19,
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+  map = L.map("map", { scrollWheelZoom: false, zoomControl: true });
+  L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
+    maxZoom: 20,
+    subdomains: "abcd",
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
   }).addTo(map);
   map.markers = L.layerGroup().addTo(map);
   drawMarkers();
@@ -241,13 +170,26 @@ function initMap() {
 
 function drawMarkers() {
   map.markers.clearLayers();
-  for (const s of shops.filter((x) => x.lat && passes(x))) {
-    const status = ratings[s.id]?.status;
-    const cls = status === "visited" ? "pin pin--visited" : status === "todo" ? "pin pin--todo" : "pin";
-    const icon = L.divIcon({ className: "", html: `<div class="${cls}"></div>`, iconSize: [18, 18], iconAnchor: [9, 9] });
-    L.marker([s.lat, s.lng], { icon, title: s.name })
+  const plotted = shops.filter((s) => s.lat && passes(s));
+
+  for (const s of plotted) {
+    const score = scoreOf(s.id);
+    const hue = GENRE_HUE[s.genre] || "#888";
+    const html = score !== null
+      ? `<span class="pin pin--scored" style="--hue:${hue}">${fmt(score)}</span>`
+      : `<span class="pin" style="--hue:${hue}"></span>`;
+    L.marker([s.lat, s.lng], {
+      title: s.name,
+      icon: L.divIcon({ className: "pin-wrap", html, iconSize: [30, 30], iconAnchor: [15, 15] }),
+    })
       .addTo(map.markers)
-      .bindPopup(`<b>${s.name}</b><br>${area(s.area)}　${s.price || ""}`);
+      .bindPopup(`<b>${s.name}</b><br>${genre(s.genre)}　${area(s.area)}<br>${score !== null ? `${fmt(score)} / 10` : ""}`);
+  }
+
+  if (plotted.length) {
+    map.fitBounds(L.latLngBounds(plotted.map((s) => [s.lat, s.lng])), { padding: [36, 36], maxZoom: 16 });
+  } else {
+    map.setView([35.7295, 139.7135], 15);
   }
 }
 
@@ -260,37 +202,38 @@ function renderMapRest() {
     : "";
 }
 
-/* ---------- rating dialog ---------- */
+/* ---------- editor ---------- */
 
 function openEditor(id) {
   const shop = shops.find((s) => s.id === id);
   if (!shop) return;
   editing = shop;
-  const r = ratings[id] || { stars: {} };
+  const r = ratings[id] || {};
+  const score = scoreOf(id);
 
   $("#ed-name").textContent = shop.name;
-  $("#ed-meta").textContent = [area(shop.area), shop.spot, shop.price, shop.hours].filter(Boolean).join("　");
-  $("#ed-note").textContent = noteOf(shop);
+  $("#ed-meta").textContent = [genre(shop.genre), area(shop.area), shop.spot, shop.price, shop.hours].filter(Boolean).join("　");
+  $("#ed-note").textContent = shop.note || "";
 
-  $$(".pill", $("#editor")).forEach((p) => {
-    p.classList.toggle("is-on", p.dataset.love ? !!r.love : r.status === p.dataset.status);
-  });
+  const figure = $("#ed-figure");
+  if (photos.has(id)) {
+    $("#ed-photo").src = `assets/shops/${id}.jpg`;
+    $("#ed-credit").textContent = shop.photoCredit || "";
+    figure.hidden = false;
+  } else {
+    figure.hidden = true;
+  }
 
-  $("#ed-stars").innerHTML = AXES.map((a) => `
-    <div class="axis">
-      <span class="axis__label">${t(`axis.${a.key}`)}<small>${t(`axis.${a.key}.hint`)}　${t("axis.weight", a.w)}</small></span>
-      <span class="axis__stars" role="group" aria-label="${t(`axis.${a.key}`)}">
-        ${[1, 2, 3, 4, 5].map((n) =>
-          `<button type="button" class="axis__star${(r.stars?.[a.key] || 0) >= n ? " is-on" : ""}" data-axis="${a.key}" data-n="${n}" aria-label="${t(`axis.${a.key}`)} ${n}">★</button>`
-        ).join("")}
-      </span>
-    </div>`).join("");
+  $("#ed-score").textContent = score === null ? t("ed.unscored") : fmt(score);
+  $("#ed-steps").innerHTML = Array.from({ length: 10 }, (_, i) => i + 1).map((n) =>
+    `<button type="button" class="step${score !== null && score >= n ? " is-on" : ""}" data-score="${n}" aria-label="${t("score.aria", n)}">${n}</button>`
+  ).join("");
 
   $("#ed-memo").value = r.memo || "";
   $("#ed-date").value = r.visitedAt || "";
-  $("#ed-maps").href = mapsUrl(shop);
   $("#ed-tabelog").href = tabelogUrl(shop);
-  $("#ed-web").href = webUrl(shop);
+  $("#ed-maps").href = mapsUrl(shop);
+  $("#ed-photos").href = photosUrl(shop);
   updateIssueLink();
 
   const dialog = $("#editor");
@@ -299,17 +242,10 @@ function openEditor(id) {
 
 function updateIssueLink() {
   if (!editing) return;
-  const r = ratings[editing.id] || { stars: {} };
-  const s = scoreOf(editing.id);
+  const r = ratings[editing.id] || {};
+  const score = scoreOf(editing.id);
   const body = [
-    `Shop: ${editing.name} (\`${editing.id}\`)`,
-    `Status: ${r.status || "—"}${r.love ? " / love" : ""}`,
-    `Visited: ${r.visitedAt || "—"}`,
-    "",
-    ...AXES.map((a) => `- ${a.key}: ${r.stars?.[a.key] || "—"}`),
-    `- overall: ${s === null ? "—" : s.toFixed(1)}`,
-    "",
-    `Notes: ${r.memo || ""}`,
+    `${editing.name} ${score === null ? "" : fmt(score)}${r.visitedAt ? ` ${r.visitedAt}` : ""}${r.memo ? ` memo=${r.memo}` : ""}`,
     "",
     "```json",
     JSON.stringify({ [editing.id]: r }, null, 2),
@@ -332,22 +268,14 @@ function updateExport() {
 /* ---------- view switching ---------- */
 
 function show(next) {
-  $$(".tab").forEach((tabEl) => {
-    const on = tabEl.dataset.view === next;
-    tabEl.classList.toggle("is-on", on);
-    if (on) tabEl.setAttribute("aria-current", "page");
-    else tabEl.removeAttribute("aria-current");
+  $$(".tab").forEach((el) => {
+    const on = el.dataset.view === next;
+    el.classList.toggle("is-on", on);
+    if (on) el.setAttribute("aria-current", "page");
+    else el.removeAttribute("aria-current");
   });
   $$(".view").forEach((v) => { v.hidden = v.id !== `view-${next}`; });
-  $("#sift").hidden = next === "sheet";
   if (next === "map") { initMap(); setTimeout(() => map && map.invalidateSize(), 0); }
-}
-
-function drawToday() {
-  const todo = shops.filter((s) => ratings[s.id]?.status === "todo");
-  const fresh = shops.filter((s) => !ratings[s.id]?.status);
-  const pool = todo.length ? todo : fresh.length ? fresh : shops;
-  $("#draw-slot").innerHTML = ticket(pool[Math.floor(Math.random() * pool.length)]);
 }
 
 /* ---------- language ---------- */
@@ -359,8 +287,8 @@ function applyLang() {
   for (const el of $$("[data-i18n-placeholder]")) el.placeholder = t(el.dataset.i18nPlaceholder);
   for (const el of $$("[data-i18n-aria]")) el.setAttribute("aria-label", t(el.dataset.i18nAria));
   buildChips();
-  renderAll();
-  drawToday();
+  $("#chip-solo").classList.toggle("is-on", filter.soloOnly);
+  render();
   if (editing) openEditor(editing.id);
 }
 
@@ -373,16 +301,19 @@ function switchLang(next) {
 /* ---------- boot ---------- */
 
 async function main() {
-  const [shopData, ratingData] = await Promise.all([
-    fetch("data/shops.json").then((r) => r.json()),
-    fetch("data/ratings.json").then((r) => r.json()).catch(() => ({})),
+  const load = (path, fallback) => fetch(path).then((r) => r.json()).catch(() => fallback);
+  const [shopData, ratingData, photoData] = await Promise.all([
+    load("data/shops.json", []),
+    load("data/ratings.json", {}),
+    load("data/photos.json", []),
   ]);
   shops = shopData;
   ratings = mergeRatings(ratingData, readJson(LS_RATINGS, {}));
+  photos = new Set(photoData);
   setLang(readJson(LS_LANG, null) || "en");
 
   applyLang();
-  show("rank");
+  show("candidates");
 }
 
 /* ---------- events ---------- */
@@ -393,8 +324,14 @@ document.addEventListener("click", (e) => {
 
   if (e.target.closest("#lang")) return switchLang(getLang() === "en" ? "ja" : "en");
 
-  const card = e.target.closest(".ticket, .dot");
-  if (card) return openEditor(card.dataset.id);
+  const cardEl = e.target.closest(".card");
+  if (cardEl) return openEditor(cardEl.dataset.id);
+
+  if (e.target.closest("#chip-solo")) {
+    filter.soloOnly = !filter.soloOnly;
+    $("#chip-solo").classList.toggle("is-on", filter.soloOnly);
+    return render();
+  }
 
   const chip = e.target.closest(".chip");
   if (chip) {
@@ -402,38 +339,24 @@ document.addEventListener("click", (e) => {
     const key = chip.dataset.genre || chip.dataset.area;
     if (set.has(key)) set.delete(key); else set.add(key);
     chip.classList.toggle("is-on");
-    return renderAll();
+    return render();
   }
 
-  const star = e.target.closest(".axis__star");
-  if (star && editing) {
-    const r = (ratings[editing.id] = ratings[editing.id] || { stars: {} });
-    r.stars = r.stars || {};
-    const n = Number(star.dataset.n);
-    r.stars[star.dataset.axis] = r.stars[star.dataset.axis] === n ? 0 : n;
-    if (!r.status) r.status = "visited";
+  const step = e.target.closest(".step");
+  if (step && editing) {
+    const n = Number(step.dataset.score);
+    const r = (ratings[editing.id] = ratings[editing.id] || {});
+    r.score = r.score === n ? 0 : n;
     touch(editing.id);
     return openEditor(editing.id);
   }
-
-  const pill = e.target.closest(".pill");
-  if (pill && editing) {
-    const r = (ratings[editing.id] = ratings[editing.id] || { stars: {} });
-    if (pill.dataset.love) r.love = !r.love;
-    else r.status = r.status === pill.dataset.status ? null : pill.dataset.status;
-    pill.classList.toggle("is-on");
-    touch(editing.id);
-    return updateIssueLink();
-  }
 });
 
-$("#draw-again").addEventListener("click", drawToday);
-$("#q").addEventListener("input", (e) => { filter.q = e.target.value.trim(); renderAll(); });
-$("#only-new").addEventListener("change", (e) => { filter.onlyNew = e.target.checked; renderAll(); });
+$("#q").addEventListener("input", (e) => { filter.q = e.target.value.trim(); render(); });
 
 $("#ed-memo").addEventListener("input", (e) => {
   if (!editing) return;
-  const r = (ratings[editing.id] = ratings[editing.id] || { stars: {} });
+  const r = (ratings[editing.id] = ratings[editing.id] || {});
   r.memo = e.target.value;
   writeLocal();
   updateIssueLink();
@@ -441,18 +364,17 @@ $("#ed-memo").addEventListener("input", (e) => {
 
 $("#ed-date").addEventListener("change", (e) => {
   if (!editing) return;
-  const r = (ratings[editing.id] = ratings[editing.id] || { stars: {} });
+  const r = (ratings[editing.id] = ratings[editing.id] || {});
   r.visitedAt = e.target.value;
-  if (e.target.value) r.status = "visited";
   touch(editing.id);
-  openEditor(editing.id);
+  updateIssueLink();
 });
 
 $("#ed-clear").addEventListener("click", () => {
   if (!editing) return;
   delete ratings[editing.id];
   writeLocal();
-  renderAll();
+  render();
   $("#editor").close();
 });
 
