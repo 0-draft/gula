@@ -104,7 +104,8 @@ const DICT = {
     "foot.osm": "Map data",
 
     "card.tabelog": (n) => `tabelog ${n}`,
-    "card.noPhoto": "No photo yet",
+    "card.gnavi": (n) => `gnavi ${n}`,
+    "card.hotpepper": (n) => `hotpepper ${n}`,
   },
 
   ja: {
@@ -153,7 +154,8 @@ const DICT = {
     "foot.osm": "地図データ",
 
     "card.tabelog": (n) => `食べログ ${n}`,
-    "card.noPhoto": "写真なし",
+    "card.gnavi": (n) => `ぐるなび ${n}`,
+    "card.hotpepper": (n) => `ホットペッパー ${n}`,
   },
 };
 

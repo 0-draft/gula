@@ -90,7 +90,10 @@
       "カウンター",
       "コスパ"
     ],
-    "solo": true
+    "solo": true,
+    "image": "https://c-mr.gnst.jp/cont/menu_image/4a/75/4669451_l.jpeg?t=1789344277",
+    "imageCredit": "ぐるなび",
+    "gnavi": 3.55
   },
   {
     "id": "kuwabara",
@@ -183,7 +186,10 @@
     ],
     "lat": 35.7291307,
     "lng": 139.7153104,
-    "solo": true
+    "solo": true,
+    "image": "https://c-mr.gnst.jp/cont/menu_image/9f/c1/4680558_l.jpeg?t=1789344277",
+    "imageCredit": "ぐるなび",
+    "gnavi": 3.0
   },
   {
     "id": "torinoana",
@@ -218,7 +224,9 @@
     ],
     "lat": 35.7269184,
     "lng": 139.7116325,
-    "solo": true
+    "solo": true,
+    "image": "https://rimage.gnst.jp/shop/ramen_info/fh42nura0000/s_4482861_1.JPG?format=auto&q=80&t=1447832873",
+    "imageCredit": "ぐるなび"
   },
   {
     "id": "hayashida",

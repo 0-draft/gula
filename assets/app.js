@@ -81,7 +81,9 @@ function card(shop, place) {
   const meta = [
     `<span class="card__tag card__tag--area">${area(shop.area)}</span>`,
     shop.price ? `<span class="card__tag">${shop.price}</span>` : "",
-    shop.tabelog ? `<span class="card__tag card__tag--tabelog">${t("card.tabelog", shop.tabelog.toFixed(2))}</span>` : "",
+    shop.tabelog ? `<span class="card__tag card__tag--score">${t("card.tabelog", shop.tabelog.toFixed(2))}</span>` : "",
+    shop.gnavi ? `<span class="card__tag card__tag--score">${t("card.gnavi", shop.gnavi.toFixed(1))}</span>` : "",
+    shop.hotpepper ? `<span class="card__tag card__tag--score">${t("card.hotpepper", shop.hotpepper.toFixed(1))}</span>` : "",
     ...(shop.tags || []).slice(0, 3).map((x) => `<span class="card__tag">${tag(x)}</span>`),
   ].join("");
 

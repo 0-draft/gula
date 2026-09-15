@@ -27,7 +27,9 @@ for (const [i, s] of shops.entries()) {
   if (!GENRES.includes(s.genre)) fail(`${at}: unknown genre (${s.genre})`);
   if (!AREAS.includes(s.area)) fail(`${at}: unknown area (${s.area})`);
   if (s.solo !== undefined && typeof s.solo !== "boolean") fail(`${at}: solo must be a boolean`);
-  if (s.tabelog !== undefined && !(s.tabelog >= 1 && s.tabelog <= 5)) fail(`${at}: tabelog must be 1-5`);
+  for (const site of ["tabelog", "gnavi", "hotpepper"]) {
+    if (s[site] !== undefined && !(s[site] >= 1 && s[site] <= 5)) fail(`${at}: ${site} must be 1-5`);
+  }
   if (s.tags !== undefined && !Array.isArray(s.tags)) fail(`${at}: tags must be an array`);
   if (s.image !== undefined && !/^https:\/\//.test(s.image)) fail(`${at}: image must be an https URL`);
   if (s.imageCredit !== undefined && !s.image) fail(`${at}: imageCredit without an image`);

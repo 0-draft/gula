@@ -312,7 +312,7 @@ a:hover { text-decoration-color: var(--accent); }
 }
 
 .card__tag--area { border-color: var(--cool); color: var(--cool); }
-.card__tag--tabelog { border-color: var(--warm); }
+.card__tag--score { border-color: var(--warm); }
 
 .card__note {
   display: -webkit-box;
