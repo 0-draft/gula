@@ -334,7 +334,9 @@
       "一人向き",
       "席多い"
     ],
-    "solo": true
+    "solo": true,
+    "image": "https://imgfp.hotp.jp/IMGH/87/91/P038998791/P038998791_480.jpg",
+    "imageCredit": "ホットペッパーグルメ"
   },
   {
     "id": "yuuyi-shokufu",
@@ -369,7 +371,9 @@
     ],
     "lat": 35.7320419,
     "lng": 139.7099449,
-    "solo": true
+    "solo": true,
+    "image": "https://imgfp.hotp.jp/IMGH/36/88/P036693688/P036693688_480.jpg",
+    "imageCredit": "ホットペッパーグルメ"
   },
   {
     "id": "kairaku",
@@ -402,7 +406,9 @@
       "ガチ中華",
       "一人向き"
     ],
-    "solo": true
+    "solo": true,
+    "image": "https://imgfp.hotp.jp/IMGH/76/45/P025197645/P025197645_480.jpg",
+    "imageCredit": "ホットペッパーグルメ"
   },
   {
     "id": "mimatsu",
@@ -691,7 +697,9 @@
       "南インド",
       "ビリヤニ"
     ],
-    "solo": true
+    "solo": true,
+    "image": "https://imgfp.hotp.jp/IMGH/52/52/P020295252/P020295252_480.jpg",
+    "imageCredit": "ホットペッパーグルメ"
   },
   {
     "id": "uchitateya",
@@ -972,7 +980,9 @@
     ],
     "lat": 35.7322122,
     "lng": 139.7082456,
-    "solo": true
+    "solo": true,
+    "image": "https://imgfp.hotp.jp/IMGH/52/02/P031135202/P031135202_480.jpg",
+    "imageCredit": "ホットペッパーグルメ"
   },
   {
     "id": "shochan",
@@ -1004,7 +1014,9 @@
       "駅直結",
       "カウンター"
     ],
-    "solo": true
+    "solo": true,
+    "image": "https://imgfp.hotp.jp/IMGH/77/65/P036667765/P036667765_480.jpg",
+    "imageCredit": "ホットペッパーグルメ"
   },
   {
     "id": "wakataka",
@@ -1051,7 +1063,9 @@
       "駅直結",
       "静か"
     ],
-    "solo": true
+    "solo": true,
+    "image": "https://imgfp.hotp.jp/IMGH/82/53/P037138253/P037138253_480.jpg",
+    "imageCredit": "ホットペッパーグルメ"
   },
   {
     "id": "agaliko",
@@ -1095,7 +1109,9 @@
       "モーニング",
       "席多い"
     ],
-    "solo": true
+    "solo": true,
+    "image": "https://imgfp.hotp.jp/IMGH/57/89/P037065789/P037065789_480.jpg",
+    "imageCredit": "ホットペッパーグルメ"
   },
   {
     "id": "margaret",
