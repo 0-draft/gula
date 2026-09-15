@@ -32,9 +32,10 @@ Names are matched loosely, so `無敵家`, `mutekiya` and `無敵家 池袋` all
 ## Data
 
 ```text
-data/shops.json    name, area, genre, price, hours, note, coordinates, solo
-data/ratings.json  scores — the committed source of truth
-data/photos.json   which shop ids have a photo (generated)
+data/shops.json    name, area, genre, price, hours, note, coordinates, solo,
+                   review scores, and a cover image URL
+data/ratings.json  my scores — the committed source of truth
+data/photos.json   which shop ids have a local photo (generated)
 assets/shops/<id>.jpg
 ```
 
@@ -44,7 +45,9 @@ No database and no server: GitHub Pages serves the files and issues carry the wr
 
 ### Photos
 
-Drop `assets/shops/<id>.jpg` in and run `npm run photos` to reindex. Cards without a photo fall back to a genre-coloured tile, and every card links out to an image search. Hotlinking photos from review sites is not an option — the licences forbid it and the referrer checks block it anyway.
+A place shows a cover photo when `image` holds a URL, or when `assets/shops/<id>.jpg` exists — a local file wins. Drop a file in and run `npm run photos` to reindex. Anything that fails to load falls back to a genre-coloured tile, so a dead link degrades quietly.
+
+The URLs in the data come from gnavi and hotpepper, which both serve their images cross-origin, and each one was rendered in a browser and looked at before it landed — menu boards, ticket machines and empty interiors were dropped. tabelog blocks hotlinking, so nothing comes from there.
 
 ## Development
 
@@ -60,4 +63,4 @@ npm run photos   # reindex assets/shops
 
 ## Notes
 
-Hours and prices change; check before you go. Eleven places have coordinates verified against OpenStreetMap — the rest link out to a maps search until someone files them.
+Hours and prices change; check before you go. Eleven places have coordinates verified against OpenStreetMap — the rest link out to a maps search until someone files them. Two shops on the original list turned out to have closed (キッチン チェック in 2024, 君塚 in 2023) and were removed.

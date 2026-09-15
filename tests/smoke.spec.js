@@ -1,14 +1,16 @@
 import { test, expect } from "@playwright/test";
 
-const CANDIDATES = 72;
+const CANDIDATES = 71;
 
 test("candidates are listed", async ({ page }) => {
   await page.goto("/");
+  await page.locator('.tab[data-view="candidates"]').click();
   await expect(page.locator("#view-candidates .card")).toHaveCount(CANDIDATES);
 });
 
 test("scoring a place moves it to the ranking", async ({ page }) => {
   await page.goto("/");
+  await page.locator('.tab[data-view="candidates"]').click();
   await page.locator('.card[data-id="mutekiya"]').click();
   await page.locator('.step[data-score="8"]').click();
   await expect(page.locator("#ed-score")).toHaveText("8.0");
@@ -23,6 +25,7 @@ test("scoring a place moves it to the ranking", async ({ page }) => {
 
 test("the ranking sorts by score", async ({ page }) => {
   await page.goto("/");
+  await page.locator('.tab[data-view="candidates"]').click();
   await page.locator('.card[data-id="mutekiya"]').click();
   await page.locator('.step[data-score="6"]').click();
   await page.locator(".editor__close").click();
@@ -38,6 +41,7 @@ test("the ranking sorts by score", async ({ page }) => {
 
 test("genre filter narrows the list", async ({ page }) => {
   await page.goto("/");
+  await page.locator('.tab[data-view="candidates"]').click();
   await page.locator('.chip[data-genre="curry"]').click();
   const cards = page.locator("#view-candidates .card");
   await expect(cards).toHaveCount(await cards.count());
@@ -47,6 +51,7 @@ test("genre filter narrows the list", async ({ page }) => {
 
 test("search matches an English note", async ({ page }) => {
   await page.goto("/");
+  await page.locator('.tab[data-view="candidates"]').click();
   await page.locator("#q").fill("biryani");
   await expect(page.locator("#view-candidates .card")).toHaveCount(1);
 });

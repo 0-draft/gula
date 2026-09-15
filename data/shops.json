@@ -676,15 +676,17 @@
     "id": "a-raj",
     "name": "A-RAJ",
     "genre": "curry",
-    "area": "東口",
+    "area": "南池袋",
     "price": "¥1,000〜1,999",
-    "note": "Raj, from Chennai, cooked at Ajanta — the shop that started South Indian food in Japan — before opening this in 2002. Meals, dosa, Madras paratha, and specials that change often.",
+    "note": "Raj, from Chennai, cooked at Ajanta — the shop that started South Indian food in Japan — before opening this in 2002. Thirty-six curries across vegetable, pulse and chicken, meals and dosa, with vegan options. One minute from Higashi-Ikebukuro; closures are irregular, so check before going.",
     "tags": [
       "南インド",
       "ミールス",
       "老舗"
     ],
-    "solo": true
+    "solo": true,
+    "spot": "南池袋2-42-5",
+    "hours": "11:30–14:30 / 18:00–21:30 (L.O.), closed Tue"
   },
   {
     "id": "tomboy",
@@ -796,20 +798,6 @@
       "立ち食い",
       "駅ナカ",
       "朝"
-    ],
-    "solo": true
-  },
-  {
-    "id": "kimizuka",
-    "name": "立食そばうどん 君塚",
-    "genre": "soba",
-    "area": "東口",
-    "price": "〜¥999",
-    "note": "Standing since 1982. The sets with curry or katsudon are the value, and the toppings run to shungiku tempura, chicken tempura and a croquette.",
-    "tags": [
-      "立ち食い",
-      "老舗",
-      "コスパ"
     ],
     "solo": true
   },
@@ -958,13 +946,16 @@
     "genre": "yakiniku",
     "area": "東口",
     "price": "〜¥999",
-    "note": "The independent answer to the same question, mostly counter. A5 wagyu lunches, an eleven-cut platter, and a cheaper Light menu. A 200g kalbi set with rice, soup and a side comes in under the chain.",
+    "note": "Eight seats, each with its own grill, and by the shop's own count 85% of customers come alone. A5 wagyu bought whole, so all 55 cuts are orderable a slice at a time, with a punch card for working through them. There is a cheaper Light menu for non-wagyu.",
     "tags": [
       "一人焼肉",
       "和牛",
       "カウンター"
     ],
-    "solo": true
+    "solo": true,
+    "image": "https://c-mr.gnst.jp/cont/menu_image/bd/db/4640041_l.jpeg?t=1789344277",
+    "imageCredit": "ぐるなび",
+    "gnavi": 3.5
   },
   {
     "id": "gunbou",
