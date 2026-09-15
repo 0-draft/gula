@@ -79,7 +79,7 @@ const DICT = {
     "cand.allRated": "Every candidate has a score. Add somewhere new.",
 
     "rank.lead": "Your scores, highest first.",
-    "rank.empty": "Nothing scored yet. Open a candidate and give it a number.",
+    "rank.empty": "Nothing scored yet. Pick something from Candidates and give it a number out of ten.",
 
     "map.lead": (placed, rest) => `${placed} places are plotted. ${rest} more have no coordinates yet and open in a maps search instead.`,
     "map.unlisted": "Not plotted yet",
@@ -128,7 +128,7 @@ const DICT = {
     "cand.allRated": "候補は全部点がついた。新しい店を足す。",
 
     "rank.lead": "つけた点の高い順。",
-    "rank.empty": "まだ点がついていない。候補を開いて数字を入れる。",
+    "rank.empty": "まだ点がついていない。候補から一軒選んで10点満点で入れる。",
 
     "map.lead": (placed, rest) => `地図に出ているのは ${placed} 軒。残り ${rest} 軒は座標がまだないので、名前で地図アプリを開く。`,
     "map.unlisted": "地図にまだ出ていない店",

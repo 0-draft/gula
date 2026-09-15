@@ -1,6 +1,6 @@
 import { t, genre, area, tag, setLang, getLang, GENRE_LABELS, AREA_LABELS } from "./i18n.js";
 
-const REPO = "0-draft/i-ate-out";
+const REPO = "kanywst/i-ate-out";
 const LS_RATINGS = "i-ate-out/ratings/v1";
 const LS_LANG = "i-ate-out/lang/v1";
 
@@ -70,9 +70,14 @@ const mapsUrl = (s) => `https://www.google.com/maps/search/?api=1&query=${encode
 
 /* ---------- card ---------- */
 
+function imageOf(shop) {
+  if (photos.has(shop.id)) return `assets/shops/${shop.id}.jpg`;
+  return shop.image || null;
+}
+
 function card(shop, place) {
   const score = scoreOf(shop.id);
-  const hasPhoto = photos.has(shop.id);
+  const src = imageOf(shop);
   const meta = [
     `<span class="card__tag card__tag--area">${area(shop.area)}</span>`,
     shop.price ? `<span class="card__tag">${shop.price}</span>` : "",
@@ -82,10 +87,9 @@ function card(shop, place) {
 
   return `
     <button type="button" class="card${score !== null ? " is-scored" : ""}" data-id="${shop.id}">
-      <span class="card__shot${hasPhoto ? "" : " card__shot--empty"}" style="--hue:${GENRE_HUE[shop.genre] || "#888"}">
-        ${hasPhoto
-          ? `<img src="assets/shops/${shop.id}.jpg" alt="" loading="lazy" decoding="async">`
-          : `<span class="card__initial" aria-hidden="true">${shop.name.slice(0, 1)}</span>`}
+      <span class="card__shot${src ? "" : " card__shot--empty"}" style="--hue:${GENRE_HUE[shop.genre] || "#888"}">
+        <span class="card__initial" aria-hidden="true">${shop.name.slice(0, 1)}</span>
+        ${src ? `<img src="${src}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">` : ""}
         <span class="card__genre">${genre(shop.genre)}</span>
         ${place ? `<span class="card__place" aria-hidden="true">${place}</span>` : ""}
         ${score !== null ? `<span class="card__score">${fmt(score)}</span>` : ""}
@@ -216,9 +220,11 @@ function openEditor(id) {
   $("#ed-note").textContent = shop.note || "";
 
   const figure = $("#ed-figure");
-  if (photos.has(id)) {
-    $("#ed-photo").src = `assets/shops/${id}.jpg`;
-    $("#ed-credit").textContent = shop.photoCredit || "";
+  const src = imageOf(shop);
+  if (src) {
+    $("#ed-photo").src = src;
+    $("#ed-photo").referrerPolicy = "no-referrer";
+    $("#ed-credit").textContent = shop.imageCredit || "";
     figure.hidden = false;
   } else {
     figure.hidden = true;
@@ -313,7 +319,7 @@ async function main() {
   setLang(readJson(LS_LANG, null) || "en");
 
   applyLang();
-  show("candidates");
+  show("rank");
 }
 
 /* ---------- events ---------- */
@@ -351,6 +357,14 @@ document.addEventListener("click", (e) => {
     return openEditor(editing.id);
   }
 });
+
+document.addEventListener("error", (e) => {
+  const img = e.target;
+  if (img.tagName !== "IMG") return;
+  const shot = img.closest(".card__shot");
+  if (shot) { shot.classList.add("card__shot--empty"); img.remove(); return; }
+  if (img.id === "ed-photo") $("#ed-figure").hidden = true;
+}, true);
 
 $("#q").addEventListener("input", (e) => { filter.q = e.target.value.trim(); render(); });
 

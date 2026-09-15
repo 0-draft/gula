@@ -233,7 +233,14 @@ a:hover { text-decoration-color: var(--accent); }
   overflow: hidden;
 }
 
-.card__shot img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.card__shot img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 
 .card__shot--empty {
   background:

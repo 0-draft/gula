@@ -29,6 +29,8 @@ for (const [i, s] of shops.entries()) {
   if (s.solo !== undefined && typeof s.solo !== "boolean") fail(`${at}: solo must be a boolean`);
   if (s.tabelog !== undefined && !(s.tabelog >= 1 && s.tabelog <= 5)) fail(`${at}: tabelog must be 1-5`);
   if (s.tags !== undefined && !Array.isArray(s.tags)) fail(`${at}: tags must be an array`);
+  if (s.image !== undefined && !/^https:\/\//.test(s.image)) fail(`${at}: image must be an https URL`);
+  if (s.imageCredit !== undefined && !s.image) fail(`${at}: imageCredit without an image`);
   if ((s.lat === undefined) !== (s.lng === undefined)) fail(`${at}: lat and lng must come together`);
   if (s.lat !== undefined) {
     if (!(s.lat > 35.68 && s.lat < 35.78)) fail(`${at}: lat is out of range (${s.lat})`);
@@ -56,6 +58,7 @@ if (errors.length) {
   process.exit(1);
 }
 
+const withImage = shops.filter((s) => s.image).length;
 const placed = shops.filter((s) => s.lat).length;
 const solo = shops.filter((s) => s.solo).length;
-console.log(`ok: ${shops.length} shops, ${placed} plotted, ${solo} solo-friendly, ${photos.length} with photos, ${Object.keys(ratings).length} scored`);
+console.log(`ok: ${shops.length} shops, ${placed} plotted, ${solo} solo-friendly, ${withImage + photos.length} with images, ${Object.keys(ratings).length} scored`);
