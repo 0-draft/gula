@@ -63,4 +63,6 @@ npm run photos   # reindex assets/shops
 
 ## Notes
 
-Hours and prices change; check before you go. Eleven places have coordinates verified against OpenStreetMap — the rest link out to a maps search until someone files them. Two shops on the original list turned out to have closed (キッチン チェック in 2024, 君塚 in 2023) and were removed.
+Hours and prices change; check before you go.
+
+69 of 71 places are on the map. Coordinates come from the GSI address search API, which answers with the exact address it matched, so each one is checked against the address the shop publishes; the two without one link out to a maps search instead. Two shops on the original list turned out to have closed — キッチン チェック in July 2024 and 君塚 in May 2023 — and were removed.

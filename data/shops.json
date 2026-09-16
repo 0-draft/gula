@@ -190,7 +190,7 @@
     "id": "ganja",
     "name": "東京アンダーグラウンドラーメン 頑者",
     "genre": "ramen",
-    "area": "東口",
+    "area": "西口",
     "tabelog": 3.65,
     "price": "¥1,000〜1,999",
     "note": "Very thick seafood-pork tsukemen. One bowl is a whole meal and then some.",
@@ -202,7 +202,10 @@
     "solo": true,
     "image": "https://c-mr.gnst.jp/cont/menu_image/e2/0c/4460229_l.jpeg?t=1789344277",
     "imageCredit": "ぐるなび",
-    "gnavi": 3.24
+    "gnavi": 3.24,
+    "lat": 35.729939,
+    "lng": 139.71051,
+    "spot": "西池袋1-1-25 東武ホープセンター"
   },
   {
     "id": "kikanbo",
@@ -273,7 +276,10 @@
       "淡麗",
       "カウンター"
     ],
-    "solo": true
+    "solo": true,
+    "lat": 35.732231,
+    "lng": 139.713882,
+    "spot": "東池袋1-40-10 川又ビル1F"
   },
   {
     "id": "miharu",
@@ -358,7 +364,7 @@
     "area": "北口",
     "tabelog": 3.47,
     "price": "〜¥999",
-    "spot": "3F, above a FamilyMart",
+    "spot": "西池袋1-43-7 3F",
     "note": "The third and roomiest of the north-exit Chinese food courts. Stalls split by province — Hunan, Hubei, Sichuan, Shanghai, Hong Kong dim sum — ordered from your phone and delivered by robot. Nobody minds if you buy one cup of tea, which makes it the softest possible way into regional Chinese food alone.",
     "tags": [
       "ガチ中華",
@@ -368,25 +374,25 @@
     ],
     "solo": true,
     "image": "https://imgfp.hotp.jp/IMGH/87/91/P038998791/P038998791_480.jpg",
-    "imageCredit": "ホットペッパーグルメ"
+    "imageCredit": "ホットペッパーグルメ",
+    "lat": 35.73304,
+    "lng": 139.710938
   },
   {
     "id": "yuuyi-shokufu",
     "name": "友誼食府",
     "genre": "chinese",
     "area": "北口",
-    "spot": "西池袋1-43-7 福住ビル3F",
+    "spot": "北口の中華フードコートのひとつ",
     "price": "〜¥999",
     "hours": "11:00–23:30, daily",
-    "note": "The original north-exit food court and still the best sampler: Fujian, Shanghai, Chongqing, Hunan and Hubei at separate counters, photo menu on your phone, food carried to the table. Packed at peak.",
+    "note": "The original north-exit food court and still the best sampler: Fujian, Shanghai, Chongqing, Hunan and Hubei at separate counters, photo menu on your phone, food carried to the table. Packed at peak. Which building it occupies is not pinned down here, so it is not on the map yet.",
     "tags": [
       "ガチ中華",
       "フードコート",
       "一人向き"
     ],
-    "solo": true,
-    "lat": 35.73304,
-    "lng": 139.710938
+    "solo": true
   },
   {
     "id": "shinchinmi",
@@ -432,7 +438,7 @@
     "id": "chikyu-hanten",
     "name": "地球飯店 池袋店",
     "genre": "chinese",
-    "area": "東口",
+    "area": "西口",
     "tabelog": 3.44,
     "price": "¥1,000〜1,999",
     "note": "Regional Chinese cooking that still works as one plate and a bowl of rice. On Retty's solo-friendly list.",
@@ -442,7 +448,10 @@
     ],
     "solo": true,
     "image": "https://imgfp.hotp.jp/IMGH/76/45/P025197645/P025197645_480.jpg",
-    "imageCredit": "ホットペッパーグルメ"
+    "imageCredit": "ホットペッパーグルメ",
+    "lat": 35.731998,
+    "lng": 139.709854,
+    "spot": "西池袋1-22-8 第2三笠ビル3F"
   },
   {
     "id": "mimatsu",
@@ -593,8 +602,8 @@
     "id": "washokudo-soh",
     "name": "和食堂 素",
     "genre": "teishoku",
-    "area": "周縁",
-    "spot": "Toden Zoshigaya",
+    "area": "南池袋",
+    "spot": "南池袋3-15-11 1F",
     "tabelog": 3.31,
     "price": "¥1,000〜1,999",
     "note": "Careful Japanese set meals out by the tram line. Slower and quieter than anything near the station.",
@@ -603,14 +612,16 @@
     ],
     "solo": true,
     "image": "https://rimage.gnst.jp/rest/img/m6jtdrre0000/t_0n5l.jpg?format=auto&q=80&t=1759301079",
-    "imageCredit": "ぐるなび"
+    "imageCredit": "ぐるなび",
+    "lat": 35.725895,
+    "lng": 139.713058
   },
   {
     "id": "kimunchi",
     "name": "きむん家 池袋本店",
     "genre": "korean",
     "area": "西口",
-    "spot": "西池袋3丁目 アークランド西池袋ビル",
+    "spot": "西池袋3-25-7 アークランド西池袋ビル",
     "price": "〜¥999",
     "note": "A minute from west exit 1b, run by two brothers, with a counter built for single diners and a wood-lined room modelled on a hanok. Sundubu and other set meals ¥600–1,000.",
     "tags": [
@@ -618,7 +629,9 @@
       "定食",
       "一人向き"
     ],
-    "solo": true
+    "solo": true,
+    "lat": 35.730232,
+    "lng": 139.707306
   },
   {
     "id": "kasei-curry",
@@ -742,7 +755,10 @@
       "スパイスカレー",
       "静か"
     ],
-    "solo": true
+    "solo": true,
+    "lat": 35.725636,
+    "lng": 139.71936,
+    "spot": "南池袋2-41-18 高架下"
   },
   {
     "id": "a-raj",
@@ -766,7 +782,7 @@
     "id": "tomboy",
     "name": "TOMBOY 池袋東口店",
     "genre": "curry",
-    "area": "東口",
+    "area": "南池袋",
     "price": "¥1,000〜1,999",
     "note": "South Indian rather than the usual north, so thinner sauces and a different spice register. The biryani is Hyderabad-style, cooked from raw rice under a dough seal, and takes time to arrive. Dosa and vada for the vegetarian side.",
     "tags": [
@@ -775,7 +791,10 @@
     ],
     "solo": true,
     "image": "https://imgfp.hotp.jp/IMGH/52/52/P020295252/P020295252_480.jpg",
-    "imageCredit": "ホットペッパーグルメ"
+    "imageCredit": "ホットペッパーグルメ",
+    "lat": 35.726185,
+    "lng": 139.712631,
+    "spot": "南池袋3-13-17 MASHITA5ビル2F"
   },
   {
     "id": "uchitateya",
@@ -814,7 +833,10 @@
     ],
     "solo": true,
     "image": "https://c-mr.gnst.jp/cont/menu_image/f4/2a/4580461_l.jpeg?t=1789344277",
-    "imageCredit": "ぐるなび"
+    "imageCredit": "ぐるなび",
+    "lat": 35.732437,
+    "lng": 139.708954,
+    "spot": "西池袋1-37-8 ロサ会館隣1F"
   },
   {
     "id": "suzuriya",
@@ -840,7 +862,7 @@
     "name": "かるかや",
     "genre": "soba",
     "area": "駅ナカ",
-    "spot": "Seibu department store roof",
+    "spot": "南池袋1-28-1 西武池袋本店 屋上",
     "tabelog": 3.56,
     "price": "〜¥999",
     "note": "On the roof of the Seibu store, and the Kodoku no Gurume episode. Thick chewy udon for ¥410, eaten outdoors under open sky. As a piece of solo eating it is close to perfect on a clear day.",
@@ -849,7 +871,9 @@
       "うどん",
       "屋上"
     ],
-    "solo": true
+    "solo": true,
+    "lat": 35.727081,
+    "lng": 139.710495
   },
   {
     "id": "rinya",
@@ -863,7 +887,10 @@
       "駅ナカ",
       "コスパ"
     ],
-    "solo": true
+    "solo": true,
+    "lat": 35.727081,
+    "lng": 139.710495,
+    "spot": "南池袋1-28-1 西武池袋駅構内B1"
   },
   {
     "id": "soutei",
@@ -878,7 +905,10 @@
       "駅ナカ",
       "朝"
     ],
-    "solo": true
+    "solo": true,
+    "lat": 35.727123,
+    "lng": 139.710342,
+    "spot": "南池袋1-28-2 JR池袋駅構内"
   },
   {
     "id": "tanuki-wa-nomimono",
@@ -891,7 +921,10 @@
       "立ち食い",
       "新店"
     ],
-    "solo": true
+    "solo": true,
+    "lat": 35.729126,
+    "lng": 139.716064,
+    "spot": "東池袋1-23-12"
   },
   {
     "id": "bikyo",
@@ -923,7 +956,10 @@
       "手打ち",
       "カウンター"
     ],
-    "solo": true
+    "solo": true,
+    "lat": 35.729336,
+    "lng": 139.714157,
+    "spot": "東池袋1-12-8 富士喜ビル2F"
   },
   {
     "id": "shoraku",
@@ -938,7 +974,10 @@
     ],
     "solo": true,
     "image": "https://c-mr.gnst.jp/cont/menu_image/c6/07/2222050_l.jpeg?t=1789344277",
-    "imageCredit": "ぐるなび"
+    "imageCredit": "ぐるなび",
+    "lat": 35.72665,
+    "lng": 139.713348,
+    "spot": "南池袋2-18-4 1F"
   },
   {
     "id": "kitchen-abc-west",
@@ -984,7 +1023,7 @@
     "id": "miyazakitei",
     "name": "宮崎亭",
     "genre": "yoshoku",
-    "area": "東口",
+    "area": "西口",
     "price": "¥1,000〜1,999",
     "note": "Miyazaki wagyu, no binder, eaten with salt. Turn up twenty minutes before opening and you may still wait.",
     "tags": [
@@ -993,7 +1032,10 @@
     ],
     "solo": true,
     "image": "https://c-mr.gnst.jp/cont/menu_image/54/6d/4580032_l.jpeg?t=1789344277",
-    "imageCredit": "ぐるなび"
+    "imageCredit": "ぐるなび",
+    "lat": 35.728168,
+    "lng": 139.708633,
+    "spot": "西池袋1-4-3 藤巻ビル1F"
   },
   {
     "id": "kitchen-ohway",
@@ -1094,8 +1136,8 @@
     "id": "sushitsune",
     "name": "立喰い寿し すしつね 東武池袋店",
     "genre": "sushi",
-    "area": "駅ナカ",
-    "spot": "東武百貨店本館B1F",
+    "area": "西口",
+    "spot": "西池袋1-1-25 東武百貨店本館B1F",
     "price": "¥1,000〜1,999",
     "note": "Standing sushi in the Tobu basement, cut in front of you at fair prices. Counter and standing tables, which is the point: four or five pieces and you leave.",
     "tags": [
@@ -1105,7 +1147,9 @@
     ],
     "solo": true,
     "image": "https://imgfp.hotp.jp/IMGH/77/65/P036667765/P036667765_480.jpg",
-    "imageCredit": "ホットペッパーグルメ"
+    "imageCredit": "ホットペッパーグルメ",
+    "lat": 35.729939,
+    "lng": 139.71051
   },
   {
     "id": "wakataka",
@@ -1218,7 +1262,7 @@
     "id": "margaret",
     "name": "純喫茶 マーガレット",
     "genre": "kissa",
-    "area": "東池袋",
+    "area": "南池袋",
     "price": "〜¥999",
     "note": "Under the tracks by Higashi-Ikebukuro station, over forty years old, two floors, smoking upstairs. Morning set A ¥700; the parfaits are why it keeps reappearing online.",
     "tags": [
@@ -1226,7 +1270,10 @@
       "モーニング",
       "パフェ"
     ],
-    "solo": true
+    "solo": true,
+    "lat": 35.726326,
+    "lng": 139.718246,
+    "spot": "南池袋2-43-17"
   },
   {
     "id": "sanpei-saketen",
