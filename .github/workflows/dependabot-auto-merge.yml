@@ -1,0 +1,47 @@
+name: Dependabot auto-merge
+
+# Triggered by CI finishing rather than by `pull_request`, because `main` is
+# unprotected: with no required status checks, `gh pr merge --auto` has nothing
+# to wait on and would merge immediately. Gating on a successful CI run is the
+# protection instead.
+on:
+  workflow_run:
+    workflows: [CI]
+    types: [completed]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  auto-merge:
+    runs-on: ubuntu-latest
+    # `github_actions` PRs are skipped on purpose: GITHUB_TOKEN cannot grant the
+    # `workflows` scope, so a PR touching .github/workflows/*.yml fails to merge.
+    if: >-
+      github.event.workflow_run.event == 'pull_request' &&
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.actor.login == 'dependabot[bot]' &&
+      startsWith(github.event.workflow_run.head_branch, 'dependabot/') &&
+      !startsWith(github.event.workflow_run.head_branch, 'dependabot/github_actions/')
+    steps:
+      - name: Approve and merge
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          HEAD_BRANCH: ${{ github.event.workflow_run.head_branch }}
+          HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
+        run: |
+          NUMBER=$(gh pr list --head "$HEAD_BRANCH" --state open --json number -q '.[0].number')
+          if [ -z "$NUMBER" ]; then
+            echo "No open PR for $HEAD_BRANCH; nothing to merge."
+            exit 0
+          fi
+          # Merge only the exact commit CI validated, never a newer untested one.
+          CURRENT=$(gh pr view "$NUMBER" --json headRefOid -q .headRefOid)
+          if [ "$CURRENT" != "$HEAD_SHA" ]; then
+            echo "PR #$NUMBER is at $CURRENT but CI ran on $HEAD_SHA; skipping."
+            exit 0
+          fi
+          gh pr review "$NUMBER" --approve
+          gh pr merge "$NUMBER" --squash
