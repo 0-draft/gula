@@ -31,7 +31,10 @@
     "solo": true,
     "image": "https://c-mr.gnst.jp/cont/menu_image/fc/06/3155216_l.jpeg?t=1789344277",
     "imageCredit": "ぐるなび",
-    "gnavi": 3.5
+    "gnavi": 3.5,
+    "lat": 35.735031,
+    "lng": 139.709106,
+    "spot": "池袋2-60-7"
   },
   {
     "id": "tasakaya",
@@ -49,7 +52,9 @@
       "カウンター",
       "通し営業"
     ],
-    "solo": true
+    "solo": true,
+    "lat": 35.730587,
+    "lng": 139.706787
   },
   {
     "id": "kohaku",
@@ -84,7 +89,7 @@
     "name": "麺処 花田 池袋店",
     "genre": "ramen",
     "area": "東口",
-    "spot": "東池袋1-23-8 東池袋ISKビル1F",
+    "spot": "東池袋1-23-8",
     "tabelog": 3.73,
     "price": "〜¥999",
     "note": "Counter-led miso shop that reviewers rate among the best in Tokyo. Free garlic to punch it up, thick noodles that hold the soup, a pile of bean sprouts. Under ¥1,000.",
@@ -96,7 +101,9 @@
     "solo": true,
     "image": "https://c-mr.gnst.jp/cont/menu_image/4a/75/4669451_l.jpeg?t=1789344277",
     "imageCredit": "ぐるなび",
-    "gnavi": 3.55
+    "gnavi": 3.55,
+    "lat": 35.729321,
+    "lng": 139.715683
   },
   {
     "id": "kuwabara",
@@ -128,7 +135,9 @@
       "家系",
       "カウンター"
     ],
-    "solo": true
+    "solo": true,
+    "lat": 35.7312132,
+    "lng": 139.7093168
   },
   {
     "id": "rokubou",
@@ -142,7 +151,10 @@
       "担担麺",
       "カウンター"
     ],
-    "solo": true
+    "solo": true,
+    "lat": 35.728897,
+    "lng": 139.712921,
+    "spot": "南池袋1-24-5"
   },
   {
     "id": "jiro-ikebukuro",
@@ -284,7 +296,9 @@
     ],
     "solo": true,
     "image": "https://c-mr.gnst.jp/cont/menu_image/3e/2f/4112679_l.jpeg?t=1789344277",
-    "imageCredit": "ぐるなび"
+    "imageCredit": "ぐるなび",
+    "lat": 35.730042,
+    "lng": 139.707169
   },
   {
     "id": "yan-annex",
@@ -352,7 +366,9 @@
       "フードコート",
       "一人向き"
     ],
-    "solo": true
+    "solo": true,
+    "lat": 35.73304,
+    "lng": 139.710938
   },
   {
     "id": "shinchinmi",
@@ -441,7 +457,10 @@
     "solo": true,
     "image": "https://c-mr.gnst.jp/cont/menu_image/87/de/1634479_l.jpeg?t=1789344277",
     "imageCredit": "ぐるなび",
-    "gnavi": 3.34
+    "gnavi": 3.34,
+    "lat": 35.731033,
+    "lng": 139.706421,
+    "spot": "西池袋3-30-10"
   },
   {
     "id": "yohbocho",
@@ -486,7 +505,10 @@
       "野菜",
       "カウンター"
     ],
-    "solo": true
+    "solo": true,
+    "lat": 35.729126,
+    "lng": 139.715439,
+    "spot": "東池袋1-23-5"
   },
   {
     "id": "marutomi",
@@ -515,7 +537,10 @@
       "食券",
       "カウンター"
     ],
-    "solo": true
+    "solo": true,
+    "lat": 35.729195,
+    "lng": 139.716141,
+    "spot": "東池袋1-26-4"
   },
   {
     "id": "ito-shokudo",
@@ -686,7 +711,9 @@
     ],
     "solo": true,
     "spot": "南池袋2-42-5",
-    "hours": "11:30–14:30 / 18:00–21:30 (L.O.), closed Tue"
+    "hours": "11:30–14:30 / 18:00–21:30 (L.O.), closed Tue",
+    "lat": 35.726032,
+    "lng": 139.718384
   },
   {
     "id": "tomboy",
@@ -708,7 +735,7 @@
     "name": "うちたて家",
     "genre": "soba",
     "area": "南池袋",
-    "spot": "東通り",
+    "spot": "南池袋3-13-17",
     "tabelog": 3.71,
     "price": "〜¥999",
     "note": "Musashino udon since 2002, tabelog top 100 twice, and first in the Ikebukuro udon ranking. Dense, chewy noodles with cold dipping broth; ask for softer if you want it. Ticket machine outside, counter and tables inside, a queue before opening.",
@@ -721,7 +748,9 @@
     ],
     "solo": true,
     "image": "https://c-mr.gnst.jp/cont/menu_image/ee/e4/706668_l.jpeg?t=1789344277",
-    "imageCredit": "ぐるなび"
+    "imageCredit": "ぐるなび",
+    "lat": 35.726185,
+    "lng": 139.712631
   },
   {
     "id": "anpuku",
@@ -873,7 +902,10 @@
     ],
     "solo": true,
     "image": "https://c-mr.gnst.jp/cont/menu_image/39/f1/1809439_l.jpeg?t=1789344277",
-    "imageCredit": "ぐるなび"
+    "imageCredit": "ぐるなび",
+    "lat": 35.730446,
+    "lng": 139.707611,
+    "spot": "西池袋3-26-6"
   },
   {
     "id": "uchouten",
@@ -890,7 +922,10 @@
     "solo": true,
     "image": "https://c-mr.gnst.jp/cont/menu_image/d8/54/1893502_l.jpeg?t=1789344277",
     "imageCredit": "ぐるなび",
-    "gnavi": 3.46
+    "gnavi": 3.46,
+    "lat": 35.72562,
+    "lng": 139.716156,
+    "spot": "南池袋2-36-10"
   },
   {
     "id": "miyazakitei",
@@ -917,7 +952,10 @@
     "tags": [
       "ハンバーグ"
     ],
-    "solo": true
+    "solo": true,
+    "lat": 35.733006,
+    "lng": 139.71788,
+    "spot": "東池袋2-57-2"
   },
   {
     "id": "yakiniku-like-east",
@@ -969,11 +1007,12 @@
       "カウンター",
       "ひとり飲み"
     ],
-    "lat": 35.7322122,
-    "lng": 139.7082456,
+    "lat": 35.732246,
+    "lng": 139.708527,
     "solo": true,
     "image": "https://imgfp.hotp.jp/IMGH/52/02/P031135202/P031135202_480.jpg",
-    "imageCredit": "ホットペッパーグルメ"
+    "imageCredit": "ホットペッパーグルメ",
+    "spot": "池袋2-6-6"
   },
   {
     "id": "shochan",
@@ -990,7 +1029,10 @@
     ],
     "solo": true,
     "image": "https://rimage.gnst.jp/rest/img/faje3as10000/t_000m.jpg?t=1650431377",
-    "imageCredit": "ぐるなび"
+    "imageCredit": "ぐるなび",
+    "lat": 35.732677,
+    "lng": 139.709732,
+    "spot": "西池袋1-39-1"
   },
   {
     "id": "sushitsune",
@@ -1086,7 +1128,10 @@
     ],
     "solo": true,
     "image": "https://imgfp.hotp.jp/IMGH/23/25/P037052325/P037052325_480.jpg",
-    "imageCredit": "ホットペッパーグルメ"
+    "imageCredit": "ホットペッパーグルメ",
+    "lat": 35.727222,
+    "lng": 139.711761,
+    "spot": "南池袋1-18-23"
   },
   {
     "id": "cafe-de-paris",
@@ -1102,7 +1147,10 @@
     ],
     "solo": true,
     "image": "https://imgfp.hotp.jp/IMGH/57/89/P037065789/P037065789_480.jpg",
-    "imageCredit": "ホットペッパーグルメ"
+    "imageCredit": "ホットペッパーグルメ",
+    "lat": 35.731728,
+    "lng": 139.710052,
+    "spot": "西池袋1-23-1"
   },
   {
     "id": "margaret",
