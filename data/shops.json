@@ -13,7 +13,10 @@
       "カウンター",
       "要予約"
     ],
-    "solo": true
+    "solo": true,
+    "lat": 35.733006,
+    "lng": 139.71788,
+    "spot": "東池袋2-57-2 コスモ東池袋101"
   },
   {
     "id": "hululu",
@@ -68,7 +71,10 @@
       "淡麗",
       "カウンター"
     ],
-    "solo": true
+    "solo": true,
+    "lat": 35.733841,
+    "lng": 139.711319,
+    "spot": "池袋2-48-7 アパホテル池袋北口1F"
   },
   {
     "id": "menya-nakagawa",
@@ -82,7 +88,10 @@
       "煮干し",
       "カウンター"
     ],
-    "solo": true
+    "solo": true,
+    "lat": 35.733665,
+    "lng": 139.708084,
+    "spot": "池袋2-38-7 加藤ビル1F"
   },
   {
     "id": "hanada",
@@ -121,7 +130,10 @@
     "solo": true,
     "image": "https://rimage.gnst.jp/shop/ramen_info/5z7x7shn0000/4841474_01.jpg",
     "imageCredit": "ぐるなび",
-    "gnavi": 3.2
+    "gnavi": 3.2,
+    "lat": 35.729107,
+    "lng": 139.716415,
+    "spot": "東池袋1-27-5 関口ビル1F"
   },
   {
     "id": "sumitomoya",
@@ -314,13 +326,16 @@
       "一人向き",
       "孤独のグルメ"
     ],
-    "solo": true
+    "solo": true,
+    "lat": 35.730278,
+    "lng": 139.707184,
+    "spot": "西池袋3-24-3 藤井ビル1F"
   },
   {
     "id": "chion-shokudo",
     "name": "知音食堂",
     "genre": "chinese",
-    "area": "東口",
+    "area": "北口",
     "tabelog": 3.49,
     "price": "¥1,000〜1,999",
     "note": "Sichuan and dim sum a minute from the east exit. Tops Retty's list of Ikebukuro Chinese places that are easy to walk into alone.",
@@ -331,7 +346,10 @@
     ],
     "solo": true,
     "image": "https://c-mr.gnst.jp/cont/menu_image/54/eb/4581303_l.jpeg?t=1789344277",
-    "imageCredit": "ぐるなび"
+    "imageCredit": "ぐるなび",
+    "lat": 35.73177,
+    "lng": 139.710495,
+    "spot": "西池袋1-24-1 宮川ビルB1F"
   },
   {
     "id": "futto-shokicho",
@@ -438,7 +456,10 @@
       "老舗",
       "静か"
     ],
-    "solo": true
+    "solo": true,
+    "lat": 35.732376,
+    "lng": 139.70636,
+    "spot": "池袋2-15-1 シティルーフ1F"
   },
   {
     "id": "mitoya",
@@ -477,7 +498,10 @@
     ],
     "solo": true,
     "image": "https://c-mr.gnst.jp/cont/menu_image/65/f7/1830578_l.jpeg?t=1789344277",
-    "imageCredit": "ぐるなび"
+    "imageCredit": "ぐるなび",
+    "lat": 35.733227,
+    "lng": 139.709335,
+    "spot": "池袋2-41-6 第一シャンボールビル1F"
   },
   {
     "id": "yamituki",
@@ -491,7 +515,10 @@
       "カウンター",
       "一人向き"
     ],
-    "solo": true
+    "solo": true,
+    "lat": 35.731743,
+    "lng": 139.706314,
+    "spot": "西池袋5-1-7 佐久間ビル1F"
   },
   {
     "id": "vejiro",
@@ -523,7 +550,10 @@
     ],
     "solo": true,
     "image": "https://c-mr.gnst.jp/cont/menu_image/83/43/4683256_l.jpeg?t=1789344277",
-    "imageCredit": "ぐるなび"
+    "imageCredit": "ぐるなび",
+    "lat": 35.727634,
+    "lng": 139.71312,
+    "spot": "南池袋2-26-2 ルート南池袋ビル2F"
   },
   {
     "id": "fukurokoji",
@@ -554,7 +584,10 @@
       "町の食堂",
       "静か"
     ],
-    "solo": true
+    "solo": true,
+    "lat": 35.725677,
+    "lng": 139.721741,
+    "spot": "東池袋5-11-10"
   },
   {
     "id": "washokudo-soh",
@@ -592,7 +625,7 @@
     "name": "火星カレー",
     "genre": "curry",
     "area": "西口",
-    "spot": "西池袋3丁目 グルメ通",
+    "spot": "西池袋3-27-3 S&KビルB1F",
     "tabelog": 3.71,
     "price": "¥1,000〜1,999",
     "note": "First in tabelog's Ikebukuro curry ranking and a top-100 curry pick for 2026. Spice curry in a small room where eating alone is the default.",
@@ -601,8 +634,8 @@
       "スパイスカレー",
       "カウンター"
     ],
-    "lat": 35.7305454,
-    "lng": 139.7071474,
+    "lat": 35.730579,
+    "lng": 139.707108,
     "solo": true,
     "image": "https://c-mr.gnst.jp/cont/menu_image/11/ed/2000037703_l.jpeg?t=1789344277",
     "imageCredit": "ぐるなび"
@@ -612,20 +645,22 @@
     "name": "カリー・ザ・ハードコア",
     "genre": "curry",
     "area": "周縁",
-    "spot": "Kishibojin-mae",
+    "spot": "雑司が谷2-26-6 ふらっと雑司が谷1F",
     "tabelog": 3.55,
     "price": "¥1,000〜1,999",
     "note": "Out by Zoshigaya and as pointed as the name suggests. Worth the walk away from the station.",
     "tags": [
       "スパイスカレー"
     ],
-    "solo": true
+    "solo": true,
+    "lat": 35.721245,
+    "lng": 139.716797
   },
   {
     "id": "suage",
     "name": "北海道スープカレー Suage 池袋店",
     "genre": "curry",
-    "area": "東口",
+    "area": "西口",
     "tabelog": 3.49,
     "price": "¥1,000〜1,999",
     "note": "The Sapporo soup curry name, transplanted. Pick your heat, get a bowl and a plate of rice, eat alone without anyone noticing.",
@@ -634,7 +669,10 @@
     ],
     "solo": true,
     "image": "https://rimage.gnst.jp/rest/img/614k8yx40000/s_0n5c.jpg?format=auto&q=80&t=1740647703",
-    "imageCredit": "ぐるなび"
+    "imageCredit": "ぐるなび",
+    "lat": 35.729939,
+    "lng": 139.71051,
+    "spot": "西池袋1-1-25 東武百貨店12F"
   },
   {
     "id": "curry-no-ie",
@@ -651,7 +689,10 @@
     "solo": true,
     "image": "https://c-mr.gnst.jp/cont/menu_image/d8/f6/4688334_l.jpeg?t=1789344277",
     "imageCredit": "ぐるなび",
-    "gnavi": 3.0
+    "gnavi": 3.0,
+    "lat": 35.731293,
+    "lng": 139.709396,
+    "spot": "西池袋1-19-3 大浦ビル1F"
   },
   {
     "id": "curry-wa-nomimono",
@@ -665,7 +706,10 @@
       "大盛り",
       "カウンター"
     ],
-    "solo": true
+    "solo": true,
+    "lat": 35.732391,
+    "lng": 139.705383,
+    "spot": "池袋2-19-3"
   },
   {
     "id": "putali-cafe",
@@ -681,7 +725,10 @@
     "solo": true,
     "image": "https://c-mr.gnst.jp/cont/menu_image/a3/ba/1637824_l.jpeg?t=1789344277",
     "imageCredit": "ぐるなび",
-    "gnavi": 3.8
+    "gnavi": 3.8,
+    "lat": 35.732281,
+    "lng": 139.719421,
+    "spot": "東池袋2-50-1 加藤第七ビル1F"
   },
   {
     "id": "plain",
@@ -783,7 +830,10 @@
     ],
     "solo": true,
     "image": "https://c-mr.gnst.jp/cont/menu_image/6b/bd/782606_l.jpeg?t=1789344277",
-    "imageCredit": "ぐるなび"
+    "imageCredit": "ぐるなび",
+    "lat": 35.725876,
+    "lng": 139.713959,
+    "spot": "南池袋2-12-10"
   },
   {
     "id": "karukaya",
@@ -857,7 +907,10 @@
     ],
     "solo": true,
     "image": "https://rimage.gnst.jp/rest/img/69g451ak0000/t_004t.jpg?t=1711522817",
-    "imageCredit": "ぐるなび"
+    "imageCredit": "ぐるなび",
+    "lat": 35.732853,
+    "lng": 139.715836,
+    "spot": "東池袋1-32-5 大熊ビル1F"
   },
   {
     "id": "miyagino",
@@ -982,7 +1035,7 @@
     "id": "misono",
     "name": "ひとり焼肉 美そ乃",
     "genre": "yakiniku",
-    "area": "東口",
+    "area": "西口",
     "price": "〜¥999",
     "note": "Eight seats, each with its own grill, and by the shop's own count 85% of customers come alone. A5 wagyu bought whole, so all 55 cuts are orderable a slice at a time, with a punch card for working through them. There is a cheaper Light menu for non-wagyu.",
     "tags": [
@@ -993,7 +1046,10 @@
     "solo": true,
     "image": "https://c-mr.gnst.jp/cont/menu_image/bd/db/4640041_l.jpeg?t=1789344277",
     "imageCredit": "ぐるなび",
-    "gnavi": 3.5
+    "gnavi": 3.5,
+    "lat": 35.731182,
+    "lng": 139.709244,
+    "spot": "西池袋1-18-1 五光ビル1F"
   },
   {
     "id": "gunbou",
@@ -1070,7 +1126,7 @@
     "id": "khunya",
     "name": "クンヤー",
     "genre": "ethnic",
-    "area": "東口",
+    "area": "西口",
     "price": "¥1,000〜1,999",
     "note": "Twenty-four seats, two minutes from the subway, every member of staff from Isaan in Thailand's north-east. The sour-hot-sweet balance is the real thing rather than the softened version.",
     "tags": [
@@ -1081,7 +1137,10 @@
     "solo": true,
     "image": "https://c-mr.gnst.jp/cont/menu_image/c2/67/1783298_l.jpeg?t=1789344277",
     "imageCredit": "ぐるなび",
-    "gnavi": 3.57
+    "gnavi": 3.57,
+    "lat": 35.73222,
+    "lng": 139.707733,
+    "spot": "池袋2-4-1 越路ビル2F"
   },
   {
     "id": "jasmine-thai",
@@ -1104,7 +1163,7 @@
     "id": "agaliko",
     "name": "アガリコ食堂 池袋",
     "genre": "ethnic",
-    "area": "東口",
+    "area": "西口",
     "price": "¥1,000〜1,999",
     "note": "Coloured lanterns out front, and Thai, Taiwanese, Singaporean and Vietnamese dishes on one menu. Good for a single plate and a beer.",
     "tags": [
@@ -1112,7 +1171,10 @@
     ],
     "solo": true,
     "image": "https://rimage.gnst.jp/rest/img/sfw7r68e0000/t_0n9m.jpg?t=1781153147",
-    "imageCredit": "ぐるなび"
+    "imageCredit": "ぐるなび",
+    "lat": 35.733471,
+    "lng": 139.709854,
+    "spot": "池袋2-42-1"
   },
   {
     "id": "hakushaku",
@@ -1179,7 +1241,9 @@
       "立ち飲み",
       "カウンター"
     ],
-    "solo": true
+    "solo": true,
+    "lat": 35.732635,
+    "lng": 139.710739
   },
   {
     "id": "kihei",
@@ -1194,6 +1258,8 @@
       "おでん",
       "角打ち"
     ],
-    "solo": true
+    "solo": true,
+    "lat": 35.727425,
+    "lng": 139.715897
   }
 ]
